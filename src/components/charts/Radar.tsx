@@ -5,7 +5,7 @@
 export function Radar({ axes, titre }: { axes: { nom: string; valeur: number }[]; titre: string }) {
   const taille = 340;
   const centre = taille / 2;
-  const rayon = 104;
+  const rayon = 112;
   const n = axes.length;
   const point = (i: number, v: number) => {
     const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
@@ -15,7 +15,7 @@ export function Radar({ axes, titre }: { axes: { nom: string; valeur: number }[]
   const polygone = axes.map((a, i) => point(i, a.valeur).join(",")).join(" ");
 
   return (
-    <svg viewBox={`0 0 ${taille} ${taille}`} role="img" aria-label={titre} className="mx-auto w-full max-w-[22rem]">
+    <svg viewBox={`-70 0 ${taille + 140} ${taille}`} role="img" aria-label={titre} className="mx-auto w-full max-w-[30rem]">
       {[1, 2, 3, 4, 5].map((niveau) => (
         <polygon
           key={niveau}
@@ -37,7 +37,7 @@ export function Radar({ axes, titre }: { axes: { nom: string; valeur: number }[]
       <polygon points={polygone} fill="var(--series-1)" fillOpacity={0.12} stroke="var(--series-1)" strokeWidth={2} strokeLinejoin="round" />
       {axes.map((a, i) => {
         const [x, y] = point(i, a.valeur);
-        const [lx, ly] = point(i, 6.15);
+        const [lx, ly] = point(i, 5.9);
         const ancre = Math.abs(lx - centre) < 12 ? "middle" : lx > centre ? "start" : "end";
         const mots = a.nom.split(" & ");
         return (

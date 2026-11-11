@@ -13,7 +13,7 @@ export interface PointMatrice {
 
 const L = 520;
 const H = 400;
-const M = { g: 46, d: 14, h: 14, b: 40 };
+const M = { g: 46, d: 14, h: 30, b: 40 };
 
 export function Matrice({ points }: { points: PointMatrice[] }) {
   const x = (f: number) => M.g + ((f - 1) / 4) * (L - M.g - M.d);
@@ -29,10 +29,10 @@ export function Matrice({ points }: { points: PointMatrice[] }) {
   });
 
   const zones = [
-    { nom: "Gains rapides", fx: 4.4, vy: 4.85 },
-    { nom: "Paris structurants", fx: 3.12, vy: 4.85 },
-    { nom: "À incuber", fx: 1.75, vy: 4.85 },
-    { nom: "À écarter", fx: 3, vy: 1.25 },
+    { nom: "Gains rapides", fx: 4.375, vy: 5.2 },
+    { nom: "Paris structurants", fx: 3.125, vy: 5.2 },
+    { nom: "À incuber", fx: 1.75, vy: 5.2 },
+    { nom: "À écarter", fx: 3, vy: 1.22 },
   ];
 
   return (
