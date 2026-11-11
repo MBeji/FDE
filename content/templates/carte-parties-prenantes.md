@@ -13,7 +13,7 @@ frameworks: [modele-influence, kotter-8-etapes, adkar]
 <!-- section: mode-emploi -->
 ## À quoi ça sert
 
-Une mission IA échoue rarement sur la technologie, souvent sur un acteur oublié : le RSSI qui découvre le projet à la conception, la DRH prévenue après les équipes, les experts qui retiennent leur savoir. La carte rend les positions explicites, attribue chaque relation à un membre de l'équipe et fonde le plan de communication. C'est un document de travail : il contient des jugements sur des personnes et ne sort pas de l'équipe de mission.
+Une mission IA échoue rarement sur la technologie, souvent sur un acteur oublié : le RSSI qui découvre le projet à la conception, la DRH prévenue après les équipes. La carte rend les positions explicites, attribue chaque relation à un membre de l'équipe et fonde le plan de communication. Elle contient des jugements sur des personnes : elle ne sort pas de l'équipe de mission.
 
 ## Quand l'utiliser
 
@@ -30,7 +30,7 @@ Dès le cinquième jour du [cadrage](/methode/cadrer), puis à chaque vague d'en
 
 ## Critères de qualité
 
-- [ ] Chaque ligne nomme une personne ou une population, jamais une entité abstraite.
+- [ ] Chaque ligne nomme une personne ou une population, jamais une direction.
 - [ ] Chaque position est marquée constatée ou supposée, avec le fait qui la fonde.
 - [ ] Chaque acteur influent a une crainte écrite, pas seulement des attentes.
 - [ ] Chaque relation a un responsable unique dans l'équipe.

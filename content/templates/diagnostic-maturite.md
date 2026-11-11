@@ -27,7 +27,6 @@ En fin de phase [Diagnostiquer](/methode/diagnostiquer), pour le jalon G1. Les s
 4. Limiter les recommandations à sept, chacune avec un responsable et une échéance.
 5. Traduire le diagnostic en conséquences phase par phase.
 6. Rédiger la synthèse en dernier, conclusion d'abord, selon le [principe de la pyramide](/frameworks/pyramide-scqa).
-7. Présenter les scores à chaque directeur concerné avant le COPIL.
 
 ## Critères de qualité
 

@@ -159,8 +159,8 @@ Source : ticketing et traces du système, tickets clos dans la semaine sur le pl
 
 | Réf. RAID | Risque ou blocage | Action en cours | Porteur | Échéance |
 | --- | --- | --- | --- | --- |
-| R-04 | Adoption sous le seuil du critère d'arrêt n° 3 | Historique des échanges ajouté au poste de supervision ; travail en binôme pour les sept conseillers | Nadia Cherif, product owner | 29 juin |
-| P-03 | Propositions insuffisantes sur la téléphonie d'entreprise | Revue des 60 corrections de la semaine avec les experts N2 ; articles et instructions corrigés | Léo, experts N2 | 1er juillet |
+| R-04, P-02 | Adoption sous le seuil du critère d'arrêt n° 3 | Historique des échanges ajouté au poste de supervision ; travail en binôme pour les sept conseillers | Nadia Cherif, product owner | 29 juin |
+| P-03 | Propositions trop souvent corrigées sur la téléphonie d'entreprise | Revue des corrections de la semaine avec les experts N2 ; articles et instructions corrigés | Léo, experts N2 | 1er juillet |
 | R-03 | Experts N2 saturés par la revue quotidienne des écarts | Renfort d'un troisième expert deux jours par semaine jusqu'à S27 | Sophie Lambert | 30 juin |
 | P-01 | Messages envoyés en double | Corrigé le 25 juin ; clos après une semaine sans récidive | Léo | 3 juillet |
 

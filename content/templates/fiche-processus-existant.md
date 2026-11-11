@@ -13,7 +13,7 @@ frameworks: [cartographie-processus, decomposition-taches, reinvention-zero-base
 <!-- section: mode-emploi -->
 ## À quoi ça sert
 
-La fiche fixe, chiffres à l'appui, ce qui se passe réellement entre le déclencheur et le résultat : qui fait quoi, avec quel outil, en combien de temps, et où le cas attend. Elle répond à la question qui décide de tout le reste : où part le délai ? Signée, elle devient la référence de la mission et le point de départ du [processus cible](/templates/processus-cible-ai-native).
+La fiche fixe ce qui se passe réellement entre le déclencheur et le résultat : qui fait quoi, avec quel outil, en combien de temps, et où le cas attend. Elle répond à une question : où part le délai ? Signée, elle devient la référence de la mission et le point de départ du [processus cible](/templates/processus-cible-ai-native).
 
 ## Quand l'utiliser
 
@@ -21,9 +21,9 @@ En phase [Diagnostiquer](/methode/diagnostiquer), une fois les journaux extraits
 
 ## Comment le remplir
 
-1. Borner le processus avec le SIPOC : déclencheur, fin, unité d'œuvre, démarrage et arrêt du compteur.
+1. Borner le processus avec le SIPOC : déclencheur, fin, unité d'œuvre.
 2. Lister les étapes réelles, pas celles de la procédure. Cinq à dix suffisent.
-3. Séparer partout le temps de traitement du temps d'attente. Moyenner sur l'ensemble des cas, en indiquant la part des cas qui passent par chaque étape.
+3. Séparer le temps de traitement du temps d'attente, en moyenne sur l'ensemble des cas, avec la part des cas concernés par chaque étape.
 4. Décrire chaque passage de relais : ce qui est transmis, ce qui se perd.
 5. Vérifier que les temps des étapes redonnent le délai total. Sinon, il manque une étape ou une attente.
 6. Écrire « non mesuré » plutôt qu'une estimation.
