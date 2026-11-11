@@ -8,7 +8,7 @@ import { BoutonCopier } from "@/components/OngletsTemplate";
 import { Bouton, CLASSES_SAISIE, Carte, Champ } from "@/components/ui";
 import { AUTONOMIE } from "@/data/referentiels";
 import { cn } from "@/lib/cn";
-import { creerStock, nouvelId, useStock } from "@/lib/stockage";
+import { creerStock, nouvelId, useEstClient, useStock } from "@/lib/stockage";
 
 interface Outil {
   id: string;
@@ -155,7 +155,7 @@ function controles(e: Etat): { ok: boolean; texte: string }[] {
   ];
 }
 
-function ficheAgent(e: Etat): string {
+function ficheAgent(e: Etat, date: string): string {
   const niveau = AUTONOMIE[e.autonomie];
   const paires = (t: string) => lignes(t).map((l) => l.split("→").map((x) => x.trim()));
   return [
@@ -165,7 +165,7 @@ function ficheAgent(e: Etat): string {
     "| --- | --- |",
     `| **Système** | ${ou(e.systeme)} |`,
     `| **Propriétaire métier** | ${ou(e.proprietaire)} |`,
-    `| **Version** | 0.1 du ${new Date().toLocaleDateString("fr-FR")} |`,
+    `| **Version** | 0.1${date ? ` du ${date}` : ""} |`,
     "",
     "## 1. Mission",
     "",
@@ -311,7 +311,9 @@ export function OutilAgentDesigner() {
 
   const verifications = controles(e);
   const reussis = verifications.filter((v) => v.ok).length;
-  const fiche = ficheAgent(e);
+  // La date n'est connue que dans le navigateur : le rendu serveur reste déterministe.
+  const estClient = useEstClient();
+  const fiche = ficheAgent(e, estClient ? new Date().toLocaleDateString("fr-FR") : "");
   const prompt = ossaturePrompt(e);
 
   return (
