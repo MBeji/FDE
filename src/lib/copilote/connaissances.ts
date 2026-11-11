@@ -1,6 +1,8 @@
 import "server-only";
 import { phases } from "@/data/phases";
+import { CHARTE } from "@/data/metier";
 import { AUTONOMIE, CONVICTIONS, FILS, OUTILS } from "@/data/referentiels";
+import { DOMAINES_STANDARDS } from "@/data/standards";
 import { frameworks, getFramework, getGuide, getFicheSavoir, getTemplate, guides, savoir, templates } from "@/lib/content";
 
 /**
@@ -55,6 +57,18 @@ function sommaire(): string {
     ...OUTILS.map((o) => `- [${o.nom}](/outils/${o.id}) — ${o.resume}`),
     "## Autres pages",
     "- [Cas d'usage par secteur](/cas-usage) ; [Glossaire](/glossaire) ; [Mes missions](/missions)",
+    "- [Le métier FDE : rôle, charte, règles du pool, situations délicates](/metier) ; [Parcours d'onboarding](/onboarding) ; [Référentiel de compétences et auto-évaluation](/competences)",
+    "- [Standards d'ingénierie et revue de conformité](/standards) ; [Entrée par situation](/situations) ; [Assistant de contribution au savoir terrain](/savoir/contribuer)",
+    "# Charte FDE (/metier)",
+    ...CHARTE.map((e) => `${e.numero}. ${e.titre} — ${e.principe}`),
+    "# Standards d'ingénierie obligatoires (/standards)",
+    ...DOMAINES_STANDARDS.map(
+      (d) =>
+        `- ${d.nom} : ${d.standards
+          .filter((s) => s.niveau === "obligatoire")
+          .map((s) => `[${s.id}] ${s.enonce}`)
+          .join(" ")}`,
+    ),
   );
 
   return blocs.join("\n");

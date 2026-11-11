@@ -24,6 +24,12 @@ import {
 import { genererBrouillonRex, genererPointAvancement } from "@/lib/missions-exports";
 import { nouvelId, telecharger } from "@/lib/stockage";
 
+/** Travaux enregistrés depuis des sections qui ne sont pas des ateliers. */
+const NOMS_SECTIONS: Record<string, { nom: string }> = {
+  "revue-standards": { nom: "Revue des standards" },
+  competences: { nom: "Compétences" },
+};
+
 function versNombre(v: string): number | null {
   if (!v.trim()) return null;
   const n = Number(v.replace(",", "."));
@@ -345,7 +351,7 @@ export function OngletTravaux({ mission }: { mission: Mission }) {
   return (
     <ul className="flex flex-col gap-3">
       {mission.artefacts.map((a) => {
-        const outil = OUTILS.find((o) => o.id === a.outil);
+        const outil = OUTILS.find((o) => o.id === a.outil) ?? NOMS_SECTIONS[a.outil];
         const deplie = ouvert === a.id;
         return (
           <li key={a.id}>

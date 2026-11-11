@@ -2,13 +2,41 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ResumeMission } from "@/components/missions/ResumeMission";
 import { CarteParcours } from "@/components/Parcours";
+import { BlocSituations } from "@/components/situations/BlocSituations";
 import { CarteLien, Pastille, TitreSection, classesBouton } from "@/components/ui";
 import { casUsage } from "@/data/cas-usage";
-import { glossaire } from "@/data/glossaire";
 import { OUTILS, PHASES_RESUME } from "@/data/referentiels";
+import { TOUS_LES_STANDARDS } from "@/data/standards";
 import { getFramework, getGuide, statistiques } from "@/lib/content";
 import { definitionsPhases } from "@/lib/definitions";
 import { ICONES_OUTILS } from "@/lib/navigation";
+
+const METIER = [
+  {
+    href: "/metier",
+    titre: "Rôle et charte FDE",
+    resume: "Le rôle face aux autres métiers, les douze engagements de la charte, les règles du pool et dix fiches réflexes pour les situations délicates.",
+    etiquette: "Posture",
+  },
+  {
+    href: "/onboarding",
+    titre: "Parcours d'onboarding",
+    resume: "Cinq étapes, de la découverte du métier à la première mission en autonomie, avec exercices, plan 30/60/90 et mentorat.",
+    etiquette: "Intégration",
+  },
+  {
+    href: "/competences",
+    titre: "Référentiel de compétences",
+    resume: "Dix-huit compétences sur quatre niveaux, une auto-évaluation et une grille de préparation à l'intervention chez un client.",
+    etiquette: "Progression",
+  },
+  {
+    href: "/standards",
+    titre: "Standards d'ingénierie",
+    resume: "Ce qui est obligatoire, recommandé ou contextuel sur dix domaines, utilisable comme grille de revue avant chaque jalon technique.",
+    etiquette: "Exigence",
+  },
+];
 
 const DEMARRER = [
   { href: "/guides/cas-fil-rouge", repli: "Cas fil rouge : la mission Voxalis", etiquette: "À lire en premier" },
@@ -24,7 +52,7 @@ export default function Accueil() {
     { href: "/guides", nom: "Guides pratiques", nombre: statistiques.guides, texte: "Les gestes du métier, pas à pas" },
     { href: "/cas-usage", nom: "Cas d'usage", nombre: casUsage.length, texte: "Par secteur et par fonction" },
     { href: "/savoir", nom: "Fiches de savoir", nombre: statistiques.savoir, texte: "Patterns, anti-patterns, REX" },
-    { href: "/glossaire", nom: "Termes définis", nombre: glossaire.length, texte: "Le vocabulaire commun" },
+    { href: "/standards", nom: "Standards d'ingénierie", nombre: TOUS_LES_STANDARDS.length, texte: "Obligatoires, recommandés, contextuels" },
   ];
 
   return (
@@ -50,6 +78,22 @@ export default function Accueil() {
       </section>
 
       <ResumeMission definitions={definitionsPhases} />
+
+      <div className="mt-4">
+        <BlocSituations />
+      </div>
+
+      <section className="mt-14">
+        <TitreSection
+          titre="Le métier FDE"
+          description="Ce qu'est le rôle, ce à quoi chacun s'engage, comment on y entre et comment on y progresse."
+        />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {METIER.map((m) => (
+            <CarteLien key={m.href} href={m.href} titre={m.titre} resume={m.resume} entete={<Pastille>{m.etiquette}</Pastille>} />
+          ))}
+        </div>
+      </section>
 
       <section className="mt-14">
         <TitreSection

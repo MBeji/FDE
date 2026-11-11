@@ -1,13 +1,37 @@
 import { casUsage } from "@/data/cas-usage";
+import { COMPETENCES } from "@/data/competences";
 import { glossaire } from "@/data/glossaire";
+import { CHARTE } from "@/data/metier";
 import { phases } from "@/data/phases";
 import { CATEGORIES_FRAMEWORK, OUTILS, SECTEURS, TYPES_SAVOIR } from "@/data/referentiels";
+import { SITUATIONS } from "@/data/situations";
+import { NIVEAUX, TOUS_LES_STANDARDS } from "@/data/standards";
 import { frameworks, guides, savoir, templates } from "@/lib/content";
 import type { EntreeRecherche } from "@/lib/recherche";
 
 /** Index de recherche du portail. Sans donnée dynamique : généré une fois au build. */
 export async function GET() {
+  const sections: EntreeRecherche[] = [
+    { t: "Section", h: "/metier", n: "Le métier FDE : rôle, charte, règles du pool", r: "Le rôle face aux autres métiers, la charte, les règles de fonctionnement et les situations délicates.", k: "posture responsabilités consultant développeur architecte chef de projet" },
+    { t: "Section", h: "/onboarding", n: "Parcours d'onboarding", r: "Cinq étapes, exercices, plan 30/60/90 et mentorat pour les nouveaux FDE.", k: "intégration arrivée nouveau mentor exercices" },
+    { t: "Section", h: "/competences", n: "Référentiel de compétences", r: "Compétences, niveaux de maîtrise, auto-évaluation et préparation à l'intervention.", k: "readiness progression niveaux évaluation" },
+    { t: "Section", h: "/standards", n: "Standards d'ingénierie", r: "Standards obligatoires, recommandés et contextuels sur dix domaines, et revue de conformité.", k: "devsecops llmops sécurité cloud qualité revue" },
+    { t: "Section", h: "/situations", n: "Entrée par situation", r: "Trouver quoi faire et quoi ouvrir selon sa situation du moment.", k: "par où commencer" },
+    { t: "Section", h: "/savoir/contribuer", n: "Contribuer au savoir terrain", r: "Assistant de rédaction d'un REX, d'un pattern ou d'un anti-pattern prêt pour une pull request.", k: "capitaliser retour d'expérience partager" },
+  ];
+
   const index: EntreeRecherche[] = [
+    ...sections,
+    ...SITUATIONS.map((s) => ({ t: "Situation", h: `/situations#${s.id}`, n: s.intitule, r: s.commencer, k: "" })),
+    ...CHARTE.map((e) => ({ t: "Charte FDE", h: "/metier", n: `${e.numero}. ${e.titre}`, r: e.principe, k: "engagement charte" })),
+    ...COMPETENCES.map((c) => ({ t: "Compétence", h: "/competences", n: c.nom, r: c.description, k: c.famille })),
+    ...TOUS_LES_STANDARDS.map((s) => ({
+      t: "Standard",
+      h: `/standards#${s.id}`,
+      n: s.enonce,
+      r: s.pourquoi,
+      k: `${s.id} ${s.domaine} ${NIVEAUX[s.niveau].nom}`,
+    })),
     ...phases.map((p) => ({
       t: "Phase",
       h: `/methode/${p.id}`,
