@@ -3,12 +3,14 @@ import { notFound } from "next/navigation";
 import type { ComponentType } from "react";
 import { OutilAgentOuPas } from "@/components/outils/OutilAgentOuPas";
 import { OutilMaturite } from "@/components/outils/OutilMaturite";
+import { OutilPriorisation } from "@/components/outils/OutilPriorisation";
 import { EnTetePage, Pastille } from "@/components/ui";
 import { OUTILS, PHASES_RESUME } from "@/data/referentiels";
 
 const COMPOSANTS: Record<string, ComponentType> = {
   maturite: OutilMaturite,
   "agent-ou-pas": OutilAgentOuPas,
+  priorisation: OutilPriorisation,
 };
 
 export function generateStaticParams() {
@@ -16,7 +18,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps<"/outils/[outil]">): Promise<Metadata> {
-  const o = OUTILS.find((x) => x.id === (await params).outil);
+  const { outil } = await params;
+  const o = OUTILS.find((x) => x.id === outil);
   return o ? { title: o.nom, description: o.resume } : {};
 }
 

@@ -191,7 +191,7 @@ export function OutilAgentOuPas() {
         "",
         ...visibles.filter((q) => r[q.id]).map((q) => `- ${q.question} **${r[q.id] === "oui" ? "Oui" : "Non"}**`),
       ]
-        .filter((l) => l !== false)
+        .filter((l): l is string => typeof l === "string")
         .join("\n")
     : "";
 

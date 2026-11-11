@@ -77,7 +77,7 @@ export function OutilMaturite() {
             "",
           ]),
         ]
-          .filter((l) => l !== null && l !== undefined && l !== false)
+          .filter((l): l is string => typeof l === "string")
           .join("\n")
       : "";
 
