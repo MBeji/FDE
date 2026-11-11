@@ -5,6 +5,7 @@ import { OutilAgentOuPas } from "@/components/outils/OutilAgentOuPas";
 import { OutilBusinessCase } from "@/components/outils/OutilBusinessCase";
 import { OutilMaturite } from "@/components/outils/OutilMaturite";
 import { OutilPriorisation } from "@/components/outils/OutilPriorisation";
+import { OutilRedesign } from "@/components/outils/OutilRedesign";
 import { EnTetePage, Pastille } from "@/components/ui";
 import { OUTILS, PHASES_RESUME } from "@/data/referentiels";
 
@@ -13,6 +14,7 @@ const COMPOSANTS: Record<string, ComponentType> = {
   "agent-ou-pas": OutilAgentOuPas,
   priorisation: OutilPriorisation,
   "business-case": OutilBusinessCase,
+  "redesign-processus": OutilRedesign,
 };
 
 export function generateStaticParams() {
