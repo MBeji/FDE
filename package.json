@@ -1,0 +1,40 @@
+{
+  "name": "fde-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "content": "node scripts/build-content.mjs",
+    "predev": "node scripts/build-content.mjs --lenient",
+    "dev": "next dev",
+    "prebuild": "node scripts/build-content.mjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0",
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0",
+    "@fontsource-variable/source-serif-4": "^5.3.1",
+    "lucide-react": "^1.72.0",
+    "mermaid": "^12.3.0",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "4.3.3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "gray-matter": "^4.0.3",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5"
+  }
+}

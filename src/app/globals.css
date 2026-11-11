@@ -1,0 +1,430 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* Jetons de design                                                    */
+/* Les neutres et les couleurs de données suivent la palette validée   */
+/* du système de visualisation (voir src/components/charts).           */
+/* ------------------------------------------------------------------ */
+
+:root {
+  color-scheme: light;
+
+  --bg: #f9f9f7;
+  --surface: #fcfcfb;
+  --surface-2: #f3f2ee;
+  --surface-3: #eae9e3;
+  --line: #e1e0d9;
+  --line-strong: #c3c2b7;
+
+  --ink: #141413;
+  --ink-2: #52514e;
+  --ink-3: #6b6a65;
+
+  --accent: #1c5cab;
+  --accent-strong: #104281;
+  --accent-soft: #e6effb;
+  --accent-line: #b7d3f6;
+  --on-accent: #ffffff;
+
+  /* Données */
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --series-muted: #c3c2b7;
+  --seq-1: #cde2fb;
+  --seq-2: #86b6ef;
+  --seq-3: #3987e5;
+  --seq-4: #1c5cab;
+  --seq-5: #0d366b;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+
+  /* États (toujours accompagnés d'une icône et d'un libellé) */
+  --good: #0ca30c;
+  --good-ink: #006300;
+  --good-soft: #e8f5e8;
+  --warning: #fab219;
+  --warning-ink: #7a5200;
+  --warning-soft: #fdf3dc;
+  --serious: #ec835a;
+  --critical: #d03b3b;
+  --critical-ink: #a32424;
+  --critical-soft: #fbeaea;
+
+  --shadow-sm: 0 1px 2px rgba(20, 20, 19, 0.05);
+  --shadow-md: 0 4px 16px -4px rgba(20, 20, 19, 0.1), 0 1px 3px rgba(20, 20, 19, 0.06);
+  --shadow-lg: 0 24px 48px -12px rgba(20, 20, 19, 0.22), 0 2px 6px rgba(20, 20, 19, 0.08);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0d0d0d;
+  --surface: #1a1a19;
+  --surface-2: #222221;
+  --surface-3: #2c2c2a;
+  --line: #2c2c2a;
+  --line-strong: #44443f;
+
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --ink-3: #96948d;
+
+  --accent: #86b6ef;
+  --accent-strong: #b7d3f6;
+  --accent-soft: #14263d;
+  --accent-line: #1c4474;
+  --on-accent: #0b0b0b;
+
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --series-muted: #55554f;
+  --seq-1: #184f95;
+  --seq-2: #256abf;
+  --seq-3: #3987e5;
+  --seq-4: #86b6ef;
+  --seq-5: #cde2fb;
+  --grid: #2c2c2a;
+  --axis: #383835;
+
+  --good-ink: #5fce5f;
+  --good-soft: #12261a;
+  --warning-ink: #fab219;
+  --warning-soft: #2b2311;
+  --critical-ink: #f08a8a;
+  --critical-soft: #2e1616;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px -4px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 48px -12px rgba(0, 0, 0, 0.7), 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-line: var(--accent-line);
+  --color-on-accent: var(--on-accent);
+  --color-good: var(--good);
+  --color-good-ink: var(--good-ink);
+  --color-good-soft: var(--good-soft);
+  --color-warning: var(--warning);
+  --color-warning-ink: var(--warning-ink);
+  --color-warning-soft: var(--warning-soft);
+  --color-serious: var(--serious);
+  --color-critical: var(--critical);
+  --color-critical-ink: var(--critical-ink);
+  --color-critical-soft: var(--critical-soft);
+  --color-series-1: var(--series-1);
+  --color-series-2: var(--series-2);
+  --color-series-3: var(--series-3);
+  --color-series-muted: var(--series-muted);
+
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Source Serif 4 Variable", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --shadow-card: var(--shadow-sm);
+  --shadow-pop: var(--shadow-md);
+  --shadow-modal: var(--shadow-lg);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--accent-line);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Barres de défilement discrètes dans les panneaux */
+.defilement-fin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.titre-editorial {
+  font-family: var(--font-serif);
+  font-weight: 560;
+  letter-spacing: -0.015em;
+  font-optical-sizing: auto;
+}
+
+.surtitre {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ------------------------------------------------------------------ */
+/* Contenu Markdown                                                    */
+/* ------------------------------------------------------------------ */
+
+.prose-atlas {
+  color: var(--ink);
+  font-size: 0.975rem;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+
+.prose-atlas > :first-child {
+  margin-top: 0;
+}
+.prose-atlas > :last-child {
+  margin-bottom: 0;
+}
+
+.prose-atlas h1 {
+  font-family: var(--font-serif);
+  font-size: 1.7rem;
+  font-weight: 560;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.25rem;
+}
+
+.prose-atlas h2 {
+  font-size: 1.25rem;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 2.5rem 0 0.9rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.prose-atlas > h2:first-child,
+.prose-atlas > h1 + h2 {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.prose-atlas h3 {
+  font-size: 1.03rem;
+  font-weight: 650;
+  line-height: 1.35;
+  margin: 1.9rem 0 0.6rem;
+}
+
+.prose-atlas h4 {
+  font-size: 0.95rem;
+  font-weight: 650;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.prose-atlas p {
+  margin: 0 0 1rem;
+}
+
+.prose-atlas a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-line);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 0.15s;
+}
+.prose-atlas a:hover {
+  text-decoration-color: var(--accent);
+}
+
+.prose-atlas strong {
+  font-weight: 650;
+}
+
+.prose-atlas ul,
+.prose-atlas ol {
+  margin: 0 0 1.1rem;
+  padding-left: 1.35rem;
+}
+.prose-atlas ul {
+  list-style: disc;
+}
+.prose-atlas ol {
+  list-style: decimal;
+}
+.prose-atlas li {
+  margin: 0.3rem 0;
+  padding-left: 0.2rem;
+}
+.prose-atlas li::marker {
+  color: var(--ink-3);
+}
+.prose-atlas li > ul,
+.prose-atlas li > ol {
+  margin: 0.3rem 0 0.4rem;
+}
+.prose-atlas ul.contains-task-list {
+  list-style: none;
+  padding-left: 0.1rem;
+}
+.prose-atlas li.task-list-item {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  padding-left: 0;
+}
+.prose-atlas li.task-list-item > input[type="checkbox"] {
+  appearance: none;
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.36rem;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--surface);
+}
+.prose-atlas li.task-list-item > input[type="checkbox"]:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.prose-atlas code {
+  font-family: var(--font-mono);
+  font-size: 0.84em;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 0.1em 0.35em;
+}
+
+.prose-atlas pre {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+.prose-atlas pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+  white-space: pre;
+}
+
+.prose-atlas hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2rem 0;
+}
+
+.prose-atlas blockquote {
+  margin: 0 0 1.25rem;
+  padding: 0.1rem 0 0.1rem 1rem;
+  border-left: 3px solid var(--line-strong);
+  color: var(--ink-2);
+}
+.prose-atlas blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.prose-atlas .table-wrap {
+  margin: 0 0 1.4rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.prose-atlas table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.prose-atlas th {
+  text-align: left;
+  font-weight: 620;
+  font-size: 0.8rem;
+  color: var(--ink-2);
+  background: var(--surface-2);
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.prose-atlas th:empty {
+  padding: 0;
+}
+.prose-atlas td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  min-width: 7rem;
+}
+.prose-atlas tr:last-child td {
+  border-bottom: 0;
+}
+.prose-atlas td code {
+  white-space: nowrap;
+}
+
+/* Document « papier » pour l'aperçu des templates et des exemples */
+.feuille {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+@media print {
+  .hors-impression {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+  .feuille {
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+}
