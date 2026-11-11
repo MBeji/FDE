@@ -61,6 +61,12 @@ const PAGES_FIXES = [
   "/glossaire",
   "/missions",
   "/copilote",
+  "/metier",
+  "/onboarding",
+  "/competences",
+  "/standards",
+  "/situations",
+  "/savoir/contribuer",
 ];
 
 const erreurs = [];
