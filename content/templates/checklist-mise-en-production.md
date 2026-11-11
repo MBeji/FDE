@@ -327,7 +327,7 @@ Sur les douze points bloquants, onze sont conformes et aucun n'est non conforme.
 | N° | Point | Réserve | Propriétaire | Échéance | Critère de levée |
 | --- | --- | --- | --- | --- | --- |
 | R1 | 5.1 | Capacité non prouvée au volume national | Karim Haddad, avec la Direction Réseau | 21 août (S32) | 400 tickets par heure tenus pendant 2 h, diagnostic sous 3 min au 95e centile, limite globale de `reseau.executer_action` relevée avec l'accord de la Direction Réseau |
-| R2 | 4.4 | Équipe AgentOps incomplète | Thomas Nguyen | 21 août (S32) | Trois membres en poste ; une semaine complète d'astreinte tenue sans FDE dans la rotation |
+| R2 | 4.4 | Équipe AgentOps incomplète | Thomas Nguyen | 21 août (S32) | Trois membres en poste ; rotation d'astreinte établie à trois pour la vague 2, l'équipe FDE passant en second appel |
 | R3 | 2.6 | Procédure « incident de sécurité » jamais jouée par l'astreinte | Marc Dubois | 12 août (S31) | Exercice à blanc : arrêt d'urgence déclenché par l'astreinte en moins de 5 minutes, sans l'équipe FDE ; chaîne d'alerte vérifiée jusqu'au RSSI et à la DPO |
 | R4 | 6.2 | Objectifs des responsables d'équipe contradictoires avec le rôle de superviseur de cas | Sophie Lambert, Isabelle Moreau | 21 août (S32) | Nouvelle grille d'objectifs diffusée : la durée moyenne de traitement en sort, la qualité de supervision y entre |
 | R5 | 8.4 | Changement de modèle jamais testé | Thomas Nguyen | 25 septembre (S37) | Golden set rejoué sur un second modèle ; écarts par critère présentés au comité de gouvernance IA |
