@@ -317,7 +317,12 @@ for (const d of templates) {
 /* Sortie                                                              */
 /* ------------------------------------------------------------------ */
 
-const nettoyer = (liste) => liste.map(({ _fichier, ...reste }) => reste);
+const nettoyer = (liste) =>
+  liste.map((doc) => {
+    const copie = { ...doc };
+    delete copie._fichier;
+    return copie;
+  });
 
 fs.mkdirSync(path.dirname(sortie), { recursive: true });
 fs.writeFileSync(

@@ -24,9 +24,6 @@ import {
 import { genererBrouillonRex, genererPointAvancement } from "@/lib/missions-exports";
 import { nouvelId, telecharger } from "@/lib/stockage";
 
-const SAISIE_COMPACTE =
-  "w-full rounded-md border border-transparent bg-transparent px-1.5 py-1 text-[0.84rem] text-ink outline-none hover:border-line focus:border-accent focus:bg-surface";
-
 function versNombre(v: string): number | null {
   if (!v.trim()) return null;
   const n = Number(v.replace(",", "."));
