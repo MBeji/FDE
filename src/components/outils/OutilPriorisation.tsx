@@ -123,7 +123,7 @@ export function OutilPriorisation() {
       ) : (
         <>
           <div className="grid gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
-            <Carte className="p-4">
+            <Carte className="min-w-0 p-4">
               <Matrice
                 points={classes.map((x) => ({
                   numero: x.numero,

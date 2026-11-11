@@ -207,7 +207,7 @@ export function OngletJournal({ mission }: { mission: Mission }) {
   }
 
   return (
-    <div className="grid gap-6 xl:grid-cols-[22rem_minmax(0,1fr)]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[22rem_minmax(0,1fr)]">
       <Carte className="self-start p-4 sm:p-5">
         <h2 className="text-[1rem] font-semibold text-ink">Consigner</h2>
         <p className="mt-1 mb-4 text-[0.82rem] leading-relaxed text-ink-2">
@@ -407,7 +407,7 @@ export function OngletExports({ mission }: { mission: Mission }) {
   const texte = apercu === "point" ? point : rex;
 
   return (
-    <div className="grid gap-6 xl:grid-cols-[20rem_minmax(0,1fr)]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[20rem_minmax(0,1fr)]">
       <div className="flex flex-col gap-3 self-start">
         {[
           {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   BookOpen,
@@ -81,8 +81,18 @@ function BandePhases({
   selection: PhaseId;
   onSelection: (p: PhaseId) => void;
 }) {
+  const liste = useRef<HTMLOListElement>(null);
+  // Sur mobile, la frise défile : on amène la phase sélectionnée au centre, sans faire défiler la page.
+  useEffect(() => {
+    const ol = liste.current;
+    const actif = ol?.querySelector<HTMLElement>('[aria-current="step"]');
+    if (!ol || !actif || ol.scrollWidth <= ol.clientWidth) return;
+    const cible = actif.offsetLeft - ol.offsetLeft - (ol.clientWidth - actif.offsetWidth) / 2;
+    ol.scrollTo({ left: Math.max(0, cible) });
+  }, [selection]);
+
   return (
-    <ol className="defilement-fin flex gap-1.5 overflow-x-auto pb-1">
+    <ol ref={liste} className="defilement-fin flex gap-1.5 overflow-x-auto pb-1">
       {phases.map((p) => {
         const dansMandat = mission.phases.includes(p.id);
         const a = avancementPhase(mission, p);

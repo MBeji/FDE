@@ -102,7 +102,7 @@ export function OutilMaturite() {
           role="tablist"
           aria-label="Dimensions et résultat"
           onKeyDown={(e) => gererFlechesOnglets(e, ID_ONGLETS, ID_ONGLETS[etape], (id) => setEtape(ID_ONGLETS.indexOf(id)))}
-          className="flex min-w-0 flex-1 items-start gap-1"
+          className="flex min-w-0 flex-1 basis-full items-start gap-1 sm:basis-auto"
         >
           <div className="defilement-fin fondu-droite flex min-w-0 flex-1 gap-1 overflow-x-auto lg:flex-wrap lg:overflow-visible lg:[mask-image:none] lg:pr-0">
             {DIMENSIONS_MATURITE.map((d, i) => {
