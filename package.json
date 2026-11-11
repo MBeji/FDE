@@ -6,7 +6,7 @@
     "content": "node scripts/build-content.mjs",
     "predev": "node scripts/build-content.mjs --lenient",
     "dev": "next dev",
-    "prebuild": "node scripts/build-content.mjs",
+    "prebuild": "node scripts/build-content.mjs --lenient",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
