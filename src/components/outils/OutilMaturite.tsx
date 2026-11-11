@@ -18,6 +18,17 @@ import { creerStock, useStock } from "@/lib/stockage";
 
 const stock = creerStock<Record<string, number>>("fde-atlas:outil:maturite:v1", {});
 
+/** Libellés courts des dimensions, pour les axes du radar. */
+const NOMS_COURTS: Record<string, string> = {
+  vision: "Vision",
+  valeur: "Valeur",
+  donnees: "Données",
+  techno: "Technologie",
+  talents: "Talents",
+  organisation: "Organisation",
+  agentique: "Agentique",
+};
+
 function scoreDimension(d: DimensionMaturite, reponses: Record<string, number>): number | null {
   const notes = d.questions.map((q) => reponses[q.id]).filter((n) => n !== undefined);
   return notes.length ? notes.reduce((s, n) => s + n, 0) / notes.length : null;
@@ -227,8 +238,8 @@ export function OutilMaturite() {
               )}
             </Carte>
 
-            <Carte className="grid items-center gap-2 p-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:p-5">
-              <Radar titre="Profil de maturité par dimension" axes={notes.map((x) => ({ nom: x.d.nom, valeur: x.score }))} />
+            <Carte className="grid items-center gap-4 p-4 sm:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] sm:p-5">
+              <Radar titre="Profil de maturité par dimension" axes={notes.map((x) => ({ nom: x.d.nom, court: NOMS_COURTS[x.d.id], valeur: x.score }))} />
               <ul className="flex flex-col gap-2.5">
                 {scores.map(({ d, score }) => (
                   <li key={d.id}>
