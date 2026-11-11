@@ -99,7 +99,7 @@ export function genererBrouillonRex(m: Mission): string {
   const id = `rex-${m.secteur || "secteur"}-${m.domaine || "domaine"}`
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/\p{Diacritic}/gu, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 

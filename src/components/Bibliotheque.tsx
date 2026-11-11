@@ -30,7 +30,7 @@ function normaliser(t: string) {
   return t
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
+    .replace(/\p{Diacritic}/gu, "");
 }
 
 /** Navigateur de bibliothèque : recherche plein texte, filtres, regroupement. */

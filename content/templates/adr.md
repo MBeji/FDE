@@ -118,8 +118,8 @@ _[Une phrase affirmative : « Nous retenons… ». Puis deux ou trois lignes sur
 | --- | --- |
 | **Client / mission** | Voxalis — Réinvention de l'Assistance & SAV Entreprises |
 | **Système** | SAV Augmenté |
-| **Statut** | Accepté |
-| **Date de décision** | 29 avril 2026 (revue d'architecture, S16) |
+| **Statut** | Accepté. Proposé le 29 avril 2026 en phase Concevoir, sous réserve de mesure |
+| **Date de décision** | 18 mai 2026 (revue d'architecture, S19) |
 | **Décideurs** | Thomas Nguyen, Responsable Data & IA ; Karim Haddad, DSI |
 | **Consultés** | Marc Dubois (RSSI), Sophie Lambert (propriétaire du processus), les deux experts N2 détachés, l'architecte SI détaché |
 | **Rédacteur** | Léo, FDE |
@@ -127,14 +127,16 @@ _[Une phrase affirmative : « Nous retenons… ». Puis deux ou trois lignes sur
 
 ## 1. Contexte
 
-Le processus cible traite un incident en quatre temps : qualifier, diagnostiquer, résoudre, informer. Fidèle au principe de la solution la plus simple qui suffit, la maquette d'architecture de S15 a confié le diagnostic et la résolution à un agent unique. Cet agent portait les neuf outils de la passerelle MCP, l'arbre de diagnostic des 12 motifs récurrents et les règles du catalogue de remédiation.
+Le processus cible traite un incident en quatre temps : qualifier, diagnostiquer, résoudre, informer. Le dossier d'architecture approuvé au jalon G4 (S17) prévoit deux agents distincts pour le diagnostic et la résolution, sous une réserve posée en revue : prouver par la mesure qu'un agent unique ne suffit pas, selon le principe de la solution la plus simple qui suffit.
 
-Mesurée sur le golden set (600 cas, version 1.0 du 17 avril 2026, qualification de référence fournie en entrée), la justesse du diagnostic de cet agent unique est de 84 % (504 cas sur 600), sous le seuil de 90 % du plan d'évaluation. Le même modèle, limité aux cinq outils de lecture et aux seules instructions de diagnostic, atteint 91 % (546 sur 600).
+Le prototype a donc démarré en S18 avec un agent unique. Limité au diagnostic, avec cinq outils de lecture, il atteint 91 % de justesse sur le golden set (546 cas sur 600, version 1.0 du jeu, qualification de référence fournie en entrée). Quand on lui confie aussi la résolution, c'est-à-dire les neuf outils de la passerelle MCP et les règles du catalogue de remédiation, la justesse du diagnostic tombe à 84 % (504 sur 600), sous le seuil de 90 % du plan d'évaluation.
 
-La lecture des traces des 96 cas en erreur de l'agent unique fait apparaître deux mécanismes :
+Léo et un expert N2 ont lu 60 des 96 traces en échec. Première cause, dans 26 cas : un outil mal choisi ou appelé dans le mauvais ordre. Deux mécanismes l'expliquent.
 
-- **Conclusion prématurée.** L'agent unique passe à la remédiation après 3,2 vérifications en moyenne, contre 5,1 pour l'agent limité au diagnostic. Disposer de l'outil d'action l'incite à agir.
-- **Contamination par les règles de remédiation.** Dans 9 % des cas, il consulte une procédure de remédiation avant d'avoir établi la cause, puis retient la cause que cette procédure suppose.
+- **Conclusion prématurée.** L'agent unique passe à la remédiation après 3,2 vérifications en moyenne, contre 5,1 quand il est limité au diagnostic. Disposer de l'outil d'action l'incite à agir.
+- **Contamination par les règles de remédiation.** Dans 9 % des 600 cas, il consulte une procédure de remédiation avant d'avoir établi la cause, puis retient la cause que cette procédure suppose.
+
+Les autres causes relevées (article obsolète, incident collectif non vérifié en premier, annotation contestable) sont traitées à part et ne dépendent pas de cette décision.
 
 S'y ajoute une exigence posée par Marc Dubois lors de l'atelier de risques du 23 avril : l'identité qui lit la description du ticket, rédigée par le client et donc non fiable, ne doit pas détenir de droit d'écriture sur le réseau.
 
@@ -155,13 +157,13 @@ S'y ajoute une exigence posée par Marc Dubois lors de l'atelier de risques du 2
 | Critère | Option A — Agent unique, 9 outils | Option B — Agent unique en deux phases | Option C — Deux agents coordonnés | Option D — Diagnostic par workflow codé |
 | --- | --- | --- | --- | --- |
 | Justesse du diagnostic (600 cas) | 84 % | 87 % | 91 % | Non mesurée |
-| Actions inappropriées (60 cas adverses disponibles au 24 avril) | 3 | 2 | 0 | Non mesurée |
+| Actions inappropriées (120 cas adverses) | 5 | 3 | 0 | Non mesurée |
 | Séparation des droits | Non : lecture et écriture dans la même identité | Non | Oui, par construction | Oui |
 | Coût d'inférence estimé par cas | 0,31 € | 0,27 € | 0,26 € (0,18 € + 0,08 €) | Plus faible |
 | Délai médian | 110 s | 115 s | 130 s | Plus court |
 | Charge d'exploitation | 1 prompt, 1 fiche agent | 1 prompt à deux phases, logique de bascule à maintenir | 2 prompts, 2 fiches, 1 contrat d'interface | 1 arbre de décision par motif à maintenir |
 
-**Option A** : l'état de la maquette. Simple à opérer, mais sous le seuil de qualité et incompatible avec l'exigence de séparation des droits.
+**Option A** : l'état du prototype en S18. Simple à opérer, mais sous le seuil de qualité et incompatible avec l'exigence de séparation des droits.
 
 **Option B** : un seul agent, dont les outils d'écriture et les règles de remédiation ne sont présentés qu'une fois le diagnostic conclu. Corrige une partie de la conclusion prématurée (87 %, 522 cas sur 600), reste sous le seuil, et laisse lecture et écriture dans la même identité.
 
@@ -211,7 +213,7 @@ Le dernier signal rouvrirait l'option D pour le motif concerné, pas pour l'ense
 
 | Action | Responsable | Échéance |
 | --- | --- | --- |
-| Rédiger les fiches agents Diagnostic et Résolution | Léo | 6 mai 2026 |
-| Spécifier le schéma `diagnostic.v1` et le test de cohérence du relais | Inès | 5 mai 2026 |
-| Créer les deux identités techniques et la matrice de droits dans la passerelle | Référent sécurité Voxalis | 6 mai 2026 |
-| Mettre à jour le dossier d'architecture (sections 3, 4 et 8) | Léo et Inès | 6 mai 2026 |
+| Mettre à jour les fiches agents Diagnostic et Résolution | Léo | 20 mai 2026 |
+| Figer le schéma `diagnostic.v1` et ajouter le test de cohérence du relais au plan d'évaluation | Inès | 20 mai 2026 |
+| Activer les deux identités techniques et la matrice de droits dans la passerelle | Référent sécurité Voxalis | 22 mai 2026 |
+| Publier la version 1.1 du dossier d'architecture (sections 3, 4 et 8) | Léo et Inès | 22 mai 2026 |

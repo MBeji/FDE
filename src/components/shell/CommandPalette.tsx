@@ -5,50 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { CornerDownLeft, Search } from "lucide-react";
 import { useShell } from "@/components/shell/ShellProvider";
 import { cn } from "@/lib/cn";
-import type { EntreeRecherche } from "@/lib/recherche";
-
-function normaliser(texte: string): string {
-  return texte
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
-}
-
-function chercher(index: EntreeRecherche[], requete: string): EntreeRecherche[] {
-  const termes = normaliser(requete).split(/\s+/).filter(Boolean);
-  if (!termes.length) return [];
-  const resultats: { entree: EntreeRecherche; score: number }[] = [];
-  for (const entree of index) {
-    const titre = normaliser(entree.n);
-    const reste = normaliser(`${entree.r} ${entree.k}`);
-    let score = 0;
-    for (const t of termes) {
-      if (titre.startsWith(t)) score += 12;
-      else if (titre.includes(t)) score += 8;
-      else if (reste.includes(t)) score += 2;
-      else {
-        score = 0;
-        break;
-      }
-    }
-    if (score) resultats.push({ entree, score });
-  }
-  return resultats
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 24)
-    .map((r) => r.entree);
-}
-
-let cacheIndex: Promise<EntreeRecherche[]> | null = null;
-function chargerIndex(): Promise<EntreeRecherche[]> {
-  cacheIndex ??= fetch("/recherche.json")
-    .then((r) => (r.ok ? r.json() : []))
-    .catch(() => {
-      cacheIndex = null;
-      return [];
-    });
-  return cacheIndex;
-}
+import { chargerIndex, chercher, type EntreeRecherche } from "@/lib/recherche";
 
 const SUGGESTIONS = [
   { n: "Parcours AI-Native", h: "/methode", t: "Méthode" },
