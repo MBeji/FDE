@@ -67,8 +67,16 @@ function MissionActive() {
   );
 }
 
+/** Touche de commande affichée : ⌘ sur Mac, Ctrl ailleurs (connue seulement après hydratation). */
+function useToucheCommande(): string {
+  const estClient = useEstClient();
+  if (!estClient) return "⌘";
+  return /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent) ? "⌘" : "Ctrl ";
+}
+
 export function Topbar() {
-  const { setMenuOuvert, setRechercheOuverte, ouvrirCopilote } = useShell();
+  const { menuOuvert, setMenuOuvert, setRechercheOuverte, ouvrirCopilote } = useShell();
+  const touche = useToucheCommande();
 
   return (
     <header className="hors-impression sticky top-0 z-20 flex h-14 items-center gap-2 border-b border-line bg-bg/85 px-3 backdrop-blur-md sm:px-5 lg:px-8">
@@ -77,6 +85,7 @@ export function Topbar() {
         onClick={() => setMenuOuvert(true)}
         className="rounded-lg p-2 text-ink-2 hover:bg-surface-2 lg:hidden"
         aria-label="Ouvrir le menu"
+        aria-expanded={menuOuvert}
       >
         <Menu className="size-5" />
       </button>
@@ -90,7 +99,7 @@ export function Topbar() {
         <Search className="size-4 flex-none" aria-hidden />
         <span className="truncate">Rechercher une méthode, un template, un terme…</span>
         <kbd className="ml-auto hidden flex-none rounded border border-line bg-surface-2 px-1.5 py-px font-sans text-[0.68rem] font-medium text-ink-3 sm:block">
-          ⌘K
+          {touche}K
         </kbd>
       </button>
 
@@ -101,7 +110,7 @@ export function Topbar() {
           type="button"
           onClick={() => ouvrirCopilote()}
           className="flex h-9 items-center gap-2 rounded-lg bg-ink px-3 text-[0.85rem] font-medium text-bg transition-opacity hover:opacity-85"
-          title="Ouvrir le copilote (⌘J)"
+          title={`Ouvrir le copilote (${touche}J)`}
         >
           <Sparkles className="size-4" aria-hidden />
           <span className="hidden sm:inline">Copilote</span>

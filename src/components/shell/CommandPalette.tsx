@@ -1,54 +1,12 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CornerDownLeft, Search } from "lucide-react";
+import { CornerDownLeft, Search, Sparkles } from "lucide-react";
 import { useShell } from "@/components/shell/ShellProvider";
+import { classesBouton } from "@/components/ui";
 import { cn } from "@/lib/cn";
-import type { EntreeRecherche } from "@/lib/recherche";
-
-function normaliser(texte: string): string {
-  return texte
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
-}
-
-function chercher(index: EntreeRecherche[], requete: string): EntreeRecherche[] {
-  const termes = normaliser(requete).split(/\s+/).filter(Boolean);
-  if (!termes.length) return [];
-  const resultats: { entree: EntreeRecherche; score: number }[] = [];
-  for (const entree of index) {
-    const titre = normaliser(entree.n);
-    const reste = normaliser(`${entree.r} ${entree.k}`);
-    let score = 0;
-    for (const t of termes) {
-      if (titre.startsWith(t)) score += 12;
-      else if (titre.includes(t)) score += 8;
-      else if (reste.includes(t)) score += 2;
-      else {
-        score = 0;
-        break;
-      }
-    }
-    if (score) resultats.push({ entree, score });
-  }
-  return resultats
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 24)
-    .map((r) => r.entree);
-}
-
-let cacheIndex: Promise<EntreeRecherche[]> | null = null;
-function chargerIndex(): Promise<EntreeRecherche[]> {
-  cacheIndex ??= fetch("/recherche.json")
-    .then((r) => (r.ok ? r.json() : []))
-    .catch(() => {
-      cacheIndex = null;
-      return [];
-    });
-  return cacheIndex;
-}
+import { chargerIndex, chercher, type EntreeRecherche } from "@/lib/recherche";
 
 const SUGGESTIONS = [
   { n: "Parcours AI-Native", h: "/methode", t: "Méthode" },
@@ -60,6 +18,8 @@ const SUGGESTIONS = [
 
 function Palette({ fermer }: { fermer: () => void }) {
   const router = useRouter();
+  const pathname = usePathname();
+  const { ouvrirCopilote } = useShell();
   const [requete, setRequete] = useState("");
   const [index, setIndex] = useState<EntreeRecherche[]>([]);
   const [selection, setSelection] = useState(0);
@@ -81,12 +41,15 @@ function Palette({ fermer }: { fermer: () => void }) {
 
   function aller(href: string) {
     fermer();
-    router.push(href);
+    const [chemin, ancre] = href.split("#");
+    // Ancre de la page courante : router.push ne déclenche pas hashchange, dont dépendent
+    // les composants qui suivent l'ancre (ex. /situations).
+    if (ancre && chemin === pathname) window.location.hash = ancre;
+    else router.push(href);
   }
 
   function surTouche(e: React.KeyboardEvent) {
-    if (e.key === "Escape") fermer();
-    else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
       e.preventDefault();
       const suivant =
         e.key === "ArrowDown"
@@ -102,7 +65,7 @@ function Palette({ fermer }: { fermer: () => void }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center px-4 pt-[12vh]" role="dialog" aria-modal="true" aria-label="Recherche">
-      <button type="button" aria-label="Fermer la recherche" className="absolute inset-0 bg-ink/40" onClick={fermer} />
+      <button type="button" aria-label="Fermer la recherche" className="absolute inset-0 bg-scrim" onClick={fermer} />
       <div className="relative flex max-h-[70vh] w-full max-w-xl flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-modal">
         <div className="flex flex-none items-center gap-3 border-b border-line px-4">
           <Search className="size-4 flex-none text-ink-3" aria-hidden />
@@ -126,7 +89,7 @@ function Palette({ fermer }: { fermer: () => void }) {
         {resultats.length ? (
           <ul ref={liste} className="defilement-fin flex-1 overflow-y-auto p-2">
             {resultats.map((r, i) => (
-              <li key={r.h}>
+              <li key={`${r.t}-${r.h}-${r.n}`}>
                 <button
                   type="button"
                   onClick={() => aller(r.h)}
@@ -149,9 +112,22 @@ function Palette({ fermer }: { fermer: () => void }) {
             ))}
           </ul>
         ) : (
-          <p className="px-4 py-10 text-center text-[0.9rem] text-ink-3">
-            Aucun résultat pour « {requete} ». Essayez un autre terme, ou posez la question au copilote.
-          </p>
+          <div className="flex flex-col items-center gap-3 px-4 py-10 text-center">
+            <p className="text-[0.9rem] text-ink-3">
+              Aucun résultat pour « {requete} ». Essayez un autre terme, ou posez la question au copilote.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                ouvrirCopilote(requete.trim());
+                fermer();
+              }}
+              className={classesBouton("secondaire", "sm")}
+            >
+              <Sparkles className="size-3.5" aria-hidden />
+              Demander au copilote
+            </button>
+          </div>
         )}
       </div>
     </div>

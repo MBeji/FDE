@@ -3,8 +3,7 @@
 import { useState, type ReactNode } from "react";
 import { Check, Copy, Download, Printer } from "lucide-react";
 import { Markdown } from "@/components/Markdown";
-import { Bouton } from "@/components/ui";
-import { cn } from "@/lib/cn";
+import { Bouton, OngletsSegmentes } from "@/components/ui";
 import { remplirVariables, useMissions, variablesMission } from "@/lib/missions";
 import { telecharger, useEstClient } from "@/lib/stockage";
 
@@ -60,23 +59,13 @@ export function OngletsTemplate({
   return (
     <div>
       <div className="hors-impression mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div role="tablist" aria-label="Sections du template" className="flex rounded-lg border border-line bg-surface-2 p-0.5">
-          {ONGLETS.map((o) => (
-            <button
-              key={o.id}
-              type="button"
-              role="tab"
-              aria-selected={onglet === o.id}
-              onClick={() => setOnglet(o.id)}
-              className={cn(
-                "rounded-md px-3 py-1.5 text-[0.82rem] font-medium transition-colors",
-                onglet === o.id ? "bg-surface text-ink shadow-card" : "text-ink-2 hover:text-ink",
-              )}
-            >
-              {o.nom}
-            </button>
-          ))}
-        </div>
+        <OngletsSegmentes
+          onglets={ONGLETS}
+          valeur={onglet}
+          onChange={setOnglet}
+          libelle="Sections du template"
+          prefixeId="template"
+        />
         {onglet !== "mode-emploi" && (
           <div className="flex flex-wrap items-center gap-1.5">
             <BoutonCopier texte={texteCourant} libelle="Copier le Markdown" />
@@ -103,7 +92,12 @@ export function OngletsTemplate({
         </p>
       )}
 
-      <div role="tabpanel" className={onglet === "mode-emploi" ? "" : "feuille"}>
+      <div
+        role="tabpanel"
+        id="template-panneau"
+        aria-labelledby={`template-onglet-${onglet}`}
+        className={onglet === "mode-emploi" ? "" : "feuille"}
+      >
         {onglet === "template" && mission ? <Markdown>{templateRempli}</Markdown> : rendus[onglet]}
       </div>
     </div>

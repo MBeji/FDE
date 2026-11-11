@@ -61,6 +61,12 @@ const PAGES_FIXES = [
   "/glossaire",
   "/missions",
   "/copilote",
+  "/metier",
+  "/onboarding",
+  "/competences",
+  "/standards",
+  "/situations",
+  "/savoir/contribuer",
 ];
 
 const erreurs = [];
@@ -71,7 +77,7 @@ export function slugifier(texte) {
   return texte
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/\p{Diacritic}/gu, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
@@ -317,7 +323,12 @@ for (const d of templates) {
 /* Sortie                                                              */
 /* ------------------------------------------------------------------ */
 
-const nettoyer = (liste) => liste.map(({ _fichier, ...reste }) => reste);
+const nettoyer = (liste) =>
+  liste.map((doc) => {
+    const copie = { ...doc };
+    delete copie._fichier;
+    return copie;
+  });
 
 fs.mkdirSync(path.dirname(sortie), { recursive: true });
 fs.writeFileSync(

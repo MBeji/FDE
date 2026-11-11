@@ -114,7 +114,9 @@ export type OutilId =
   | "priorisation"
   | "business-case"
   | "redesign-processus"
-  | "agent-designer";
+  | "agent-designer"
+  | "revue-standards"
+  | "competences";
 
 export interface Artefact {
   id: string;

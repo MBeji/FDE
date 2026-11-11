@@ -14,7 +14,7 @@ function normaliser(t: string) {
   return t
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
+    .replace(/\p{Diacritic}/gu, "");
 }
 
 function Note({ libelle, valeur }: { libelle: string; valeur: number }) {

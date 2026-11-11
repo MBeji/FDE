@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ComponentProps, ReactNode } from "react";
+import type { ComponentProps, ComponentType, KeyboardEvent, ReactNode } from "react";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/cn";
 
@@ -225,6 +225,83 @@ export function Vide({ titre, children }: { titre: string; children?: ReactNode 
     <div className="rounded-xl border border-dashed border-line-strong px-6 py-10 text-center">
       <p className="text-[0.95rem] font-medium text-ink">{titre}</p>
       {children && <div className="mx-auto mt-1.5 max-w-md text-[0.875rem] text-ink-2">{children}</div>}
+    </div>
+  );
+}
+
+/**
+ * Navigation au clavier d'un tablist (motif ARIA « onglets ») : flèches gauche/droite,
+ * Début et Fin déplacent la sélection et le focus. À poser en onKeyDown sur l'élément role="tablist".
+ */
+export function gererFlechesOnglets<T extends string>(
+  e: KeyboardEvent<HTMLElement>,
+  ids: readonly T[],
+  valeur: T,
+  choisir: (id: T) => void,
+) {
+  const i = ids.indexOf(valeur);
+  const cible =
+    e.key === "ArrowRight" ? (i + 1) % ids.length
+    : e.key === "ArrowLeft" ? (i - 1 + ids.length) % ids.length
+    : e.key === "Home" ? 0
+    : e.key === "End" ? ids.length - 1
+    : -1;
+  if (cible < 0) return;
+  e.preventDefault();
+  choisir(ids[cible]);
+  e.currentTarget.querySelectorAll<HTMLElement>('[role="tab"]')[cible]?.focus();
+}
+
+/**
+ * Contrôle segmenté (2 à 4 onglets courts) : rail gris, onglet actif en surface.
+ * Réservé aux bascules de vue au sein d'un bloc ; les onglets de page gardent le soulignement.
+ */
+export function OngletsSegmentes<T extends string>({
+  onglets,
+  valeur,
+  onChange,
+  libelle,
+  prefixeId,
+  className,
+}: {
+  onglets: readonly { id: T; nom: string; icone?: ComponentType<{ className?: string; "aria-hidden"?: boolean }> }[];
+  valeur: T;
+  onChange: (id: T) => void;
+  libelle: string;
+  /** Si fourni, chaque onglet reçoit l'id `${prefixeId}-onglet-${id}` et contrôle `${prefixeId}-panneau`. */
+  prefixeId?: string;
+  className?: string;
+}) {
+  const ids = onglets.map((o) => o.id);
+  return (
+    <div
+      role="tablist"
+      aria-label={libelle}
+      onKeyDown={(e) => gererFlechesOnglets(e, ids, valeur, onChange)}
+      className={cn("inline-flex max-w-full rounded-lg border border-line bg-surface-2 p-0.5", className)}
+    >
+      {onglets.map((o) => {
+        const actif = valeur === o.id;
+        return (
+          <button
+            key={o.id}
+            type="button"
+            role="tab"
+            id={prefixeId ? `${prefixeId}-onglet-${o.id}` : undefined}
+            aria-controls={prefixeId ? `${prefixeId}-panneau` : undefined}
+            aria-selected={actif}
+            tabIndex={actif ? 0 : -1}
+            onClick={() => onChange(o.id)}
+            className={cn(
+              "inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-[0.82rem] font-medium whitespace-nowrap transition-colors",
+              actif ? "bg-surface text-ink shadow-card" : "text-ink-2 hover:text-ink",
+            )}
+          >
+            {o.icone && <o.icone className="size-3.5" aria-hidden />}
+            {o.nom}
+          </button>
+        );
+      })}
     </div>
   );
 }

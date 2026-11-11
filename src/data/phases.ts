@@ -31,12 +31,21 @@ export const phases: Phase[] = [
     ],
     activites: [
       {
+        id: "cadrer-0",
+        titre: "Préparer la mission avant le premier jour",
+        description:
+          "Avant d'arriver chez le client : comprendre son activité, ses enjeux et ses initiatives IA passées ; obtenir les accès, les environnements et les données de test autorisées ; connaître les contraintes de sécurité et de conformité ; préparer le questionnaire de découverte, envoyé au propriétaire du processus à la signature de la charte. Un FDE qui attend ses accès pendant deux semaines a entamé la confiance du sponsor avant d'avoir commencé.",
+        resultat: "Un dossier de préparation complet et des accès opérationnels au premier jour.",
+        templates: ["dossier-preparation-mission"],
+        guides: ["premiers-jours"],
+      },
+      {
         id: "cadrer-1",
         titre: "Reformuler la demande en problème",
         description:
           "Interroger le sponsor sur le résultat attendu, pas sur la solution demandée. Rédiger un énoncé du problème en une phrase : un indicateur, une ampleur, une échéance, des contraintes. Le faire valider mot pour mot.",
         resultat: "Un énoncé du problème signé par le sponsor.",
-        frameworks: ["probleme-hypotheses"],
+        frameworks: ["probleme-hypotheses", "mece"],
         guides: ["premiers-jours", "posture-fde"],
       },
       {
@@ -54,6 +63,7 @@ export const phases: Phase[] = [
         description:
           "Identifier sponsor, propriétaire du processus, DSI, sécurité, juridique, RH, managers de proximité et représentants du personnel. Pour chacun : ce qu'il gagne, ce qu'il craint, son pouvoir de blocage. Planifier les premiers échanges.",
         resultat: "Une carte des parties prenantes et un plan d'engagement.",
+        frameworks: ["cartographie-parties-prenantes"],
         templates: ["carte-parties-prenantes"],
       },
       {
@@ -78,7 +88,7 @@ export const phases: Phase[] = [
         description:
           "Constituer l'équipe mixte, obtenir les détachements côté client, fixer le COPIL, le point hebdomadaire et le rituel quotidien. Demander dès maintenant les accès aux données, aux outils et au terrain : c'est le premier facteur de retard.",
         resultat: "Une charte de mission signée et un plan de mission partagé.",
-        templates: ["charte-de-mission", "plan-de-mission", "registre-raid"],
+        templates: ["charte-de-mission", "plan-de-mission", "registre-raid", "questionnaire-decouverte"],
         guides: ["piloter-copil"],
       },
     ],
@@ -105,6 +115,12 @@ export const phases: Phase[] = [
         template: "plan-de-mission",
         titre: "Plan de mission",
         description: "Phases, jalons, charges, rituels et prérequis client.",
+        obligatoire: false,
+      },
+      {
+        template: "dossier-preparation-mission",
+        titre: "Dossier de préparation de mission",
+        description: "Contexte, accès, environnements, contraintes de sécurité avant le premier jour.",
         obligatoire: false,
       },
     ],
@@ -208,7 +224,7 @@ export const phases: Phase[] = [
         description:
           "Passer du temps à côté de ceux qui font le travail. Cartographier les étapes, les passages de relais, les outils, les exceptions. Séparer le temps de traitement du temps d'attente : c'est presque toujours là que se trouve la valeur.",
         resultat: "Une fiche par processus, avec volumes et délais mesurés.",
-        frameworks: ["cartographie-processus", "decomposition-taches"],
+        frameworks: ["observation-terrain", "cartographie-processus", "decomposition-taches"],
         templates: ["fiche-processus-existant"],
         outils: ["redesign-processus"],
       },
@@ -218,7 +234,7 @@ export const phases: Phase[] = [
         description:
           "Exploiter douze mois d'historique : distribution des motifs, des délais, des réouvertures, concentration des volumes. Vérifier les chiffres annoncés en entretien. Identifier la part répétitive et documentée du flux.",
         resultat: "La décomposition chiffrée des délais et des coûts.",
-        frameworks: ["cartographie-processus", "arbre-de-valeur"],
+        frameworks: ["analyse-80-20", "analyse-causes-racines", "arbre-de-valeur"],
       },
       {
         id: "diagnostiquer-4",
@@ -365,8 +381,8 @@ export const phases: Phase[] = [
         description:
           "Animer un ou deux ateliers avec le métier, à partir des irritants mesurés au diagnostic et de la bibliothèque de cas d'usage du secteur. Viser la quantité, puis regrouper par flux.",
         resultat: "Une liste longue de cas d'usage décrits en une page.",
-        frameworks: ["approche-par-domaine", "decomposition-taches", "deploy-reshape-invent"],
-        templates: ["atelier-ideation", "canevas-cas-usage"],
+        frameworks: ["approche-par-domaine", "chaine-de-valeur", "deploy-reshape-invent"],
+        templates: ["atelier-ideation", "carte-opportunites", "canevas-cas-usage"],
         guides: ["animer-atelier-ideation"],
       },
       {
@@ -412,7 +428,7 @@ export const phases: Phase[] = [
         description:
           "Séquencer par vagues selon les dépendances et la capacité. Consolider bénéfices et coûts sur trois ans, avec trois scénarios. Faire valider les hypothèses par la finance avant le COPIL.",
         resultat: "Une feuille de route et un business case arbitrés.",
-        frameworks: ["business-case-tco", "portefeuille-horizons", "pyramide-scqa"],
+        frameworks: ["business-case-tco", "portefeuille-horizons", "communication-executive"],
         templates: ["business-case", "portefeuille-priorise", "support-copil"],
         guides: ["piloter-copil"],
       },
@@ -538,7 +554,7 @@ export const phases: Phase[] = [
         description:
           "Dessiner le flux cible : déclenché par événement, traitements en parallèle, voies différenciées selon le risque et la complexité, humain positionné sur la décision et l'exception. Comparer étape par étape avec l'existant.",
         resultat: "Un processus cible avec ses voies et ses indicateurs.",
-        frameworks: ["reinvention-zero-base", "decomposition-taches"],
+        frameworks: ["reinvention-zero-base", "design-sprint", "decomposition-taches"],
         templates: ["processus-cible-ai-native"],
         outils: ["redesign-processus"],
       },
@@ -730,7 +746,7 @@ export const phases: Phase[] = [
           "Établir le modèle de menace : entrées, outils, mémoire, sorties. Pour chaque scénario, le garde-fou et le risque résiduel. Faire valider les droits d'accès par la sécurité et la qualification réglementaire par le juridique.",
         resultat: "Une analyse de risques et des garde-fous validés.",
         frameworks: ["garde-fous", "securite-agents", "nist-ai-rmf", "eu-ai-act"],
-        templates: ["analyse-risques-agent"],
+        templates: ["analyse-risques-agent", "checklist-securite-conformite"],
       },
       {
         id: "concevoir-6",
@@ -869,6 +885,7 @@ export const phases: Phase[] = [
           "Choisir un cas, un motif, un segment, et le traiter de bout en bout : entrée réelle, outils réels, sortie réelle. Mieux vaut un flux étroit qui fonctionne entièrement que toutes les briques à moitié.",
         resultat: "Un prototype fonctionnel sur un périmètre étroit.",
         frameworks: ["poc-pilote-production", "anatomie-agent"],
+        templates: ["plan-de-sprint"],
       },
       {
         id: "construire-2",
@@ -1042,7 +1059,7 @@ export const phases: Phase[] = [
           "Traçage de bout en bout, tableaux de bord de qualité, de coût et de latence, alertes, gestion des versions des prompts, des outils et des modèles, procédures d'incident et de retour arrière. Constituer et former l'équipe d'exploitation côté client.",
         resultat: "Une équipe d'exploitation opérationnelle et ses runbooks.",
         frameworks: ["agentops", "architecture-reference"],
-        templates: ["runbook-agent"],
+        templates: ["runbook-agent", "checklist-llmops"],
       },
       {
         id: "industrialiser-3",
@@ -1248,6 +1265,12 @@ export const phases: Phase[] = [
         titre: "Retour d'expérience de mission",
         description: "Ce qui a marché, ce que l'on ferait autrement.",
         obligatoire: true,
+      },
+      {
+        template: "cloture-mission",
+        titre: "Clôture de mission",
+        description: "Bilan, engagements restants, checklist de sortie.",
+        obligatoire: false,
       },
     ],
     jalon: {

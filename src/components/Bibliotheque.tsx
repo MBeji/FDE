@@ -30,7 +30,7 @@ function normaliser(t: string) {
   return t
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "");
+    .replace(/\p{Diacritic}/gu, "");
 }
 
 /** Navigateur de bibliothèque : recherche plein texte, filtres, regroupement. */
@@ -166,7 +166,7 @@ export function Bibliotheque({
                   titre={e.titre}
                   resume={e.resume}
                   pied={e.pastilles.map((p) => (
-                    <Pastille key={p.nom} ton={p.ton}>
+                    <Pastille key={p.nom} ton={p.ton} className="max-w-full whitespace-normal">
                       {p.nom}
                     </Pastille>
                   ))}

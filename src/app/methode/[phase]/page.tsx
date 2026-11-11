@@ -19,6 +19,7 @@ import { BoutonCopilote } from "@/components/copilote/BoutonCopilote";
 import { BlocRail, ListeLiens, MiseEnPageDocument } from "@/components/Document";
 import { Carte, EnTetePage, Pastille, classesBouton } from "@/components/ui";
 import { getPhase, phases } from "@/data/phases";
+import { QUESTIONS_CLIENT } from "@/data/questions-client";
 import { FILS, OUTILS } from "@/data/referentiels";
 import type { Activite, FilId } from "@/data/types";
 import { getFicheSavoir, getFramework, getGuide, getTemplate, resoudre } from "@/lib/content";
@@ -102,6 +103,7 @@ export default async function PagePhase({ params }: PageProps<"/methode/[phase]"
   const sommaire = [
     ["objectifs", "Objectifs"],
     ["activites", "Activités"],
+    ["questions-client", "Questions à poser au client"],
     ["livrables", "Livrables"],
     ["jalon", `Jalon ${p.jalon.code}`],
     ["fils", "Fils transverses"],
@@ -212,6 +214,28 @@ export default async function PagePhase({ params }: PageProps<"/methode/[phase]"
             </li>
           ))}
         </ol>
+      </Section>
+
+      <Section id="questions-client" titre="Questions à poser au client">
+        <p className="-mt-2 mb-4 max-w-3xl text-[0.88rem] leading-relaxed text-ink-2">
+          Formulées telles qu&apos;on les pose, pour faire émerger des faits : un cas, un chiffre, un nom, une date.
+        </p>
+        <div className="grid gap-3 md:grid-cols-2">
+          {QUESTIONS_CLIENT[p.id].map((g) => (
+            <Carte key={g.interlocuteur} className="p-4">
+              <h3 className="text-[0.95rem] font-semibold text-ink">{g.interlocuteur}</h3>
+              <p className="mt-0.5 text-[0.8rem] leading-snug text-ink-3">{g.objectif}</p>
+              <ul className="mt-3 flex flex-col gap-2">
+                {g.questions.map((q) => (
+                  <li key={q} className="flex gap-2.5 text-[0.88rem] leading-relaxed text-ink">
+                    <span className="mt-[0.55rem] size-1.5 flex-none rounded-full bg-line-strong" aria-hidden />
+                    {q}
+                  </li>
+                ))}
+              </ul>
+            </Carte>
+          ))}
+        </div>
       </Section>
 
       <Section id="livrables" titre="Livrables">

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
 import { useShell } from "@/components/shell/ShellProvider";
 import { cn } from "@/lib/cn";
@@ -71,6 +72,15 @@ function Liens({ onNaviguer }: { onNaviguer?: () => void }) {
 
 export function Sidebar() {
   const { menuOuvert, setMenuOuvert } = useShell();
+  const boutonFermer = useRef<HTMLButtonElement>(null);
+
+  // À l'ouverture, le focus entre dans le tiroir ; à la fermeture, il revient au déclencheur.
+  useEffect(() => {
+    if (!menuOuvert) return;
+    const declencheur = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    boutonFermer.current?.focus();
+    return () => declencheur?.focus();
+  }, [menuOuvert]);
 
   return (
     <>
@@ -93,13 +103,14 @@ export function Sidebar() {
           <button
             type="button"
             aria-label="Fermer le menu"
-            className="absolute inset-0 bg-ink/40"
+            className="absolute inset-0 bg-scrim"
             onClick={() => setMenuOuvert(false)}
           />
           <div className="absolute inset-y-0 left-0 flex w-[min(20rem,88vw)] flex-col bg-bg shadow-modal">
             <div className="flex h-14 flex-none items-center justify-between border-b border-line px-5">
               <Logo />
               <button
+                ref={boutonFermer}
                 type="button"
                 onClick={() => setMenuOuvert(false)}
                 className="rounded-lg p-2 text-ink-2 hover:bg-surface-2"

@@ -64,7 +64,7 @@ export default async function PageTemplate({ params }: PageProps<"/templates/[id
       >
         <div className="flex flex-wrap items-center gap-1.5">
           <Pastille>{FORMATS_TEMPLATE[t.format]}</Pastille>
-          <Pastille>Effort : {t.effort}</Pastille>
+          <Pastille className="max-w-full whitespace-normal">Effort : {t.effort}</Pastille>
         </div>
       </EnTetePage>
       <OngletsTemplate

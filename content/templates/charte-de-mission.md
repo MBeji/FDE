@@ -196,9 +196,9 @@ _[Trois critères au plus. Chacun doit pouvoir être constaté sans débat.]_
 | **Mission** | Réinvention de l'Assistance & SAV Entreprises |
 | **Domaine** | Assistance & SAV Entreprises |
 | **Sponsor** | Claire Besson, Directrice générale adjointe Marché Entreprises |
-| **Version** | 1.0 du 22 janvier 2026 |
+| **Version** | 1.0 du 23 janvier 2026 |
 | **Rédacteur** | Yasmine, lead FDE |
-| **Statut** | Signée en COPIL de lancement le 22 janvier 2026 |
+| **Statut** | Signée en réunion de lancement le 23 janvier 2026 |
 
 ## 1. Contexte
 
@@ -266,15 +266,15 @@ Les deux premières cibles sont un plancher : elles traduisent l'ambition de la 
 
 **Ce que l'hypothèse ne compte pas** : l'effet sur le NPS et l'image, la capacité réaffectée à l'accompagnement des clients. L'investissement et les coûts récurrents ne sont pas estimés à ce stade ; ils le seront au jalon G2.
 
-**Référence financière** : les valeurs de départ et la méthode de calcul du coût par ticket sont établies avec le contrôle de gestion et signées par Julien Faure au plus tard en S8.
+**Référence financière** : les valeurs de départ et la méthode de calcul du coût par ticket sont établies avec le contrôle de gestion et signées par Sophie Lambert et Julien Faure au plus tard en S6, pour le jalon G1.
 
 ## 6. Livrables et jalons
 
 | Phase | Semaines | Livrables principaux | Jalon et décision attendue |
 | --- | --- | --- | --- |
-| 0. Cadrer | S1 à S2 (12 au 23 janvier) | Charte, cartographie des parties prenantes, plan de mission, arbre d'hypothèses | G0 — Mandat clair : signature de la charte le 22 janvier |
-| 1. Diagnostiquer | S3 à S6 (26 janvier au 20 février) | Fiche du processus existant, décomposition du délai, diagnostic de maturité, revue des données et du SI | G1 — Diagnostic partagé : validation en COPIL le 19 février |
-| 2. Cibler | S7 à S9 (23 février au 13 mars) | Portefeuille priorisé, business case, référence signée | G2 — Paris arbitrés : décision d'investissement le 12 mars |
+| 0. Cadrer | S1 à S2 (12 au 23 janvier) | Charte, cartographie des parties prenantes, plan de mission, arbre d'hypothèses | G0 — Mandat clair : signature de la charte le 23 janvier |
+| 1. Diagnostiquer | S3 à S6 (26 janvier au 20 février) | Fiche du processus existant, décomposition du délai, diagnostic de maturité, revue des données et du SI, référence signée | G1 — Diagnostic partagé : validation en COPIL le 19 février |
+| 2. Cibler | S7 à S9 (23 février au 13 mars) | Portefeuille priorisé de cas d'usage, business case | G2 — Paris arbitrés : décision d'investissement le 12 mars |
 | 3. Réinventer | S10 à S13 | Processus cible, répartition humain-agent, modèle opérationnel cible | G3 — Cible validée par le métier |
 | 4. Concevoir | S14 à S17 | Dossier d'architecture, spécifications, plan d'évaluation, analyse de risques | G4 — Conception approuvée |
 | 5. Construire | S18 à S29 | Prototype (S18 à S21), pilote de 8 semaines (S22 à S29), bilan du pilote | G5 — Preuve de valeur : décision de généralisation |
@@ -287,9 +287,9 @@ Les deux premières cibles sont un plancher : elles traduisent l'ambition de la 
 
 | Instance | Objet | Participants | Rythme |
 | --- | --- | --- | --- |
-| COPIL | Arbitrer : jalons, périmètre, moyens, critères d'arrêt | Claire Besson (présidente), Sophie Lambert, Karim Haddad, Julien Faure, Isabelle Moreau, Thomas Nguyen, Yasmine. Marc Dubois et Élise Martin aux jalons G1, G4 et G5 | Mensuel, 1 h 30, calé sur les jalons |
-| Point sponsor | Préparer les décisions, lever les blocages | Claire Besson, Yasmine | Toutes les deux semaines, 30 min |
-| Point hebdomadaire | Avancement, risques, décisions opérationnelles | Sophie Lambert, product owner, Yasmine, Hugo | Chaque mardi, 45 min |
+| COPIL | Arbitrer : jalons, périmètre, moyens, critères d'arrêt | Claire Besson (présidente), Sophie Lambert, Karim Haddad, Julien Faure, Isabelle Moreau, Thomas Nguyen, Yasmine. Marc Dubois et Élise Martin aux jalons G1, G4 et G5 | Mensuel, 1 h, calé sur les jalons |
+| Point sponsor | Préparer les décisions, lever les blocages | Claire Besson, Yasmine | Chaque semaine, 15 min |
+| Point hebdomadaire | Avancement, risques, décisions opérationnelles | Sophie Lambert, product owner, Yasmine, Hugo | Chaque vendredi, 30 min |
 | Point d'équipe | Synchroniser l'équipe mixte | Équipe FDE et équipe Voxalis détachée | Chaque jour, 15 min |
 | Revue sécurité et conformité | Risques, données personnelles, droits d'accès | Marc Dubois, Élise Martin, référent sécurité, Inès | Mensuelle jusqu'à S13, toutes les deux semaines ensuite |
 
@@ -326,7 +326,7 @@ Les deux premières cibles sont un plancher : elles traduisent l'ambition de la 
 | Planning de la vingtaine d'entretiens du diagnostic | Sophie Lambert | 23 janvier (S2) |
 | Trois jours d'observation sur le plateau de Nantes, équipes et représentants du personnel informés au préalable | Sophie Lambert, Isabelle Moreau | S4 |
 | Détachement effectif des deux experts N2 | Sophie Lambert | S3 |
-| Référence financière signée | Julien Faure | S8 |
+| Référence financière signée (valeurs de départ et méthode de mesure) | Julien Faure | S6 |
 | Arbitrages rendus sous 5 jours ouvrés | Claire Besson | Permanent |
 
 **Engagements de l'équipe FDE**
@@ -364,7 +364,7 @@ La mission s'arrête, ou est suspendue, dès que l'un des trois critères suivan
 
 | Nom | Fonction | Rôle dans la mission | Date |
 | --- | --- | --- | --- |
-| Claire Besson | Directrice générale adjointe Marché Entreprises | Sponsor | 22 janvier 2026 |
-| Sophie Lambert | Directrice Relation Client Entreprises | Propriétaire du processus | 22 janvier 2026 |
-| Karim Haddad | DSI | Garant des accès et des moyens SI | 22 janvier 2026 |
-| Yasmine | Lead FDE | Responsable de la mission | 22 janvier 2026 |
+| Claire Besson | Directrice générale adjointe Marché Entreprises | Sponsor | 23 janvier 2026 |
+| Sophie Lambert | Directrice Relation Client Entreprises | Propriétaire du processus | 23 janvier 2026 |
+| Karim Haddad | DSI | Garant des accès et des moyens SI | 23 janvier 2026 |
+| Yasmine | Lead FDE | Responsable de la mission | 23 janvier 2026 |

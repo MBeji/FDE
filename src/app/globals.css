@@ -51,6 +51,8 @@
   --critical-ink: #a32424;
   --critical-soft: #fbeaea;
 
+  --scrim: rgba(20, 20, 19, 0.4);
+
   --shadow-sm: 0 1px 2px rgba(20, 20, 19, 0.05);
   --shadow-md: 0 4px 16px -4px rgba(20, 20, 19, 0.1), 0 1px 3px rgba(20, 20, 19, 0.06);
   --shadow-lg: 0 24px 48px -12px rgba(20, 20, 19, 0.22), 0 2px 6px rgba(20, 20, 19, 0.08);
@@ -95,6 +97,8 @@
   --critical-ink: #f08a8a;
   --critical-soft: #2e1616;
 
+  --scrim: rgba(0, 0, 0, 0.6);
+
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 16px -4px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 24px 48px -12px rgba(0, 0, 0, 0.7), 0 2px 6px rgba(0, 0, 0, 0.5);
@@ -129,6 +133,7 @@
   --color-series-2: var(--series-2);
   --color-series-3: var(--series-3);
   --color-series-muted: var(--series-muted);
+  --color-scrim: var(--scrim);
 
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: "Source Serif 4 Variable", ui-serif, Georgia, "Times New Roman", serif;
@@ -162,10 +167,11 @@ body {
   color: var(--ink);
 }
 
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: 4px;
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -178,6 +184,13 @@ body {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Barre défilant horizontalement : le bord droit s'estompe pour signaler la suite.
+   Le retrait droit laisse le dernier élément entièrement visible en fin de défilement. */
+@utility fondu-droite {
+  mask-image: linear-gradient(to left, transparent, #000 1.5rem);
+  padding-right: 1.5rem;
 }
 
 /* Barres de défilement discrètes dans les panneaux */
@@ -372,7 +385,12 @@ body {
   overflow-x: auto;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: var(--surface);
+  /* Ombre de bord droit tant que le tableau déborde : le premier calque, attaché au
+     contenu, la recouvre une fois le défilement arrivé au bout. */
+  background:
+    linear-gradient(to left, var(--surface) 40%, transparent) right / 2rem 100% no-repeat local,
+    linear-gradient(to left, var(--scrim), transparent) right / 0.6rem 100% no-repeat scroll,
+    var(--surface);
 }
 .prose-atlas table {
   width: 100%;
@@ -397,7 +415,10 @@ body {
   padding: 0.6rem 0.85rem;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
-  min-width: 7rem;
+  min-width: 5.5rem;
+}
+.prose-atlas td:first-child {
+  min-width: 0;
 }
 .prose-atlas tr:last-child td {
   border-bottom: 0;
