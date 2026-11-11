@@ -6,16 +6,21 @@ L'environnement de travail des Forward Deployed Engineers (FDE) qui conduisent d
 
 | Espace | Contenu |
 | --- | --- |
-| **Parcours AI-Native** | La méthode en 8 phases (Cadrer, Diagnostiquer, Cibler, Réinventer, Concevoir, Construire, Industrialiser, Pérenniser). Pour chaque phase : objectifs, activités, livrables, jalon avec critères de passage et signaux d'arrêt, pièges et parades. Trois fils transverses : valeur, confiance, adoption. |
-| **Frameworks** | 45 fiches, du conseil en stratégie à l'ingénierie des agents : quand l'utiliser, comment l'appliquer, exemple chiffré, pièges. |
-| **Templates** | 35 livrables : document vierge, exemple entièrement rempli, mode d'emploi. Copie, téléchargement Markdown, pré-remplissage avec la mission active. |
-| **Guides pratiques** | 16 playbooks : entretiens, ateliers, chiffrage de la valeur, conception d'agents, évaluations, pilote, COPIL, redressement de mission. |
+| **Entrée par situation** | Onze situations (« je rejoins le pool », « je prépare une mission », « je réalise un diagnostic »…) : par où commencer, étapes ordonnées, ressources à ouvrir. |
+| **Le métier FDE** | Le rôle et la double compétence, le FDE face aux autres métiers, la charte en douze engagements, les règles de fonctionnement du pool, dix fiches réflexes pour les situations délicates. |
+| **Onboarding** | Parcours d'intégration en cinq étapes, exercices pratiques avec grille d'évaluation, plan 30/60/90, mentorat, priorités par profil d'origine. Progression suivie localement. |
+| **Compétences** | Référentiel de 18 compétences sur quatre niveaux, auto-évaluation, grille de préparation à l'intervention chez un client, plan de progression. |
+| **Parcours AI-Native** | La méthode en 8 phases (Cadrer, Diagnostiquer, Cibler, Réinventer, Concevoir, Construire, Industrialiser, Pérenniser). Pour chaque phase : objectifs, activités, questions à poser au client, livrables, jalon avec critères de passage et signaux d'arrêt, pièges et parades. Trois fils transverses : valeur, confiance, adoption. |
+| **Frameworks** | 53 fiches, du conseil en stratégie (MECE, 80/20, pyramide, causes racines…) à l'ingénierie des agents : quand l'utiliser, comment l'appliquer, exemple chiffré, pièges. |
+| **Templates** | 42 livrables : document vierge, exemple entièrement rempli, mode d'emploi. Copie, téléchargement Markdown, pré-remplissage avec la mission active. |
+| **Guides pratiques** | 17 playbooks : entretiens, ateliers, chiffrage de la valeur, conception d'agents, évaluations, pilote, COPIL, dialogue avec les dirigeants, redressement de mission. |
+| **Standards d'ingénierie** | 96 standards sur dix domaines, classés obligatoire, recommandé ou contextuel, avec un mode revue de conformité exportable. |
 | **Cas fil rouge** | Une mission complète (client fictif Voxalis) dont sont tirés tous les exemples. |
 | **Cas d'usage** | 82 cas par secteur et par fonction, reliés à l'atelier de priorisation. |
 | **Ateliers** | Diagnostic de maturité, Agent ou pas ?, Priorisation, Business case, Redesign de processus, Agent Designer. Chacun produit un résultat exportable. |
 | **Espace mission** | Suivi par phase (activités, livrables, jalons), registre de valeur, journal (décisions, risques, apprentissages), exports (point d'avancement, brouillon de REX). |
 | **Copilote** | Assistant qui connaît le contenu du portail, la page consultée et, sur autorisation, la mission. Quatre modes : guide, rédacteur, challenger, coach. Bibliothèque de 32 prompts. |
-| **Savoir terrain** | Patterns, anti-patterns et retours d'expérience ; glossaire de 96 termes. |
+| **Savoir terrain** | Patterns, anti-patterns et retours d'expérience, avec un assistant de contribution qui génère une fiche prête pour une pull request ; glossaire de 96 termes. |
 
 ## Démarrer
 
@@ -64,7 +69,7 @@ L'application est un projet Next.js standard : elle se déploie telle quelle sur
 
 Tout le savoir vit dans `content/`, en Markdown versionné : un fichier par framework, template, guide ou fiche de savoir. Capitaliser, c'est ouvrir une pull request. Les formats, les champs obligatoires et la ligne éditoriale sont décrits dans [`content/README.md`](content/README.md) ; `npm run content` valide l'ensemble.
 
-Les données structurées (phases de la méthode, cas d'usage, glossaire, prompts, modèle de maturité) sont dans `src/data/`.
+Les données structurées (phases de la méthode et questions client, cas d'usage, glossaire, prompts, modèle de maturité, standards, onboarding, compétences, charte et règles du pool, situations) sont dans `src/data/`. Ce qui relève des choix de votre organisation (règles du pool, durées d'onboarding, seuils de compétences) y est présenté comme un cadre proposé : ajustez-le.
 
 ## Architecture
 
