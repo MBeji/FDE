@@ -278,7 +278,7 @@ Signataires : Sophie Lambert, Isabelle Moreau.
 | 6.2 | L'encadrement de proximité est formé ; ses objectifs sont cohérents avec le nouveau processus | R | Responsables d'équipe de l'Ouest formés le 16 juillet. Leurs objectifs individuels restent exprimés en durée moyenne de traitement, ce qui contredit le rôle de superviseur de cas | Sophie Lambert |
 | 6.3 | Le support de proximité est en place pour les premières semaines | C | Six champions issus du pilote, présents sur les plateaux de l'Ouest pendant deux semaines ; signalement en un geste depuis le poste de supervision, réponse sous 24 h | Nadia Cherif |
 | 6.4 | La communication a été faite aux équipes et, si nécessaire, aux clients | C | Réunions d'équipe tenues du 20 au 22 juillet par les responsables d'équipe ; message de Claire Besson programmé le 3 août | Sophie Lambert |
-| 6.5 | Les indicateurs d'adoption sont définis, avec référence, cible et seuil d'alerte | C | Plan de conduite du changement, version 2.0 du 24 juillet : usage quotidien (16 conseillers sur 18 en fin de pilote), acceptation des propositions, contournement | Expert conduite du changement |
+| 6.5 | Les indicateurs d'adoption sont définis, avec référence, cible et seuil d'alerte | C | Plan de conduite du changement, version 2.0 du 30 juillet : usage quotidien (16 conseillers sur 18 en fin de pilote), acceptation des propositions, contournement | Expert conduite du changement |
 | 6.6 | Les irritants remontés pendant le pilote sont traités ou planifiés | C | 41 irritants remontés : 33 corrigés, 8 planifiés avec une date. Liste présentée aux conseillers de Nantes le 28 juillet | Product owner |
 
 ## 7. Gouvernance

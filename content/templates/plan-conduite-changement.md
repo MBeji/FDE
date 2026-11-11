@@ -154,7 +154,7 @@ Première version en phase [Réinventer](/methode/reinventer), dès que les mét
 | **Domaine** | Assistance & SAV Entreprises |
 | **Sponsor** | Claire Besson, Directrice générale adjointe Marché Entreprises |
 | **Porteur du changement** | Sophie Lambert, Directrice Relation Client Entreprises, avec Isabelle Moreau, DRH |
-| **Version** | 2.0 du 24 juillet 2026 (S28), arrêtée pour la généralisation. Version 1.0 établie en phase Réinventer, corrigée pendant le pilote |
+| **Version** | 2.0 du 30 juillet 2026 (S29), arrêtée pour la généralisation. Version 1.0 établie en phase Réinventer, corrigée pendant le pilote |
 | **Rédacteur** | L'expert conduite du changement de l'équipe FDE, avec Hugo et Nadia Cherif |
 
 ## 1. Ce qui change, ce qui ne change pas
@@ -174,7 +174,7 @@ Première version en phase [Réinventer](/methode/reinventer), dès que les mét
 | Aucune suppression de poste liée à SAV Augmenté | Claire Besson et Isabelle Moreau, avec les représentants du personnel | Avril 2026, fin de la phase Réinventer | Effectifs du domaine présentés chaque trimestre aux représentants du personnel |
 | Les gains sont captés par le non-remplacement des départs et la baisse de la sous-traitance de débordement | Les mêmes | Avril 2026 | Départs non remplacés et volume de débordement, au même rendez-vous trimestriel |
 | Une partie de la capacité libérée est réaffectée à l'accompagnement proactif des clients | Les mêmes | Avril 2026 | Postes ouverts dans la cellule d'accompagnement proactif, sur volontariat, à partir de S36 |
-| Règle d'usage, validée avec Élise Martin : l'activité dans le poste de supervision est suivie par équipe, jamais pour évaluer une personne | Sophie Lambert | Juin 2026, avant le pilote | Tableaux de bord sans maille individuelle ; contrôle annuel par la DPO |
+| Règle d'usage, validée avec Élise Martin : l'activité dans le poste de supervision est suivie par équipe, jamais pour évaluer une personne | Sophie Lambert | Mai 2026, avant le pilote | Tableaux de bord sans maille individuelle ; contrôle annuel par la DPO |
 
 ## 2. Analyse d'impact par population
 
@@ -193,7 +193,7 @@ Première version en phase [Réinventer](/methode/reinventer), dès que les mét
 
 1. **Nantes comme preuve.** Les 18 conseillers du pilote témoignent, erreurs des agents comprises ; six d'entre eux deviennent champions.
 2. **Le manager avant son équipe.** Chaque responsable d'équipe est vu et formé quinze jours avant l'ouverture.
-3. **Former sur des cas réels, juste avant.** Formation dans les huit jours qui précèdent l'ouverture ; aucun accès sans validation.
+3. **Former sur des cas réels, juste avant.** Formation dans les deux semaines qui précèdent l'ouverture ; aucun accès sans validation.
 4. **Une vague ne démarre que si la précédente tient.** Le calendrier ne prime pas sur les seuils.
 5. **La direction parle de l'emploi, le manager de l'équipe, l'équipe projet du système.** Jamais l'inverse.
 
@@ -237,8 +237,8 @@ Première version en phase [Réinventer](/methode/reinventer), dès que les mét
 | Module | Public | À la fin, le participant sait | Format et durée | Animé par | Quand |
 | --- | --- | --- | --- | --- | --- |
 | M0 — Piloter une équipe de superviseurs de cas | Responsables d'équipe et de plateau | Lire le tableau de bord, animer une revue de cas, déclencher l'arrêt d'urgence, répondre aux cinq questions du kit | 1 jour, en salle | Nadia Cherif, expert conduite du changement | Quinze jours avant l'ouverture |
-| M1 — Comprendre SAV Augmenté | Conseillers | Expliquer les trois voies, ce que chaque agent a le droit de faire seul et ce qu'il doit soumettre | 1 h 30, à distance | Product owner | Huit jours avant |
-| M2 — Superviser un cas | Conseillers | Approuver, corriger ou refuser une proposition ; reprendre la main ; signaler une erreur en un geste | 1 jour, sur 25 cas réels rejoués | Champions, experts N2 | Entre huit et trois jours avant |
+| M1 — Comprendre SAV Augmenté | Conseillers | Expliquer les trois voies, ce que chaque agent a le droit de faire seul et ce qu'il doit soumettre | 1 h 30, à distance | Product owner | Deux semaines avant |
+| M2 — Superviser un cas | Conseillers | Approuver, corriger ou refuser une proposition ; reprendre la main ; signaler une erreur en un geste | 1 jour, sur 25 cas réels rejoués | Champions, experts N2 | Dans les deux semaines qui précèdent |
 | M3 — Contrôler la voie autonome | Conseillers | Appliquer la grille d'échantillonnage et qualifier un écart | 2 h | Experts N2 | Une semaine après |
 | M4 — Prise de poste accompagnée | Conseillers | Tenir le poste en production | Binôme avec un champion, 3 jours | Champions | À l'ouverture |
 | M5 — Annoter et valider | Experts N2 | Annoter un cas pour le golden set, valider un article, revoir l'échantillon hebdomadaire | Une demi-journée | Experts N2 détachés | Avant la vague de leur région |

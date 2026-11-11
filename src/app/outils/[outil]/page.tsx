@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ComponentType } from "react";
 import { OutilAgentOuPas } from "@/components/outils/OutilAgentOuPas";
+import { OutilBusinessCase } from "@/components/outils/OutilBusinessCase";
 import { OutilMaturite } from "@/components/outils/OutilMaturite";
 import { OutilPriorisation } from "@/components/outils/OutilPriorisation";
 import { EnTetePage, Pastille } from "@/components/ui";
@@ -11,6 +12,7 @@ const COMPOSANTS: Record<string, ComponentType> = {
   maturite: OutilMaturite,
   "agent-ou-pas": OutilAgentOuPas,
   priorisation: OutilPriorisation,
+  "business-case": OutilBusinessCase,
 };
 
 export function generateStaticParams() {
