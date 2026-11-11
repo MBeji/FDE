@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ComponentType } from "react";
+import { OutilAgentDesigner } from "@/components/outils/OutilAgentDesigner";
 import { OutilAgentOuPas } from "@/components/outils/OutilAgentOuPas";
 import { OutilBusinessCase } from "@/components/outils/OutilBusinessCase";
 import { OutilMaturite } from "@/components/outils/OutilMaturite";
@@ -15,6 +16,7 @@ const COMPOSANTS: Record<string, ComponentType> = {
   priorisation: OutilPriorisation,
   "business-case": OutilBusinessCase,
   "redesign-processus": OutilRedesign,
+  "agent-designer": OutilAgentDesigner,
 };
 
 export function generateStaticParams() {
