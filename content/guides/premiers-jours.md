@@ -7,7 +7,7 @@ duree: "9 min"
 niveau: fondamental
 tags: [cadrage, demarrage, gouvernance]
 frameworks: [probleme-hypotheses, arbre-de-valeur]
-templates: [charte-de-mission, carte-parties-prenantes, plan-de-mission, arbre-hypotheses, point-hebdo, registre-raid]
+templates: [dossier-preparation-mission, charte-de-mission, carte-parties-prenantes, plan-de-mission, arbre-hypotheses, point-hebdo, registre-raid]
 ---
 
 ## Le résultat visé
@@ -27,6 +27,8 @@ Chez [Voxalis](/guides/cas-fil-rouge), ces dix jours sont les semaines S1 et S2,
 Envoyer la liste de demandes une semaine avant l'arrivée : les accès sont le chemin critique du cadrage. Message type, au propriétaire du processus, DSI en copie :
 
 > « Pour être utiles dès lundi, nous avons besoin de trois choses. Accès : badges, un poste sur le plateau, des comptes en lecture sur le ticketing et la base de connaissances. Données : douze mois de tickets en extraction brute, horodatages compris ; les volumes et les coûts du domaine tels que la finance les suit. Documents : organigramme, procédures en vigueur, tableaux de bord mensuels, bilans des projets IA déjà menés. Pouvez-vous m'indiquer un interlocuteur pour chaque ligne ? »
+
+Tenir ces demandes dans le [dossier de préparation de mission](/templates/dossier-preparation-mission), une ligne par accès avec un responsable.
 
 ## Le déroulé jour par jour
 

@@ -88,7 +88,7 @@ export const CHECKLIST_ARRIVEE: ActionOnboarding[] = [
   },
   {
     id: "arr-mission",
-    libelle: "Créer une mission d'entraînement « Voxalis » dans l'espace mission pour y ranger ses exercices",
+    libelle: "Créer une mission d'entraînement avec « Nouvelle mission » (client : Voxalis) pour y ranger ses exercices, à ne pas confondre avec la mission d'exemple, déjà menée jusqu'à la phase 7 et à consulter comme modèle",
     ressource: { libelle: "Missions", href: "/missions" },
   },
   {
@@ -313,7 +313,9 @@ export const ETAPES_ONBOARDING: EtapeOnboarding[] = [
       { id: "c-voxalis", libelle: "Lire le cas Voxalis en entier, puis le relire phase par phase", ressource: { libelle: "Cas fil rouge", href: "/guides/cas-fil-rouge" } },
       { id: "c-posture", libelle: "Lire le guide sur la posture du FDE", ressource: { libelle: "Posture du FDE", href: "/guides/posture-fde" } },
       { id: "c-rex", libelle: "Lire le retour d'expérience Voxalis et noter trois décisions que vous n'auriez pas prises", ressource: { libelle: "REX Voxalis", href: "/savoir/rex-voxalis-sav-augmente" } },
-      { id: "c-antipatterns", libelle: "Lire trois anti-patterns : POC purgatoire, agent partout, automatiser l'existant", ressource: { libelle: "POC purgatoire", href: "/savoir/poc-purgatoire" } },
+      { id: "c-antipatterns", libelle: "Lire l'anti-pattern du purgatoire des POC", ressource: { libelle: "POC purgatoire", href: "/savoir/poc-purgatoire" } },
+      { id: "c-agent-partout", libelle: "Lire l'anti-pattern de l'agent partout", ressource: { libelle: "Agent partout", href: "/savoir/agent-partout" } },
+      { id: "c-automatiser-existant", libelle: "Lire l'anti-pattern de l'automatisation de l'existant", ressource: { libelle: "Automatiser l'existant", href: "/savoir/automatiser-l-existant" } },
       { id: "c-standards", libelle: "Parcourir les standards d'ingénierie du pool", ressource: { libelle: "Standards", href: "/standards" } },
       { id: "c-glossaire", libelle: "Parcourir le glossaire et noter les termes à clarifier avec le mentor", ressource: { libelle: "Glossaire", href: "/glossaire" } },
     ],
@@ -375,7 +377,7 @@ export const ETAPES_ONBOARDING: EtapeOnboarding[] = [
       { id: "o-dossier", libelle: "Lire le dossier de préparation de la mission d'accueil avant le premier jour", ressource: { libelle: "Dossier de préparation", href: "/templates/dossier-preparation-mission" } },
       { id: "o-premiers-jours", libelle: "Lire le guide des premiers jours chez le client", ressource: { libelle: "Premiers jours", href: "/guides/premiers-jours" } },
       { id: "o-entretiens", libelle: "Observer trois entretiens, puis en mener deux en binôme", ressource: { libelle: "Mener des entretiens", href: "/guides/mener-entretiens" } },
-      { id: "o-terrain", libelle: "Passer une demi-journée en observation sur le poste d'un opérationnel", ressource: { libelle: "Observation terrain", href: "/frameworks/observation-terrain" } },
+      { id: "o-terrain", libelle: "Observer au moins vingt cas sur le poste de deux opérationnels (une journée), avec la grille procédure / pratique", ressource: { libelle: "Observation terrain", href: "/frameworks/observation-terrain" } },
       { id: "o-hebdo", libelle: "Rédiger deux points hebdomadaires de la mission", ressource: { libelle: "Point hebdo", href: "/templates/point-hebdo" } },
       { id: "o-raid", libelle: "Tenir le registre RAID pendant deux semaines", ressource: { libelle: "Registre RAID", href: "/templates/registre-raid" } },
       { id: "o-copil", libelle: "Assister à un COPIL et en rédiger le relevé de décisions", ressource: { libelle: "Piloter un COPIL", href: "/guides/piloter-copil" } },
@@ -391,7 +393,7 @@ export const ETAPES_ONBOARDING: EtapeOnboarding[] = [
     objectif:
       "Tenir seul un périmètre défini (un chantier, un agent ou une phase) sur une mission réelle, avec une supervision allégée, et atteindre le niveau de readiness client.",
     critereValidation:
-      "Le verdict de readiness est « prêt » ou « prêt avec binôme » sur le référentiel de compétences, confirmé en revue par le mentor et le lead de mission ; vous avez présenté au moins une fois devant le client.",
+      "Le verdict de readiness est « Prêt à intervenir seul » ou « Prêt, avec binôme sur les écarts » sur le référentiel de compétences, confirmé en revue par le mentor et le lead de mission ; vous avez présenté au moins une fois devant le client.",
     actions: [
       { id: "d-situations", libelle: "Préparer sa prise de périmètre avec l'entrée par situation", ressource: { libelle: "Situations", href: "/situations" } },
       { id: "d-livrable", libelle: "Prendre en charge un livrable de bout en bout, du cadrage à la validation client", ressource: { libelle: "Méthode", href: "/methode" } },
@@ -458,7 +460,7 @@ export const PLAN_30_60_90: JalonPlan[] = [
       "Une contribution au savoir terrain.",
     ],
     validation:
-      "Revue de readiness avec le mentor, le lead de mission et un représentant de la direction du pool. Trois issues possibles : autonome ; autonome avec binôme sur les écarts restants ; prolongation de quatre semaines avec un plan ciblé.",
+      "Revue de readiness avec le mentor, le lead de mission et un représentant de la direction du pool. Trois issues possibles, reprises de l'auto-évaluation : prêt à intervenir seul ; prêt, avec binôme sur les écarts ; pas encore prêt, prolongation de quatre semaines avec un plan ciblé.",
   },
 ];
 
@@ -568,7 +570,7 @@ export const PROFILS: ProfilOrigine[] = [
       { libelle: "Guide : chiffrer la valeur", href: "/guides/chiffrer-la-valeur" },
       { libelle: "Framework : AgentOps", href: "/frameworks/agentops" },
     ],
-    priorites: ["a-echelle", "a-valeur", "a-adoption", "c-antipatterns", "ex-chiffrage", "ex-redesign", "ex-executif", "ex-incident"],
+    priorites: ["a-echelle", "a-valeur", "a-adoption", "c-antipatterns", "c-agent-partout", "ex-chiffrage", "ex-redesign", "ex-executif", "ex-incident"],
   },
   {
     id: "cloud",

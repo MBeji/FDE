@@ -229,7 +229,7 @@ Critères arrêtés avec la version 1.0 du plan et signés par Claire Besson.
 | N° | Critère | Mesure | Seuil | Constat au 9 octobre |
 | --- | --- | --- | --- | --- |
 | 1 | Exploitation sans l'équipe FDE | Semaines consécutives sans intervention FDE en production | 3 | 4 semaines, de S36 à S39 |
-| 2 | Incident conduit seul | Incident réel de gravité G2 au moins, ou à défaut exercice, post-mortem compris | 1 | Incident du 29 septembre |
+| 2 | Incident conduit seul | Incident réel de gravité SEV2 ou SEV1, ou à défaut exercice, post-mortem compris | 1 | Incident du 29 septembre |
 | 3 | Évolution livrée seule | Évolution complète, des cas d'évaluation à la production | 1 | Treizième motif, le 6 octobre |
 | 4 | Évaluation tenue | Rapport d'évaluation mensuel produit seul ; golden set enrichi | 1 rapport ; ajouts chaque mois | Rapport de septembre ; 104 cas ajoutés depuis le début du pilote |
 | 5 | Gouvernance tenue | Comité de gouvernance IA préparé et tenu sans FDE ; registre à jour | 1 séance | Séance du 1er octobre |

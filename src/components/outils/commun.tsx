@@ -5,7 +5,7 @@ import { useState } from "react";
 import { BookmarkPlus, Check, Download, RotateCcw } from "lucide-react";
 import { BoutonCopier } from "@/components/OngletsTemplate";
 import { Bouton } from "@/components/ui";
-import { ajouterArtefact, useMissions, type OutilId } from "@/lib/missions";
+import { ajouterArtefact, artefactDuJour, useMissions, type OutilId } from "@/lib/missions";
 import { telecharger, useEstClient } from "@/lib/stockage";
 
 /** Actions communes à tous les ateliers : copier, télécharger, enregistrer dans la mission active. */
@@ -41,7 +41,11 @@ export function ActionsResultat({
           }}
         >
           {enregistre ? <Check className="size-3.5" aria-hidden /> : <BookmarkPlus className="size-3.5" aria-hidden />}
-          {enregistre ? "Enregistré dans la mission" : "Enregistrer dans la mission"}
+          {enregistre
+            ? "Enregistré dans la mission"
+            : artefactDuJour(active, outil, titre)
+              ? "Mettre à jour dans la mission"
+              : "Enregistrer dans la mission"}
         </Bouton>
       ) : (
         <Link href="/missions" className="text-[0.8rem] font-medium text-accent hover:underline">

@@ -52,7 +52,7 @@ export function CharteFde() {
         </header>
         <ol className="divide-y divide-line">
           {CHARTE.map((e) => (
-            <li key={e.numero} className="grid gap-3 py-6 break-inside-avoid md:grid-cols-[3.5rem_1fr]">
+            <li key={e.numero} id={`engagement-${e.numero}`} className="grid gap-3 py-6 break-inside-avoid md:grid-cols-[3.5rem_1fr]">
               <span
                 className="titre-editorial text-[2rem] leading-none text-accent tabular-nums"
                 aria-hidden

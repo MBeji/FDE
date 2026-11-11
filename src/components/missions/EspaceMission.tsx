@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowRight,
   BookOpen,
   Check,
+  ChevronsUpDown,
   CircleCheck,
   FileText,
   Flag,
@@ -18,7 +19,7 @@ import {
   OngletTravaux,
   OngletValeur,
 } from "@/components/missions/OngletsMission";
-import { Bouton, Carte, Jauge, Pastille, Vide, classesBouton } from "@/components/ui";
+import { Bouton, Carte, Jauge, Pastille, Vide, classesBouton, gererFlechesOnglets } from "@/components/ui";
 import { phases } from "@/data/phases";
 import type { Phase, PhaseId } from "@/data/types";
 import { cn } from "@/lib/cn";
@@ -36,9 +37,12 @@ import {
   type Mission,
   type StatutLivrable,
 } from "@/lib/missions";
-import { useEstClient } from "@/lib/stockage";
+import { creerStock, useEstClient, useStock } from "@/lib/stockage";
 
 type Onglet = "parcours" | "valeur" | "journal" | "travaux" | "exports";
+
+/** Onglet conservé : on le retrouve après un rechargement ou au retour d'un atelier. */
+const stockOnglet = creerStock<Onglet>("fde-atlas:mission:onglet:v1", "parcours");
 
 const ORDRE_STATUT: StatutLivrable[] = ["a-faire", "en-cours", "valide"];
 
@@ -114,8 +118,17 @@ function BandePhases({
   );
 }
 
-function OngletParcours({ mission, phase }: { mission: Mission; phase: Phase }) {
+function OngletParcours({
+  mission,
+  phase,
+  onSelection,
+}: {
+  mission: Mission;
+  phase: Phase;
+  onSelection: (p: PhaseId) => void;
+}) {
   const a = avancementPhase(mission, phase);
+  const etatJalon = useRef<HTMLSpanElement>(null);
   const indexMandat = mission.phases.indexOf(phase.id);
   const suivante = mission.phases[indexMandat + 1];
 
@@ -145,6 +158,9 @@ function OngletParcours({ mission, phase }: { mission: Mission; phase: Phase }) 
       titre: `Jalon ${phase.jalon.code} franchi — ${phase.jalon.nom}`,
       detail: "",
     });
+    // On reste sur la phase close pour voir la confirmation ; le focus suit le message.
+    onSelection(phase.id);
+    requestAnimationFrame(() => etatJalon.current?.focus());
   }
   function rouvrirJalon() {
     majMission(mission.id, (m) => ({
@@ -198,7 +214,7 @@ function OngletParcours({ mission, phase }: { mission: Mission; phase: Phase }) 
               return (
                 <li key={cle} className="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg px-2 py-2">
                   <FileText className="size-4 flex-none text-ink-3" aria-hidden />
-                  <span className="min-w-0 flex-1">
+                  <span className="min-w-[12rem] flex-1">
                     <span className="block text-[0.9rem] font-medium text-ink">
                       {l.titre}
                       {l.obligatoire && <span className="ml-1.5 text-[0.7rem] font-normal text-ink-3">exigé au jalon</span>}
@@ -214,9 +230,11 @@ function OngletParcours({ mission, phase }: { mission: Mission; phase: Phase }) 
                     onClick={() => avancerLivrable(cle)}
                     title="Cliquer pour changer le statut"
                     aria-label={`Statut de ${l.titre} : ${STATUTS_LIVRABLE[statut]}. Cliquer pour changer.`}
+                    className="rounded-md transition-opacity hover:opacity-80"
                   >
                     <Pastille ton={statut === "valide" ? "bon" : statut === "en-cours" ? "accent" : "neutre"} className="min-w-[4.6rem] justify-center">
                       {STATUTS_LIVRABLE[statut]}
+                      <ChevronsUpDown className="size-3 opacity-60" aria-hidden />
                     </Pastille>
                   </button>
                 </li>
@@ -263,8 +281,12 @@ function OngletParcours({ mission, phase }: { mission: Mission; phase: Phase }) 
 
           <div className="mt-5 border-t border-line px-2 pt-4">
             {a.franchi ? (
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="flex items-center gap-1.5 text-[0.86rem] font-medium text-good-ink">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                <span
+                  ref={etatJalon}
+                  tabIndex={-1}
+                  className="flex items-center gap-1.5 text-[0.86rem] font-medium text-good-ink"
+                >
                   <CircleCheck className="size-4" aria-hidden />
                   Jalon franchi
                   {mission.jalons[phase.id]?.date &&
@@ -273,6 +295,12 @@ function OngletParcours({ mission, phase }: { mission: Mission; phase: Phase }) 
                 <Bouton variante="discret" taille="sm" className="ml-auto" onClick={rouvrirJalon}>
                   Rouvrir
                 </Bouton>
+                {suivante && (
+                  <Bouton variante="primaire" className="w-full" onClick={() => onSelection(suivante)}>
+                    Passer à la phase suivante
+                    <ArrowRight className="size-4" aria-hidden />
+                  </Bouton>
+                )}
               </div>
             ) : (
               <>
@@ -297,7 +325,7 @@ function OngletParcours({ mission, phase }: { mission: Mission; phase: Phase }) 
 export function EspaceMission() {
   const estClient = useEstClient();
   const { active: mission } = useMissions();
-  const [onglet, setOnglet] = useState<Onglet>("parcours");
+  const [onglet, setOnglet] = useStock(stockOnglet);
   const [selection, setSelection] = useState<PhaseId | null>(null);
 
   if (!estClient) return <div className="h-64" aria-busy />;
@@ -365,13 +393,21 @@ export function EspaceMission() {
       </dl>
 
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-line">
-        <div role="tablist" aria-label="Sections de la mission" className="flex gap-1 overflow-x-auto">
+        <div
+          role="tablist"
+          aria-label="Sections de la mission"
+          onKeyDown={(e) => gererFlechesOnglets(e, onglets.map((o) => o.id), onglet, setOnglet)}
+          className="defilement-fin fondu-droite flex min-w-0 gap-1 overflow-x-auto"
+        >
           {onglets.map((o) => (
             <button
               key={o.id}
               type="button"
               role="tab"
+              id={`mission-onglet-${o.id}`}
+              aria-controls="mission-panneau"
               aria-selected={onglet === o.id}
+              tabIndex={onglet === o.id ? 0 : -1}
               onClick={() => setOnglet(o.id)}
               className={cn(
                 "-mb-px flex items-center gap-1.5 border-b-2 px-3 py-2.5 text-[0.88rem] font-medium whitespace-nowrap transition-colors",
@@ -393,33 +429,35 @@ export function EspaceMission() {
         </BoutonCopilote>
       </div>
 
-      {onglet === "parcours" && (
-        <>
-          <div className="mb-5">
-            <BandePhases mission={mission} selection={idPhase} onSelection={setSelection} />
-          </div>
-          <div className="mb-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h2 className="text-[1.25rem] font-semibold tracking-tight text-ink">
-              {phase.numero}. {phase.nom}
-            </h2>
-            <p className="text-[0.9rem] text-ink-2">{phase.promesse}</p>
-            {mission.phaseCourante !== phase.id && (
-              <Bouton
-                taille="sm"
-                className="ml-auto"
-                onClick={() => majMission(mission.id, (m) => ({ ...m, phaseCourante: phase.id }))}
-              >
-                Définir comme phase en cours
-              </Bouton>
-            )}
-          </div>
-          <OngletParcours mission={mission} phase={phase} />
-        </>
-      )}
-      {onglet === "valeur" && <OngletValeur mission={mission} />}
-      {onglet === "journal" && <OngletJournal mission={mission} />}
-      {onglet === "travaux" && <OngletTravaux mission={mission} />}
-      {onglet === "exports" && <OngletExports mission={mission} />}
+      <div id="mission-panneau" role="tabpanel" aria-labelledby={`mission-onglet-${onglet}`}>
+        {onglet === "parcours" && (
+          <>
+            <div className="mb-5">
+              <BandePhases mission={mission} selection={idPhase} onSelection={setSelection} />
+            </div>
+            <div className="mb-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <h2 className="text-[1.25rem] font-semibold tracking-tight text-ink">
+                {phase.numero}. {phase.nom}
+              </h2>
+              <p className="text-[0.9rem] text-ink-2">{phase.promesse}</p>
+              {mission.phaseCourante !== phase.id && (
+                <Bouton
+                  taille="sm"
+                  className="ml-auto"
+                  onClick={() => majMission(mission.id, (m) => ({ ...m, phaseCourante: phase.id }))}
+                >
+                  Définir comme phase en cours
+                </Bouton>
+              )}
+            </div>
+            <OngletParcours mission={mission} phase={phase} onSelection={setSelection} />
+          </>
+        )}
+        {onglet === "valeur" && <OngletValeur mission={mission} />}
+        {onglet === "journal" && <OngletJournal mission={mission} />}
+        {onglet === "travaux" && <OngletTravaux mission={mission} />}
+        {onglet === "exports" && <OngletExports mission={mission} />}
+      </div>
     </div>
   );
 }

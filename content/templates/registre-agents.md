@@ -147,6 +147,8 @@ Dernier relevé : semaine du 21 au 27 septembre 2026, régions déployées.
 | SAV-05 | Équipe AgentOps | Nadia Cherif | Fiche agent, runbook dédié, spécification de `client.envoyer_message` | Coordonnées du contact, utilisées pour l'envoi et masquées dans les journaux | 5 novembre 2026 |
 | SAV-06 | Équipe AgentOps | Analyste évaluation de l'équipe AgentOps | Fiche agent, runbook commun | Traces déjà masquées | 4 février 2027 |
 
+**Usage exclu, tous agents** : aucune exploitation des données du poste de supervision pour évaluer la performance individuelle des conseillers. Décision du COPIL à la suite de l'[analyse AI Act](/frameworks/eu-ai-act) de S8 ; toute demande contraire rouvre la qualification.
+
 ## 4. Journal des changements
 
 | Date | Réf. | Changement | Décidé par | Preuve |
@@ -163,7 +165,7 @@ Dernier relevé : semaine du 21 au 27 septembre 2026, régions déployées.
 ## 5. Règles de tenue du registre
 
 - **Entrée** : aucun agent n'est mis en service sans ligne au registre, propriétaire métier nommé et avis du juridique sur sa qualification réglementaire. La passerelle MCP ne délivre une identité technique qu'aux agents inscrits.
-- **Mise à jour** : sous deux jours ouvrés après tout déploiement, tout changement d'autonomie ou de liste de motifs, tout incident de gravité G1 ou G2, tout changement de propriétaire. Responsable : le responsable AgentOps.
+- **Mise à jour** : sous deux jours ouvrés après tout déploiement, tout changement d'autonomie ou de liste de motifs, tout incident de gravité SEV1 ou SEV2 (voir le [runbook](/templates/runbook-agent)), tout changement de propriétaire. Responsable : le responsable AgentOps.
 - **Changement d'autonomie** : un élargissement se demande par un dossier (périmètre, preuves, risque résiduel, surveillance prévue, condition de repli) et se décide en comité. Un repli s'applique immédiatement, sans attendre le comité, et lui est rapporté à la séance suivante.
 - **Contrôle de cohérence** : chaque mois, avant le comité, rapprochement entre le registre, les identités techniques de la passerelle et la configuration en production. Tout écart est traité comme un incident.
 - **Sortie** : un agent retiré reste au registre avec sa date et son motif de retrait ; son identité technique est révoquée le jour même.

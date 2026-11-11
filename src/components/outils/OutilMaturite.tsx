@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, FlaskConical } from "lucide-react";
 import { Radar } from "@/components/charts/Radar";
 import { ActionsResultat, fmt } from "@/components/outils/commun";
-import { Bouton, Carte, Pastille, Vide } from "@/components/ui";
+import { Bouton, Carte, Pastille, Vide, gererFlechesOnglets } from "@/components/ui";
 import {
   DIMENSIONS_MATURITE,
   EXEMPLE_VOXALIS,
@@ -19,6 +19,9 @@ import { creerStock, useStock } from "@/lib/stockage";
 const stock = creerStock<Record<string, number>>("fde-atlas:outil:maturite:v1", {});
 
 /** Libellés courts des dimensions, pour les axes du radar. */
+/** Onglets dans l'ordre : les dimensions puis le résultat (index = étape). */
+const ID_ONGLETS = [...DIMENSIONS_MATURITE.map((d) => d.id), "resultat"];
+
 const NOMS_COURTS: Record<string, string> = {
   vision: "Vision",
   valeur: "Valeur",
@@ -94,33 +97,43 @@ export function OutilMaturite() {
 
   return (
     <div>
-      <div className="mb-5 flex flex-wrap items-center gap-2">
-        <div className="defilement-fin flex flex-1 gap-1 overflow-x-auto" role="tablist" aria-label="Dimensions">
-          {DIMENSIONS_MATURITE.map((d, i) => {
-            const faites = d.questions.filter((q) => reponses[q.id]).length;
-            return (
-              <button
-                key={d.id}
-                type="button"
-                role="tab"
-                aria-selected={etape === i}
-                onClick={() => setEtape(i)}
-                className={cn(
-                  "flex flex-none items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[0.8rem] font-medium whitespace-nowrap transition-colors",
-                  etape === i ? "border-ink bg-ink text-bg" : "border-line bg-surface text-ink-2 hover:border-line-strong",
-                )}
-              >
-                {d.nom}
-                <span className={cn("text-[0.68rem] tabular-nums", etape === i ? "opacity-70" : "text-ink-3")}>
-                  {faites}/{d.questions.length}
-                </span>
-              </button>
-            );
-          })}
+      <div className="mb-5 flex flex-wrap items-start gap-2">
+        <div
+          role="tablist"
+          aria-label="Dimensions et résultat"
+          onKeyDown={(e) => gererFlechesOnglets(e, ID_ONGLETS, ID_ONGLETS[etape], (id) => setEtape(ID_ONGLETS.indexOf(id)))}
+          className="flex min-w-0 flex-1 items-start gap-1"
+        >
+          <div className="defilement-fin fondu-droite flex min-w-0 flex-1 gap-1 overflow-x-auto lg:flex-wrap lg:overflow-visible lg:[mask-image:none] lg:pr-0">
+            {DIMENSIONS_MATURITE.map((d, i) => {
+              const faites = d.questions.filter((q) => reponses[q.id]).length;
+              return (
+                <button
+                  key={d.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={etape === i}
+                  tabIndex={etape === i ? 0 : -1}
+                  onClick={() => setEtape(i)}
+                  className={cn(
+                    "flex flex-none items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-[0.8rem] font-medium whitespace-nowrap transition-colors",
+                    etape === i ? "border-ink bg-ink text-bg" : "border-line bg-surface text-ink-2 hover:border-line-strong",
+                  )}
+                >
+                  {d.nom}
+                  <span className={cn("text-[0.68rem] tabular-nums", etape === i ? "opacity-70" : "text-ink-3")}>
+                    {faites}/{d.questions.length}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+          {/* Hors de la zone défilante : le résultat reste toujours visible. */}
           <button
             type="button"
             role="tab"
             aria-selected={surResultat}
+            tabIndex={surResultat ? 0 : -1}
             onClick={() => setEtape(DIMENSIONS_MATURITE.length)}
             className={cn(
               "flex-none rounded-lg border px-2.5 py-1.5 text-[0.8rem] font-semibold whitespace-nowrap transition-colors",
@@ -130,7 +143,13 @@ export function OutilMaturite() {
             Résultat
           </button>
         </div>
-        <Bouton taille="sm" onClick={() => setReponses(EXEMPLE_VOXALIS)}>
+        <Bouton
+          taille="sm"
+          onClick={() => {
+            setReponses(EXEMPLE_VOXALIS);
+            setEtape(DIMENSIONS_MATURITE.length);
+          }}
+        >
           <FlaskConical className="size-3.5" aria-hidden />
           Exemple Voxalis
         </Bouton>
@@ -219,9 +238,9 @@ export function OutilMaturite() {
               <p className="mt-1 text-[0.9rem] leading-relaxed text-ink-2">{niveau.description}</p>
               <ol className="mt-4 flex gap-1" aria-label="Échelle de maturité">
                 {NIVEAUX_MATURITE.map((n) => (
-                  <li key={n.niveau} className="flex-1">
+                  <li key={n.niveau} className="min-w-0 flex-1">
                     <span className={cn("block h-1.5 rounded-full", n.niveau <= niveau.niveau ? "bg-series-1" : "bg-accent-soft")} />
-                    <span className={cn("mt-1.5 block text-[0.68rem]", n.niveau === niveau.niveau ? "font-semibold text-ink" : "text-ink-3")}>
+                    <span className={cn("mt-1.5 block text-[0.68rem] leading-tight break-words hyphens-auto", n.niveau === niveau.niveau ? "font-semibold text-ink" : "text-ink-3")}>
                       {n.nom}
                     </span>
                   </li>

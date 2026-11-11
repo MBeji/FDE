@@ -343,15 +343,24 @@ const sansAccents = (t: string) =>
 /** Noms connus de la mission active qui ne doivent pas apparaître dans la fiche. */
 function termesSensibles(m: Mission | null): string[] {
   if (!m) return [];
+  // Sponsor et auteur sont saisis « Nom, fonction » : seule la partie avant la virgule est un nom.
+  const sponsor = m.sponsor.split(",")[0];
+  const auteur = m.auteur.split(",")[0];
   const termes = [
-    m.client,
+    m.client.replace(/\([^)]*\)/g, ""),
     m.nom,
-    m.sponsor,
-    m.auteur,
-    ...m.sponsor.split(/\s+/),
-    ...m.auteur.split(/\s+/),
+    sponsor,
+    auteur,
+    ...sponsor.split(/\s+/),
+    ...auteur.split(/\s+/),
   ];
   return [...new Set(termes.map((t) => t.trim()).filter((t) => t.length >= 4))];
+}
+
+/** Présence du terme en mots entiers (« Anne » ne doit pas attraper « année »). */
+function contientMot(texteSansAccents: string, terme: string): boolean {
+  const motif = sansAccents(terme).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return new RegExp(`(^|[^\\p{L}\\p{N}])${motif}(?![\\p{L}\\p{N}])`, "u").test(texteSansAccents);
 }
 
 /* ------------------------------------------------------------------ */
@@ -481,7 +490,7 @@ export function AssistantContribution() {
     `${b.titre} ${b.resume} ${b.motsCles} ${corps}`,
   );
   const nomsTrouves = termesSensibles(mission).filter((t) =>
-    texteComplet.includes(sansAccents(t)),
+    contientMot(texteComplet, t),
   );
   if (nomsTrouves.length)
     manques.push(
@@ -541,7 +550,7 @@ export function AssistantContribution() {
                 aria-checked={b.type === t}
                 onClick={() => maj({ type: t })}
                 className={cn(
-                  "rounded-lg border px-3 py-2.5 text-left transition-[border-color,background-color]",
+                  "flex flex-col justify-start rounded-lg border px-3 py-2.5 text-left transition-[border-color,background-color]",
                   b.type === t
                     ? "border-accent-line bg-accent-soft"
                     : "border-line bg-surface hover:border-line-strong",

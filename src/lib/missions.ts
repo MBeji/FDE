@@ -76,11 +76,20 @@ export function activerMission(id: string | null) {
   stockMissions.set((e) => ({ ...e, active: id }));
 }
 
+/** Artefact du même atelier, de même titre, enregistré aujourd'hui : il est mis à jour plutôt que dupliqué. */
+export function artefactDuJour(m: Mission, outil: string, titre: string): Artefact | undefined {
+  const jour = aujourdhui();
+  return m.artefacts.find((a) => a.outil === outil && a.titre === titre && a.date === jour);
+}
+
 export function ajouterArtefact(missionId: string, artefact: Omit<Artefact, "id" | "date">) {
-  majMission(missionId, (m) => ({
-    ...m,
-    artefacts: [{ ...artefact, id: nouvelId(), date: aujourdhui() }, ...m.artefacts],
-  }));
+  majMission(missionId, (m) => {
+    const existant = artefactDuJour(m, artefact.outil, artefact.titre);
+    if (existant) {
+      return { ...m, artefacts: m.artefacts.map((a) => (a.id === existant.id ? { ...a, ...artefact } : a)) };
+    }
+    return { ...m, artefacts: [{ ...artefact, id: nouvelId(), date: aujourdhui() }, ...m.artefacts] };
+  });
 }
 
 export function ajouterEntree(missionId: string, entree: Omit<EntreeJournal, "id">) {

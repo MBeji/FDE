@@ -86,9 +86,9 @@ Un runbook par agent qui écrit ou s'adresse au client ; un runbook commun peut 
 
 | Gravité | Définition | Prise en charge | Personnes prévenues |
 | --- | --- | --- | --- |
-| G1 — Majeure | _[Action inappropriée exécutée, donnée exposée, client lésé]_ | | |
-| G2 — Sérieuse | | | |
-| G3 — Mineure | | | |
+| SEV1 — Majeure | _[Action inappropriée exécutée, donnée exposée, client lésé]_ | | |
+| SEV2 — Sérieuse | | | |
+| SEV3 — Mineure | | | |
 
 **Contrôles de routine** : _[Ce qui se regarde chaque jour, chaque semaine, chaque mois, et par qui.]_
 
@@ -220,21 +220,21 @@ _[Même plan pour chaque procédure. Les étapes de mise en sécurité ne demand
 
 | N° | Alerte | Gravité | Destinataire | Procédure |
 | --- | --- | --- | --- | --- |
-| A1 | Rétablissement vérifié ou réouvertures au-delà d'un seuil | G3 à l'avertissement, G2 au seuil critique | AgentOps de permanence | P1 |
-| A2 | Régression au rejeu nocturne | G2, déploiement bloqué | AgentOps de permanence | P1 |
-| A3 | `reseau.executer_action` en erreur ou indisponible | G2 | AgentOps, astreinte de la Direction Réseau | P2 |
-| A4 | Disjoncteur de zone ouvert | G3 | AgentOps, Direction Réseau | P2, cas C |
-| A5 | Action inappropriée, ou refus « service hors périmètre » répétés sur un même cas | G1 | AgentOps, référent sécurité, Marc Dubois | P3 |
-| A6 | Coût par cas ou dépense du jour au-delà d'un seuil | G3 | AgentOps de permanence | P4 |
-| A7 | Approbations en attente | G3 | Responsable de plateau | Section 4, renfort d'approbateurs |
+| A1 | Rétablissement vérifié ou réouvertures au-delà d'un seuil | SEV3 à l'avertissement, SEV2 au seuil critique | AgentOps de permanence | P1 |
+| A2 | Régression au rejeu nocturne | SEV2, déploiement bloqué | AgentOps de permanence | P1 |
+| A3 | `reseau.executer_action` en erreur ou indisponible | SEV2 | AgentOps, astreinte de la Direction Réseau | P2 |
+| A4 | Disjoncteur de zone ouvert | SEV3 | AgentOps, Direction Réseau | P2, cas C |
+| A5 | Action inappropriée, ou refus « service hors périmètre » répétés sur un même cas | SEV1 | AgentOps, référent sécurité, Marc Dubois | P3 |
+| A6 | Coût par cas ou dépense du jour au-delà d'un seuil | SEV3 | AgentOps de permanence | P4 |
+| A7 | Approbations en attente | SEV3 | Responsable de plateau | Section 4, renfort d'approbateurs |
 
 **Niveaux de gravité**
 
 | Gravité | Définition | Prise en charge | Personnes prévenues |
 | --- | --- | --- | --- |
-| G1 — Majeure | Action inappropriée exécutée, donnée exposée, client lésé | Immédiate, 15 minutes au plus | Sophie Lambert, Marc Dubois et Thomas Nguyen dans l'heure ; Claire Besson informée le jour même |
-| G2 — Sérieuse | Qualité sous le seuil critique, outil indisponible, agent arrêté | 30 minutes pendant l'ouverture des plateaux | Responsable AgentOps, responsables de plateau |
-| G3 — Mineure | Avertissement sans effet pour le client | Jour ouvré suivant | AgentOps de permanence |
+| SEV1 — Majeure | Action inappropriée exécutée, donnée exposée, client lésé | Immédiate, 15 minutes au plus | Sophie Lambert, Marc Dubois et Thomas Nguyen dans l'heure ; Claire Besson informée le jour même |
+| SEV2 — Sérieuse | Qualité sous le seuil critique, outil indisponible, agent arrêté | 30 minutes pendant l'ouverture des plateaux | Responsable AgentOps, responsables de plateau |
+| SEV3 — Mineure | Avertissement sans effet pour le client | Jour ouvré suivant | AgentOps de permanence |
 
 **Contrôles de routine**
 
@@ -283,7 +283,7 @@ _[Même plan pour chaque procédure. Les étapes de mise en sécurité ne demand
 - **Mise en sécurité (5 minutes au plus), avant toute analyse**
   1. Arrêt d'urgence global. Toute personne habilitée le déclenche sans demander d'autorisation.
   2. Si l'identité de l'agent est en cause : faire révoquer son jeton par le référent sécurité ou par l'astreinte sécurité.
-  3. Appeler Marc Dubois et Sophie Lambert : gravité G1.
+  3. Appeler Marc Dubois et Sophie Lambert : gravité SEV1.
 - **Préserver**
   4. Exporter et geler les traces et le journal d'audit de la période. Ne rien corriger, ne rien purger. Noter l'heure, la version et les tickets concernés.
 - **Mesurer l'impact**
@@ -338,9 +338,9 @@ _[Même plan pour chaque procédure. Les étapes de mise en sécurité ne demand
 | Niveau | Rôle | Joignable | Quand l'appeler |
 | --- | --- | --- | --- |
 | 1 | AgentOps de permanence (rotation hebdomadaire des trois membres) | De 8 h à 20 h du lundi au samedi, numéro d'astreinte AgentOps | Toute alerte |
-| 1, plateaux fermés | Astreinte de la DSI | En continu | Alertes G1 et G2 ; applique la section 4 seulement |
-| 2 | Responsable AgentOps, puis Thomas Nguyen | Heures ouvrées ; rappel possible pour une G1 | G1 ou G2 non maîtrisée en 30 minutes ; toute décision de retour arrière |
-| Métier | Responsable de plateau de permanence, puis Sophie Lambert | Ouverture des plateaux ; Sophie Lambert rappelable pour une G1 | Mode dégradé de plus de 30 minutes ; toute reprise après un arrêt |
+| 1, plateaux fermés | Astreinte de la DSI | En continu | Alertes SEV1 et SEV2 ; applique la section 4 seulement |
+| 2 | Responsable AgentOps, puis Thomas Nguyen | Heures ouvrées ; rappel possible pour une SEV1 | SEV1 ou SEV2 non maîtrisée en 30 minutes ; toute décision de retour arrière |
+| Métier | Responsable de plateau de permanence, puis Sophie Lambert | Ouverture des plateaux ; Sophie Lambert rappelable pour une SEV1 | Mode dégradé de plus de 30 minutes ; toute reprise après un arrêt |
 | Réseau | Astreinte de la Direction Réseau | En continu | Outil indisponible, disjoncteur de zone, incident collectif probable |
 | Sécurité | Référent sécurité, puis Marc Dubois ; astreinte sécurité | En continu | Tout soupçon, même faible |
 | Données personnelles | Élise Martin, DPO | Heures ouvrées ; par l'astreinte sécurité sinon | Donnée personnelle possiblement exposée |
@@ -350,7 +350,7 @@ L'équipe FDE est sortie de la chaîne d'escalade le 14 septembre 2026. Elle n'y
 
 ## 7. Post-mortem
 
-- **Quand il est obligatoire** : toute G1 ; toute G2 de plus d'une heure ; tout arrêt de niveau 2 ou 3 ; toute action inappropriée, même sans effet.
+- **Quand il est obligatoire** : toute SEV1 ; toute SEV2 de plus d'une heure ; tout arrêt de niveau 2 ou 3 ; toute action inappropriée, même sans effet.
 - **Délai et rédacteur** : 5 jours ouvrés ; rédigé par la personne qui a conduit l'incident, relu par un pair, présenté au comité de gouvernance IA.
 - **Trame** : résumé en trois lignes ; chronologie horodatée ; impact (clients, tickets, durée) ; cause immédiate, cause profonde, raison pour laquelle on ne l'a pas vu plus tôt ; ce qui a bien fonctionné ; actions avec porteur et date. Aucune recherche de coupable.
 - **Sorties obligatoires** : au moins un cas de test ajouté au golden set ou au jeu adverse ; le runbook corrigé si une étape a manqué ; une ligne au journal.
@@ -359,8 +359,8 @@ L'équipe FDE est sortie de la chaîne d'escalade le 14 septembre 2026. Elle n'y
 
 | Date | Gravité | Événement | Cause | Suites |
 | --- | --- | --- | --- | --- |
-| 22 et 23 juin 2026 | G3, sur l'Agent Communication | Deux messages client envoyés en double | Nouvel essai après délai dépassé sur un outil d'écriture sans clé d'idempotence | Clé ajoutée sur `client.envoyer_message` en S24 ; la protection équivalente de `reseau.executer_action` vérifiée par test |
+| 22 et 23 juin 2026 | SEV3, sur l'Agent Communication | Deux messages client envoyés en double | Nouvel essai après délai dépassé sur un outil d'écriture sans clé d'idempotence | Clé ajoutée sur `client.envoyer_message` en S24 ; la protection équivalente de `reseau.executer_action` vérifiée par test |
 | 12 août 2026 | Exercice | Incident de sécurité simulé : action sur un service hors du parc du client | Sans objet | Arrêt d'urgence déclenché par l'astreinte en 3 minutes, sans l'équipe FDE. Numéro de l'astreinte sécurité absent de la fiche réflexe : ajouté en version 1.1 |
 | 20 août 2026 | Changement | Limite globale portée de 120 à 300 actions par heure | Limite dimensionnée pour le pilote, insuffisante au pic national | Test de charge au volume national réussi, accord de la Direction Réseau ; version 1.2 |
 | 16 septembre 2026 | Exercice | Procédures P1, P2 et P4 et arrêt de niveau 3 joués par l'équipe AgentOps, Inès en observation | Sans objet | Deux étapes reformulées ; délais constatés reportés en sections 4 et 5 |
-| 29 septembre 2026 | G2 | `reseau.executer_action` rend une issue inconnue pendant 47 minutes | Maintenance de la supervision réseau non annoncée à l'équipe AgentOps | Arrêt d'urgence en 9 minutes ; 212 cas traités en voie assistée ; aucune action rejouée ; calendrier des maintenances désormais transmis chaque semaine ; cas B précisé en version 1.3 |
+| 29 septembre 2026 | SEV2 | `reseau.executer_action` rend une issue inconnue pendant 47 minutes | Maintenance de la supervision réseau non annoncée à l'équipe AgentOps | Arrêt d'urgence en 9 minutes ; 212 cas traités en voie assistée ; aucune action rejouée ; calendrier des maintenances désormais transmis chaque semaine ; cas B précisé en version 1.3 |

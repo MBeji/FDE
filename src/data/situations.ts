@@ -146,7 +146,7 @@ export const SITUATIONS: Situation[] = [
     id: "preparer-une-mission",
     intitule: "Je prépare une mission",
     commencer:
-      "Ouvrez le dossier de préparation dès la signature : comprendre le client, demander les accès et envoyer le questionnaire de découverte avant le premier jour.",
+      "Ouvrez le dossier de préparation dès la signature : comprendre le client et demander les accès avant le premier jour ; le questionnaire de découverte part à la signature de la charte.",
     etapes: [
       {
         titre: "D'abord, constituer le dossier de préparation",
@@ -156,9 +156,9 @@ export const SITUATIONS: Situation[] = [
         lien: "Dossier de préparation de mission",
       },
       {
-        titre: "Ensuite, envoyer le questionnaire de découverte",
+        titre: "Ensuite, préparer le questionnaire de découverte",
         detail:
-          "Volumes, indicateurs suivis, systèmes, interlocuteurs : ce que le client peut renseigner avant votre arrivée n'a pas à occuper vos premiers entretiens.",
+          "Volumes, indicateurs suivis, systèmes, interlocuteurs : ce que le client peut renseigner par écrit n'a pas à occuper vos entretiens de diagnostic. Il part au propriétaire du processus à la signature de la charte, avec une semaine de délai.",
         href: "/templates/questionnaire-decouverte",
         lien: "Questionnaire de découverte",
       },
@@ -323,7 +323,7 @@ export const SITUATIONS: Situation[] = [
       {
         titre: "Ensuite, observer le travail réel",
         detail:
-          "Deux à trois jours sur le terrain, chronomètre en main : attentes, ressaisies, contournements. Chez Voxalis, l'observation a révélé que 41 % du délai était de l'attente entre niveaux.",
+          "Deux à trois jours sur le terrain, chronomètre en main : attentes, ressaisies, contournements. Chez Voxalis, l'observation a montré jusqu'à six applications ouvertes pour un même cas et des fiches de résolution personnelles ; les horodatages ont ensuite chiffré à 41 % la part de l'attente entre niveaux.",
         href: "/frameworks/observation-terrain",
         lien: "Observation terrain",
       },
@@ -954,7 +954,7 @@ export const SITUATIONS: Situation[] = [
       {
         titre: "Puis comparer avec un retour d'expérience publié",
         detail:
-          "Niveau de détail, ton, anonymisation : le REX Voxalis montre ce qui est attendu.",
+          "Niveau de détail et ton : le REX Voxalis ; anonymisation : le REX assurance, rédigé sans nom ni chiffre identifiant.",
         href: "/savoir/rex-voxalis-sav-augmente",
         lien: "REX : le SAV augmenté",
       },
@@ -967,6 +967,12 @@ export const SITUATIONS: Situation[] = [
       },
     ],
     ressources: [
+      {
+        type: "section",
+        href: "/savoir/rex-exemple-assurance-sinistres",
+        titre: "REX : gestion de sinistres chez un assureur",
+        usage: "Le modèle d'anonymisation : un retour d'expérience rédigé sans nom ni chiffre identifiant, sur une mission réorientée.",
+      },
       {
         type: "phase",
         href: "/methode/perenniser",
@@ -986,12 +992,6 @@ export const SITUATIONS: Situation[] = [
         href: "/templates/cloture-mission",
         titre: "Clôture de mission",
         usage: "Le moment naturel pour rédiger la fiche.",
-      },
-      {
-        type: "section",
-        href: "/savoir/rex-exemple-assurance-sinistres",
-        titre: "REX : gestion de sinistres chez un assureur",
-        usage: "Un exemple de retour d'expérience sur une mission réorientée.",
       },
       {
         type: "section",

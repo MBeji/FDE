@@ -196,7 +196,7 @@ En fin de conception, avant la construction : c'est une condition du jalon G4. R
 | N° | Contrôle | Statut | Preuve | Validateur |
 | --- | --- | --- | --- | --- |
 | W1 | Liste exhaustive | Conforme | 3 outils sur 9 : `crm.mettre_a_jour_ticket`, `reseau.executer_action`, `client.envoyer_message` | Marc Dubois |
-| W2 | Règles d'approbation | Conforme | `reseau.executer_action` : L3 sur le catalogue d'actions à risque faible, approbation humaine au-delà ; `client.envoyer_message` : L3 pour les statuts, approbation pour tout geste commercial. Règles appliquées par la passerelle, testées sur 40 cas | Marc Dubois |
+| W2 | Règles d'approbation | Conforme sous condition | `reseau.executer_action` : L3 sur le catalogue d'actions à risque faible, approbation humaine au-delà ; `client.envoyer_message` : L3 pour les statuts, approbation pour tout geste commercial. Règles d'approbation spécifiées dans la passerelle ; tests à exécuter pendant le prototype | Marc Dubois |
 | W3 | Plafonds | Conforme | Au plus 2 actions réseau par cas, aucune sur les liaisons grands comptes ; au plus 3 messages client par cas et par jour | Marc Dubois |
 | W4 | Réversibilité | Conforme sous condition | Procédure de retour arrière documentée pour 9 des 11 actions du catalogue ; les 2 restantes sont retirées du catalogue tant qu'elle manque | Marc Dubois |
 
@@ -207,7 +207,7 @@ En fin de conception, avant la construction : c'est une condition du jalon G4. R
 | E1 | Inventaire | Conforme | Descriptions de tickets, courriels clients, articles de la base, réponses des outils | Marc Dubois |
 | E2 | Séparation données et instructions | Conforme | Textes clients balisés comme données dans le contexte ; aucun outil déclenché par une consigne trouvée dans un texte client | Marc Dubois |
 | E3 | Validation des sorties | Conforme | Schémas JSON validés par code avant chaque appel d'outil | Marc Dubois |
-| E4 | Jeu adverse | Conforme | 120 cas adverses : 0 action inappropriée, 0 fuite du prompt système, rapport d'évaluation du 4 mai | Marc Dubois |
+| E4 | Jeu adverse | Conforme sous condition | Jeu de 120 cas adverses constitué, annoté et versionné le 4 mai ; seuil fixé à 0 action inappropriée. Condition : rejeu obligatoire avant le mode fantôme (S22) | Marc Dubois |
 
 ## 6. Journalisation et traçabilité
 
@@ -240,7 +240,7 @@ En fin de conception, avant la construction : c'est une condition du jalon G4. R
 | N° | Contrôle | Statut | Preuve | Validateur |
 | --- | --- | --- | --- | --- |
 | A1 | Qualification | Conforme | Note de qualification : ni pratique interdite ni usage relevant des catégories à haut risque identifiées ; obligation de transparence pour les messages adressés aux clients. Confirmée par la juriste référente le 6 mai | Juriste référente |
-| A2 | Rôle | Conforme | Voxalis déployeur du système ; obligations du fournisseur du modèle à usage général portées par celui-ci | Juriste référente |
+| A2 | Rôle | Conforme | Voxalis fait développer le système et le met en service sous son nom pour son propre usage : fournisseur et déployeur du système (note de qualification du 6 mai). Les obligations propres au modèle d'IA à usage général restent portées par son fournisseur, dont les engagements sont vérifiés en F1 | Juriste référente |
 | A3 | Obligations et calendrier | Conforme | Liste des obligations et calendrier applicable établis par la Direction juridique, annexés | Juriste référente |
 
 ## 10. Continuité
@@ -249,13 +249,13 @@ En fin de conception, avant la construction : c'est une condition du jalon G4. R
 | --- | --- | --- | --- | --- |
 | C1 | Mode dégradé | Conforme sous condition | Bascule de tous les tickets en traitement manuel décrite ; test de bascule à réaliser pendant le mode fantôme du pilote | Marc Dubois |
 | C2 | Arrêt d'urgence | Conforme | Désactivation par agent ou globale depuis la console d'exploitation, par l'équipe AgentOps ou la responsable du plateau, effet en moins d'une minute | Marc Dubois |
-| C3 | Indisponibilité du modèle | Conforme | Délai maximal de 60 secondes, puis voie assistée sans agents | Marc Dubois |
+| C3 | Indisponibilité du modèle | Conforme | Délai maximal de 60 secondes, puis bascule en traitement manuel (mode dégradé C1) | Marc Dubois |
 
 ## Synthèse et signatures
 
 | Domaine | Lignes conformes | Sous condition | Non conformes | Validateur | Date |
 | --- | --- | --- | --- | --- | --- |
-| Sécurité (données, identités, secrets, outils, injection, traces, continuité) | 18 | 4 | 0 | Marc Dubois | 6 mai 2026 |
+| Sécurité (données, identités, secrets, outils, injection, traces, continuité) | 16 | 6 | 0 | Marc Dubois | 6 mai 2026 |
 | Protection des données (D2, D4, D5, J2, F2, RGPD) | 6 | 4 | 0 | Élise Martin | 6 mai 2026 |
 | Juridique (F1, EU AI Act) | 4 | 0 | 0 | Juriste référente | 6 mai 2026 |
 
@@ -266,6 +266,6 @@ En fin de conception, avant la construction : c'est une condition du jalon G4. R
 | D5 : purge des 14 descriptions du golden set | 13 mai 2026 | Inès |
 | W4 : procédures de retour arrière des 2 actions retirées | Avant leur réintégration au catalogue | Léo |
 | R1 : inscription au registre | 15 mai 2026 | Élise Martin |
-| I4, J3, R3, R4, C1 : revue des droits, journal des accès, information, AIPD, test de bascule | Avant le pilote, 8 juin 2026 | Yasmine (suivi), validateurs concernés |
+| I4, W2, E4, J3, R3, R4, C1 : revue des droits, tests des règles d'approbation, rejeu du jeu adverse, journal des accès, information, AIPD, test de bascule | Avant le pilote, 8 juin 2026 | Yasmine (suivi), validateurs concernés |
 
 **Décision** : construction autorisée sous conditions. Aucune action réelle sur le réseau ni message client avant la levée de toutes les conditions marquées « avant le pilote ».

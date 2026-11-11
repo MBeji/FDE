@@ -391,7 +391,7 @@ function LigneCompetence({
 }) {
   const sousMinimum = niveau !== undefined && niveau < c.minimum;
   return (
-    <Carte className="p-4">
+    <Carte id={`competence-${c.id}`} className="p-4">
       <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
         <div className="min-w-[14rem] flex-1">
           <p className="flex flex-wrap items-center gap-1.5">

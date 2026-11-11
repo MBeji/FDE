@@ -11,7 +11,7 @@ import {
   Search,
 } from "lucide-react";
 import { ActionsResultat } from "@/components/outils/commun";
-import { Bouton, CLASSES_SAISIE, Champ, Jauge, Pastille, Vide } from "@/components/ui";
+import { Bouton, CLASSES_SAISIE, Champ, Jauge, OngletsSegmentes, Pastille, Vide } from "@/components/ui";
 import { cn } from "@/lib/cn";
 import { creerStock, useStock } from "@/lib/stockage";
 import {
@@ -46,6 +46,8 @@ interface EtatRevue {
 
 const INITIAL: EtatRevue = { objet: "", jalon: "", statuts: {}, notes: {} };
 const stockRevue = creerStock<EtatRevue>("fde-atlas:standards:v1", INITIAL);
+/** Mode conservé : on retrouve la revue en cours après un rechargement ou un aller-retour. */
+const stockMode = creerStock<"consulter" | "revue">("fde-atlas:standards:mode:v1", "consulter");
 
 const STATUTS: Record<Statut, { nom: string; icone: typeof CheckCircle2; actif: string }> = {
   conforme: { nom: "Conforme", icone: CheckCircle2, actif: "border-good/30 bg-good-soft text-good-ink" },
@@ -60,7 +62,6 @@ const TONS_NIVEAU: Record<NiveauStandard, "plein" | "accent" | "neutre"> = {
 };
 
 const ORDRE_NIVEAUX: NiveauStandard[] = ["obligatoire", "recommande", "contextuel"];
-const OPTIONS_NIVEAU: (NiveauStandard | "")[] = ["", ...ORDRE_NIVEAUX];
 
 const TOTAL = DOMAINES_STANDARDS.reduce((n, d) => n + d.standards.length, 0);
 
@@ -413,7 +414,7 @@ const CLASSES_SELECT =
 type FiltreStatut = "" | "a-evaluer" | Statut;
 
 export function ReferentielStandards() {
-  const [mode, setMode] = useState<"consulter" | "revue">("consulter");
+  const [mode, setMode] = useStock(stockMode);
   const [requete, setRequete] = useState("");
   const [domaine, setDomaine] = useState("");
   const [niveau, setNiveau] = useState<NiveauStandard | "">("");
@@ -474,33 +475,19 @@ export function ReferentielStandards() {
   return (
     <div>
       {/* Mode */}
-      <div role="tablist" aria-label="Mode d'utilisation" className="mb-4 inline-flex rounded-lg border border-line bg-surface p-0.5">
-        {(
-          [
-            { id: "consulter", nom: "Consulter", icone: BookOpen },
-            { id: "revue", nom: "Mener une revue", icone: ClipboardCheck },
-          ] as const
-        ).map((m) => (
-          <button
-            key={m.id}
-            type="button"
-            role="tab"
-            id={`onglet-${m.id}`}
-            aria-selected={mode === m.id}
-            aria-controls="panneau-standards"
-            onClick={() => setMode(m.id)}
-            className={cn(
-              "inline-flex h-8 items-center gap-1.5 rounded-md px-3 text-[0.84rem] font-medium transition-colors",
-              mode === m.id ? "bg-ink text-bg" : "text-ink-2 hover:text-ink",
-            )}
-          >
-            <m.icone className="size-3.5" aria-hidden />
-            {m.nom}
-          </button>
-        ))}
-      </div>
+      <OngletsSegmentes
+        className="mb-4"
+        libelle="Mode d'utilisation"
+        prefixeId="standards"
+        valeur={mode}
+        onChange={setMode}
+        onglets={[
+          { id: "consulter", nom: "Consulter", icone: BookOpen },
+          { id: "revue", nom: "Mener une revue", icone: ClipboardCheck },
+        ]}
+      />
 
-      <div id="panneau-standards" role="tabpanel" aria-labelledby={`onglet-${mode}`}>
+      <div id="standards-panneau" role="tabpanel" aria-labelledby={`standards-onglet-${mode}`}>
         {revue && (
           <section aria-label="Revue en cours" className="mb-6 flex flex-col gap-4">
             <div className="grid gap-3 md:grid-cols-[2fr_1fr]">
@@ -573,21 +560,21 @@ export function ReferentielStandards() {
             <span id="filtre-niveau" className="text-[0.72rem] font-medium text-ink-3">
               Niveau
             </span>
-            <div role="group" aria-labelledby="filtre-niveau" className="flex flex-wrap gap-1">
-              {OPTIONS_NIVEAU.map((n) => (
+            <div role="group" aria-labelledby="filtre-niveau" className="flex min-h-9 flex-wrap items-center gap-1.5">
+              {ORDRE_NIVEAUX.map((n) => (
                 <button
-                  key={n || "tous"}
+                  key={n}
                   type="button"
                   aria-pressed={niveau === n}
-                  onClick={() => setNiveau(n)}
+                  onClick={() => setNiveau(niveau === n ? "" : n)}
                   className={cn(
-                    "h-9 rounded-lg border px-2.5 text-[0.8rem] font-medium transition-colors",
+                    "rounded-md border px-2 py-0.5 text-[0.78rem] transition-colors",
                     niveau === n
-                      ? "border-ink bg-ink text-bg"
-                      : "border-line bg-bg text-ink-2 hover:border-line-strong hover:text-ink",
+                      ? "border-ink bg-ink font-medium text-bg"
+                      : "border-line text-ink-2 hover:border-line-strong hover:text-ink",
                   )}
                 >
-                  {n ? NIVEAUX[n].nom : "Tous"}
+                  {NIVEAUX[n].nom}
                 </button>
               ))}
             </div>

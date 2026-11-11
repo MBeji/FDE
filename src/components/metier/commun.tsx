@@ -35,7 +35,7 @@ export function SectionMetier({
       className="scroll-mt-24 border-t border-line pt-10"
     >
       <p className="surtitre mb-2">{surtitre}</p>
-      <h2 id={`titre-${id}`} className="titre-editorial text-[1.6rem] leading-tight text-ink sm:text-[1.85rem]">
+      <h2 id={`titre-${id}`} className="text-[1.25rem] leading-snug font-semibold tracking-tight text-ink">
         {titre}
       </h2>
       {description && <p className="mt-2 max-w-3xl text-[0.95rem] leading-relaxed text-ink-2">{description}</p>}

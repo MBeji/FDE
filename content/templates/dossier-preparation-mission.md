@@ -129,6 +129,8 @@ Dès la signature, et au plus tard cinq jours ouvrés avant le démarrage. Revue
 | --- | --- | --- | --- |
 | J1 | | | |
 
+Déroulé détaillé : [Réussir les dix premiers jours](/guides/premiers-jours).
+
 <!-- section: exemple -->
 # Dossier de préparation de mission — Voxalis
 
@@ -161,11 +163,11 @@ Dès la signature, et au plus tard cinq jours ouvrés avant le démarrage. Revue
 | Propriétaire du processus | Sophie Lambert, Directrice Relation Client Entreprises | Non | Lundi 12 janvier, 14 h | Yasmine |
 | DSI | Karim Haddad | Non | Mardi 13 janvier | Léo |
 | Responsable Data & IA | Thomas Nguyen | Oui | Mardi 13 janvier | Inès |
-| RSSI | Marc Dubois | Non (échanges écrits) | Mardi 13 janvier, accès et données | Léo |
-| DPO | Élise Martin | Non (échanges écrits) | Mercredi 14 janvier | Inès |
+| RSSI | Marc Dubois | Non (échanges écrits) | Jeudi 15 janvier, accès et données | Léo |
+| DPO | Élise Martin | Non (échanges écrits) | Jeudi 15 janvier | Inès |
 | Finance | Julien Faure, Directeur financier | Non | Jeudi 15 janvier, méthode de la référence de coûts | Hugo |
-| RH | Isabelle Moreau, DRH | Oui | Jeudi 15 janvier | Hugo |
-| Terrain | Nadia Cherif, responsable du plateau de Nantes | Non | Vendredi 16 janvier, visite du plateau | Yasmine |
+| RH | Isabelle Moreau, DRH | Oui | Vendredi 16 janvier | Hugo |
+| Terrain | Nadia Cherif, responsable du plateau de Nantes | Non | Mardi 13 janvier, demi-journée sur le plateau | Yasmine |
 
 **Trous identifiés** : aucun interlocuteur nommé à la Direction Réseau, qui possède la supervision et les tests de ligne ; représentants du personnel non identifiés ; product owner et référent sécurité de l'équipe Voxalis détachée non encore désignés.
 
@@ -175,7 +177,7 @@ Dès la signature, et au plus tard cinq jours ouvrés avant le démarrage. Revue
 | --- | --- | --- | --- | --- | --- |
 | Comptes nominatifs | 5 comptes annuaire et messagerie (Yasmine, Léo, Inès, Hugo, expert conduite du changement) | 5 janvier | DSI, support utilisateurs | Fait, livrés le 8 janvier | Léo |
 | Postes de travail | 4 postes Voxalis ; postes FDE autorisés sur le réseau invité uniquement | 5 janvier | DSI | En cours, livraison annoncée le 12 janvier à 11 h | Léo |
-| Réseau | Accès distant VPN pour 5 personnes ; badges pour le siège et le plateau de Nantes | 5 janvier | DSI, services généraux | VPN fait ; badges Nantes à retirer sur place le 16 janvier | Hugo |
+| Réseau | Accès distant VPN pour 5 personnes ; badges pour le siège et le plateau de Nantes | 5 janvier | DSI, services généraux | VPN fait ; badges Nantes à retirer sur place le 13 janvier | Hugo |
 | Environnement de développement | Bac à sable cloud du groupe, région UE, sans connexion au SI de production | 6 janvier | Thomas Nguyen | En cours, ouverture prévue en S2 | Inès |
 | Données de test autorisées | Extraction de 12 mois de tickets (420 000 environ), champs libres pseudonymisés, sans coordonnées client ; usage limité au diagnostic, suppression en fin de mission | 6 janvier | Thomas Nguyen, Élise Martin | Bloqué : avis DPO attendu sur la pseudonymisation des descriptions libres | Inès |
 | Documentation | Cartographie applicative du SAV, procédures N1 et N2, tableaux de bord mensuels | 6 janvier | Sophie Lambert | En cours, tableaux de bord reçus | Hugo |
@@ -214,7 +216,7 @@ Dès la signature, et au plus tard cinq jours ouvrés avant le démarrage. Revue
 | --- | --- | --- | --- | --- |
 | Q1 | Qui, à la Direction Réseau, peut décider de l'ouverture des tests de ligne à un système automatisé ? | Karim Haddad | 13 janvier | |
 | Q2 | La finance dispose-t-elle d'un coût complet par ticket, et selon quelle méthode ? | Julien Faure | 15 janvier | |
-| Q3 | Quels engagements ont été pris envers les représentants du personnel sur l'automatisation ? | Isabelle Moreau | 15 janvier | |
+| Q3 | Quels engagements ont été pris envers les représentants du personnel sur l'automatisation ? | Isabelle Moreau | 16 janvier | |
 | Q4 | Pourquoi les POC précédents se sont-ils arrêtés ? | Thomas Nguyen | 13 janvier | |
 
 ## 8. Risques d'entrée
@@ -223,15 +225,15 @@ Dès la signature, et au plus tard cinq jours ouvrés avant le démarrage. Revue
 | --- | --- | --- | --- | --- |
 | R1. Données de test bloquées par la pseudonymisation des champs libres | Forte | Diagnostic retardé d'une à deux semaines | Démarrer sur les champs structurés ; proposer à Élise Martin le script de pseudonymisation et un test sur 1 000 tickets | Inès |
 | R2. Sponsor attachée à la solution « chatbot » | Moyenne | Mission orientée vers un outil plutôt que vers le problème | Présenter le problème reformulé et l'hypothèse H1 dès le J3, chiffres à l'appui | Yasmine |
-| R3. Résistance du terrain à une mission perçue comme un plan de réduction d'effectifs | Moyenne | Entretiens et observation de faible qualité | Message commun sponsor et DRH avant la visite de Nantes | Hugo |
+| R3. Résistance du terrain à une mission perçue comme un plan de réduction d'effectifs | Moyenne | Entretiens et observation de faible qualité | Message commun sponsor et DRH avant l'observation à Nantes (S4) | Hugo |
 | R4. Direction Réseau absente de la gouvernance | Forte | Outils de diagnostic inaccessibles en conception | Faire nommer un référent Réseau au COPIL du 5 février | Yasmine |
 
 ## 9. Programme des dix premiers jours
 
 | Jour | Objectif | Rendez-vous | Livrable |
 | --- | --- | --- | --- |
-| J1 (12 janvier) | Lancer, obtenir les accès | Sponsor, propriétaire du processus | Compte rendu de lancement |
-| J2 (13 janvier) | SI, sécurité, données | DSI, RSSI, Data & IA | Liste des accès confirmée |
-| J3 (14 janvier) | Partager l'hypothèse de réponse initiale | Sponsor, DPO | Problème reformulé, hypothèses H1 à H4 |
-| J4 et J5 | Finance, RH, terrain | Directeur financier, DRH, plateau de Nantes | Méthode de la référence de coûts, premières observations |
-| J6 à J10 (S2) | Écrire et faire signer la charte | Point hebdo, sponsor | Charte de mission signée, questionnaire de découverte envoyé |
+| J1 (12 janvier) | Lancer, obtenir les accès | Sponsor, propriétaire du processus | Compte rendu de lancement, liste de demandes relancée |
+| J3 (14 janvier) | Partager l'hypothèse de réponse initiale | Sponsor (20 min) | Problème reformulé, hypothèses H1 à H4 |
+| J6 à J10 (S2, 19 au 23 janvier) | Écrire et faire signer la charte | Responsables de plateau, équipe détachée pressentie, sponsor et propriétaire du processus séparément, réunion de lancement | Charte de mission signée le 23 janvier, questionnaire de découverte envoyé |
+
+Déroulé détaillé : [Réussir les dix premiers jours](/guides/premiers-jours). Calendrier de référence : [plan de mission](/templates/plan-de-mission), semaines S1 et S2.

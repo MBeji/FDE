@@ -43,11 +43,16 @@ export function ShellProvider({ children }: { children: ReactNode }) {
       } else if (mod && e.key.toLowerCase() === "j") {
         e.preventDefault();
         setCopiloteOuvert((v) => !v);
+      } else if (e.key === "Escape") {
+        // Une seule couche à la fois, de la plus haute à la plus basse.
+        if (rechercheOuverte) setRechercheOuverte(false);
+        else if (menuOuvert) setMenuOuvert(false);
+        else if (copiloteOuvert) setCopiloteOuvert(false);
       }
     }
     window.addEventListener("keydown", surTouche);
     return () => window.removeEventListener("keydown", surTouche);
-  }, []);
+  }, [rechercheOuverte, menuOuvert, copiloteOuvert]);
 
   const valeur = useMemo(
     () => ({

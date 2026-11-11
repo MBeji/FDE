@@ -235,10 +235,10 @@ SAV Augmenté est généralisé aux cinq plateaux et 190 conseillers sont formé
 
 | Élément | Fait | Preuve | Responsable |
 | --- | --- | --- | --- |
-| Accès nominatifs désactivés (5 comptes, VPN, badges siège et Nantes) | Oui | Confirmation de la DSI du 9 octobre | Léo |
-| Postes et matériels restitués | Oui | Bon de restitution du 9 octobre | Léo |
+| Accès nominatifs désactivés (5 comptes, VPN, badges siège et Nantes) | Planifié | Désactivation programmée le 9 octobre, confirmation DSI à joindre | Léo |
+| Postes et matériels restitués | Planifié | Restitution programmée le 9 octobre, bon de restitution à joindre | Léo |
 | Extraction de 12 mois de tickets et copies de recette supprimées des environnements de l'équipe | Oui | Attestation de suppression contresignée par Élise Martin et Marc Dubois | Inès |
-| Code, configurations, golden set et jeu adverse dans les dépôts Voxalis | Oui | Transfert de propriété des dépôts, 2 octobre | Inès |
+| Code, configurations, golden set et jeu adverse dans les dépôts Voxalis | Oui | Dépôts Voxalis depuis S1 (LOG-02) ; propriétaires et mainteneurs Voxalis vérifiés ; retrait des droits d'écriture de l'équipe FDE programmé le 9 octobre | Inès |
 | Documentation remise : fiches agents, dossier d'architecture, plan d'évaluation, runbooks, registre des agents | Oui | Validée par le responsable AgentOps et Thomas Nguyen | Léo |
 | Clôture contractuelle et administrative | En cours | Procès-verbal de fin de mission à signer au COPIL | Yasmine |
 | REX rédigé et anonymisé | Oui | Relecture par un pair du pool | Yasmine |

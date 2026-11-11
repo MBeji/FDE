@@ -34,9 +34,9 @@ export const phases: Phase[] = [
         id: "cadrer-0",
         titre: "Préparer la mission avant le premier jour",
         description:
-          "Avant d'arriver chez le client : comprendre son activité, ses enjeux et ses initiatives IA passées ; obtenir les accès, les environnements et les données de test autorisées ; connaître les contraintes de sécurité et de conformité ; envoyer le questionnaire de découverte. Un FDE qui attend ses accès pendant deux semaines a entamé la confiance du sponsor avant d'avoir commencé.",
+          "Avant d'arriver chez le client : comprendre son activité, ses enjeux et ses initiatives IA passées ; obtenir les accès, les environnements et les données de test autorisées ; connaître les contraintes de sécurité et de conformité ; préparer le questionnaire de découverte, envoyé au propriétaire du processus à la signature de la charte. Un FDE qui attend ses accès pendant deux semaines a entamé la confiance du sponsor avant d'avoir commencé.",
         resultat: "Un dossier de préparation complet et des accès opérationnels au premier jour.",
-        templates: ["dossier-preparation-mission", "questionnaire-decouverte"],
+        templates: ["dossier-preparation-mission"],
         guides: ["premiers-jours"],
       },
       {
@@ -88,7 +88,7 @@ export const phases: Phase[] = [
         description:
           "Constituer l'équipe mixte, obtenir les détachements côté client, fixer le COPIL, le point hebdomadaire et le rituel quotidien. Demander dès maintenant les accès aux données, aux outils et au terrain : c'est le premier facteur de retard.",
         resultat: "Une charte de mission signée et un plan de mission partagé.",
-        templates: ["charte-de-mission", "plan-de-mission", "registre-raid"],
+        templates: ["charte-de-mission", "plan-de-mission", "registre-raid", "questionnaire-decouverte"],
         guides: ["piloter-copil"],
       },
     ],

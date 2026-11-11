@@ -565,9 +565,9 @@ export const REGLES_POOL: TempsPool[] = [
     ],
     rituels: [
       {
-        nom: "Point hebdomadaire avec le sponsor",
+        nom: "Point hebdomadaire",
         frequence: "Chaque semaine, 30 minutes",
-        contenu: "Trois décisions au plus, préparées avec options et recommandation.",
+        contenu: "Avec le propriétaire du processus ; compte rendu écrit envoyé au sponsor. Trois décisions au plus, préparées avec options et recommandation.",
       },
       {
         nom: "COPIL",

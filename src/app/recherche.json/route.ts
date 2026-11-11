@@ -23,8 +23,8 @@ export async function GET() {
   const index: EntreeRecherche[] = [
     ...sections,
     ...SITUATIONS.map((s) => ({ t: "Situation", h: `/situations#${s.id}`, n: s.intitule, r: s.commencer, k: "" })),
-    ...CHARTE.map((e) => ({ t: "Charte FDE", h: "/metier", n: `${e.numero}. ${e.titre}`, r: e.principe, k: "engagement charte" })),
-    ...COMPETENCES.map((c) => ({ t: "Compétence", h: "/competences", n: c.nom, r: c.description, k: c.famille })),
+    ...CHARTE.map((e) => ({ t: "Charte FDE", h: `/metier#engagement-${e.numero}`, n: `${e.numero}. ${e.titre}`, r: e.principe, k: "engagement charte" })),
+    ...COMPETENCES.map((c) => ({ t: "Compétence", h: `/competences#competence-${c.id}`, n: c.nom, r: c.description, k: c.famille })),
     ...TOUS_LES_STANDARDS.map((s) => ({
       t: "Standard",
       h: `/standards#${s.id}`,
@@ -45,21 +45,21 @@ export async function GET() {
       h: `/frameworks/${f.id}`,
       n: f.titre,
       r: f.resume,
-      k: `${f.tags.join(" ")} ${f.origine} ${CATEGORIES_FRAMEWORK[f.categorie]?.nom ?? ""}`,
+      k: `${f.tags.join(" ")} ${f.origine} framework ${CATEGORIES_FRAMEWORK[f.categorie]?.nom ?? ""}`,
     })),
     ...templates.map((t) => ({
       t: "Template",
       h: `/templates/${t.id}`,
       n: t.titre,
       r: t.resume,
-      k: `${t.tags.join(" ")} ${t.type} livrable`,
+      k: `${t.tags.join(" ")} ${t.type} livrable template trame modèle`,
     })),
     ...guides.map((g) => ({
       t: "Guide",
       h: `/guides/${g.id}`,
       n: g.titre,
       r: g.resume,
-      k: g.tags.join(" "),
+      k: `${g.tags.join(" ")} guide`,
     })),
     ...savoir.map((s) => ({
       t: TYPES_SAVOIR[s.type]?.nom ?? "Savoir",

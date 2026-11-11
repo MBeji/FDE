@@ -105,7 +105,7 @@ _[Source des mesures, périmètre, comparaison au témoin s'il existe.]_
 | **Période** | Du 22 au 26 juin 2026 |
 | **Phase et prochain jalon** | Construire, pilote de Nantes, semaine 3 sur 8. COPIL de mi-pilote le 2 juillet ; jalon G5 le 30 juillet |
 | **Rédacteur** | Yasmine, lead FDE, le vendredi 26 juin 2026 |
-| **Destinataires** | Claire Besson, Sophie Lambert, Karim Haddad, Thomas Nguyen, Nadia Cherif. Examiné en point hebdomadaire le mardi 30 juin |
+| **Destinataires** | Claire Besson, Sophie Lambert, Karim Haddad, Thomas Nguyen, Nadia Cherif. Examiné en point hebdomadaire le vendredi 26 juin |
 
 **Message de la semaine** : la voie assistée est ouverte à la date prévue et le délai de résolution du plateau passe de 31 h à 20,4 h ; deux incidents mineurs de messages envoyés en double sont corrigés, et deux conditions restent à tenir avant d'ouvrir la voie autonome le 6 juillet.
 

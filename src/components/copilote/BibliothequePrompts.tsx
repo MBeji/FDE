@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Sparkles } from "lucide-react";
 import { BoutonCopier } from "@/components/OngletsTemplate";
 import { useShell } from "@/components/shell/ShellProvider";
@@ -38,6 +38,15 @@ export function BibliothequePrompts({ prompts }: { prompts: PromptModele[] }) {
   const [mode, setMode] = useState<ModeCopilote | "">("");
   const [choisi, setChoisi] = useState<string>(prompts[0]?.id ?? "");
   const [saisies, setSaisies] = useState<Record<string, Record<string, string>>>({});
+  const detail = useRef<HTMLDivElement>(null);
+
+  // Sous lg, le détail est sous la liste : on l'amène à l'écran pour que le choix se voie.
+  function choisir(id: string) {
+    setChoisi(id);
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      detail.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
 
   const visibles = useMemo(
     () => prompts.filter((p) => (!phase || p.phase === phase) && (!mode || p.mode === mode)),
@@ -101,7 +110,7 @@ export function BibliothequePrompts({ prompts }: { prompts: PromptModele[] }) {
                   type="button"
                   id={p.id}
                   aria-current={prompt.id === p.id}
-                  onClick={() => setChoisi(p.id)}
+                  onClick={() => choisir(p.id)}
                   className={cn(
                     "w-full rounded-lg border px-3 py-2.5 text-left transition-colors",
                     prompt.id === p.id ? "border-ink bg-surface shadow-card" : "border-transparent hover:bg-surface-2",
@@ -116,7 +125,7 @@ export function BibliothequePrompts({ prompts }: { prompts: PromptModele[] }) {
             ))}
           </ul>
 
-          <Carte className="min-w-0 p-5">
+          <Carte ref={detail} className="min-w-0 scroll-mt-24 p-5">
             <div className="flex flex-wrap items-center gap-1.5">
               <Pastille ton="accent">{MODES_COPILOTE[prompt.mode].nom}</Pastille>
               <Pastille>{prompt.phase === "transverse" ? "Transverse" : `Phase ${PHASES_RESUME[prompt.phase].numero} · ${PHASES_RESUME[prompt.phase].nom}`}</Pastille>

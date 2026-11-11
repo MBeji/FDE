@@ -119,9 +119,9 @@ Avant chaque passage à l'échelle (première vague, vague suivante, nouveau pé
 
 | N° | Contrôle | Statut | Preuve | Écart |
 | --- | --- | --- | --- | --- |
-| G1 | Les erreurs constatées en production deviennent des cas d'évaluation | | | |
-| G2 | Annotation par des experts du métier, rythme défini | | | |
-| G3 | Gouvernance du golden set : propriétaire, versions, représentativité | | | |
+| GS1 | Les erreurs constatées en production deviennent des cas d'évaluation | | | |
+| GS2 | Annotation par des experts du métier, rythme défini | | | |
+| GS3 | Gouvernance du golden set : propriétaire, versions, représentativité | | | |
 
 ## 10. Rôles et astreinte
 
@@ -227,9 +227,9 @@ Avant chaque passage à l'échelle (première vague, vague suivante, nouveau pé
 
 | N° | Contrôle | Statut | Preuve | Écart |
 | --- | --- | --- | --- | --- |
-| G1 | Erreurs vers évaluations | Conforme | L'Agent Qualité signale les cas corrigés ou rouverts ; 142 cas ajoutés pendant le pilote | |
-| G2 | Annotation | Conforme | Deux experts N2, 4 h par semaine, file d'annotation hebdomadaire | |
-| G3 | Gouvernance du golden set | Partiel | Propriétaire nommé (Sophie Lambert) ; représentativité non vérifiée pour les plateaux hors Ouest | B pour la vague 2 : échantillon de 100 cas Nord et Est annotés avant S33, experts N2 |
+| GS1 | Erreurs vers évaluations | Conforme | L'Agent Qualité signale les cas corrigés ou rouverts ; 142 cas ajoutés pendant le pilote | |
+| GS2 | Annotation | Conforme | Deux experts N2, 4 h par semaine, file d'annotation hebdomadaire | |
+| GS3 | Gouvernance du golden set | Partiel | Propriétaire nommé (Sophie Lambert) ; représentativité non vérifiée pour les plateaux hors Ouest | B pour la vague 2 : échantillon de 100 cas Nord et Est annotés avant S33, experts N2 |
 
 ## 10. Rôles et astreinte
 
@@ -250,7 +250,7 @@ Avant chaque passage à l'échelle (première vague, vague suivante, nouveau pé
 | Coûts et incidents | 6 | 0 | 0 | 0 |
 | Golden set et rôles | 5 | 2 | 0 | 1 pour la vague 2 |
 
-**Décision** : passage à la vague 1 (Ouest) autorisé avec réserves, le 29 juillet 2026, par Thomas Nguyen et Sophie Lambert. La vague 2 (Nord et Est, S33) est conditionnée à la levée de G3.
+**Décision** : passage à la vague 1 (Ouest) autorisé avec réserves, le 29 juillet 2026, par Thomas Nguyen et Sophie Lambert. La vague 2 (Nord et Est, S33) est conditionnée à la levée de GS3 (boucle de retour vers le golden set).
 
 **Réserves**
 
@@ -260,4 +260,4 @@ Avant chaque passage à l'échelle (première vague, vague suivante, nouveau pé
 | T4 : coût par ticket complet dans le tableau de bord de valeur | Avant S33 | Hugo, contrôle de gestion |
 | M1 : veille sur les modèles inscrite dans les rôles AgentOps | S31 | Thomas Nguyen |
 | R2 : renfort jusqu'à l'arrivée du troisième ETP AgentOps | S33 | Léo |
-| G3 : 100 cas Nord et Est annotés (bloquant pour la vague 2) | Avant S33 | Experts N2 |
+| GS3 : 100 cas Nord et Est annotés (bloquant pour la vague 2) | Avant S33 | Experts N2 |

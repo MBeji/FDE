@@ -11,7 +11,8 @@ export function Radar({
 }) {
   const taille = 340;
   const centre = taille / 2;
-  const rayon = 112;
+  // Rayon réduit au profit de libellés d'axes plus grands, lisibles une fois le graphique mis à l'échelle.
+  const rayon = 96;
   const n = axes.length;
   const point = (i: number, v: number) => {
     const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
@@ -28,7 +29,7 @@ export function Radar({
             key={niveau}
             points={axes.map((_, i) => point(i, niveau).join(",")).join(" ")}
             fill="none"
-            stroke="var(--grid)"
+            stroke="var(--axis)"
             strokeWidth={1}
           />
         ))}
@@ -46,14 +47,14 @@ export function Radar({
               <circle cx={x} cy={y} r={5} fill="var(--series-1)" stroke="var(--surface)" strokeWidth={2}>
                 <title>{`${a.nom} : ${a.valeur.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} sur 5`}</title>
               </circle>
-              <text x={lx} y={ly + 5} fontSize={14} fill="var(--ink-2)" textAnchor={ancre}>
+              <text x={lx} y={ly + 5} fontSize={16} fill="var(--ink-2)" textAnchor={ancre}>
                 {a.court ?? a.nom}
               </text>
             </g>
           );
         })}
       </svg>
-      <figcaption className="text-center text-[0.72rem] text-ink-3">Du centre (1) vers l&apos;extérieur (5)</figcaption>
+      <figcaption className="text-center text-[0.72rem] text-ink-3">Un anneau par point : 1 à l&apos;intérieur, 5 à l&apos;extérieur</figcaption>
     </figure>
   );
 }

@@ -58,7 +58,7 @@ La qualification porte sur un usage, pas sur une technologie. La reprendre à ch
 
 Pour SAV Augmenté, l'analyse préparée en S8 conclut : pas de pratique interdite ; pas de domaine à haut risque, les agents traitent des incidents techniques et ne décident pas de l'accès à un service essentiel ; interaction directe avec les clients PME via l'Agent Communication, donc **obligation de transparence**. Voxalis développe et met en service le système pour son propre usage : le juridique retient un rôle de fournisseur et de déployeur de son système, et vérifie les engagements des fournisseurs de modèles.
 
-Un point de vigilance a été signalé : utiliser les données du poste de supervision pour évaluer la performance individuelle des conseillers pourrait relever d'un usage dans le domaine de l'emploi. Le comité de gouvernance l'a exclu explicitement du périmètre.
+Un point de vigilance a été signalé : utiliser les données du poste de supervision pour évaluer la performance individuelle des conseillers pourrait relever d'un usage dans le domaine de l'emploi. Le COPIL l'a exclu explicitement du périmètre ; l'exclusion a ensuite été inscrite au registre des agents.
 
 ## Pièges à éviter
 

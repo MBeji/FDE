@@ -5,7 +5,7 @@ import { CircleAlert, CircleCheck, FlaskConical, Plus, Trash2 } from "lucide-rea
 import { Markdown } from "@/components/Markdown";
 import { ActionsResultat } from "@/components/outils/commun";
 import { BoutonCopier } from "@/components/OngletsTemplate";
-import { Bouton, CLASSES_SAISIE, Carte, Champ } from "@/components/ui";
+import { Bouton, CLASSES_SAISIE, Carte, Champ, OngletsSegmentes } from "@/components/ui";
 import { AUTONOMIE } from "@/data/referentiels";
 import { cn } from "@/lib/cn";
 import { creerStock, nouvelId, useEstClient, useStock } from "@/lib/stockage";
@@ -350,10 +350,10 @@ export function OutilAgentDesigner() {
         </Bloc>
 
         <Bloc numero={3} titre="Outils">
-          {e.outils.map((o) => (
+          {e.outils.map((o, i) => (
             <div key={o.id} className="grid gap-2 rounded-lg border border-line bg-bg p-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)_auto]">
-              <input aria-label="Nom de l'outil" className={cn(CLASSES_SAISIE, "font-mono text-[0.8rem]")} value={o.nom} placeholder="domaine.action" onChange={(ev) => majOutil(o.id, { nom: ev.target.value })} />
-              <input aria-label="Ce que fait l'outil" className={CLASSES_SAISIE} value={o.role} placeholder="Ce qu'il fait" onChange={(ev) => majOutil(o.id, { role: ev.target.value })} />
+              <input aria-label={`Nom de l'outil ${i + 1}`} className={cn(CLASSES_SAISIE, "font-mono text-[0.8rem]")} value={o.nom} placeholder="domaine.action" onChange={(ev) => majOutil(o.id, { nom: ev.target.value })} />
+              <input aria-label={`Ce que fait l'outil ${i + 1}`} className={CLASSES_SAISIE} value={o.role} placeholder="Ce qu'il fait" onChange={(ev) => majOutil(o.id, { role: ev.target.value })} />
               <Bouton variante="discret" taille="sm" className="h-9" aria-label={`Supprimer l'outil ${o.nom}`} onClick={() => champ("outils", e.outils.filter((x) => x.id !== o.id))}>
                 <Trash2 className="size-3.5" aria-hidden />
               </Bouton>
@@ -364,13 +364,13 @@ export function OutilAgentDesigner() {
                 </label>
                 <label className="flex items-center gap-1.5 text-[0.8rem] text-ink-2">
                   Risque
-                  <select value={o.risque} onChange={(ev) => majOutil(o.id, { risque: ev.target.value as Outil["risque"] })} className="h-7 rounded-md border border-line bg-surface px-1.5 text-[0.8rem] outline-none focus:border-accent">
+                  <select aria-label={`Risque de l'outil ${i + 1}`} value={o.risque} onChange={(ev) => majOutil(o.id, { risque: ev.target.value as Outil["risque"] })} className="h-7 rounded-md border border-line bg-surface px-1.5 text-[0.8rem] outline-none focus:border-accent">
                     {["Faible", "Moyen", "Élevé"].map((r) => (
                       <option key={r}>{r}</option>
                     ))}
                   </select>
                 </label>
-                <input aria-label="Règle d'approbation" className={cn(CLASSES_SAISIE, "h-7 min-w-[12rem] flex-1 py-0 text-[0.8rem]")} value={o.approbation} placeholder="Règle d'approbation : aucune, humaine au-delà de…, toujours" onChange={(ev) => majOutil(o.id, { approbation: ev.target.value })} />
+                <input aria-label={`Règle d'approbation de l'outil ${i + 1}`} className={cn(CLASSES_SAISIE, "h-7 min-w-[12rem] flex-1 py-0 text-[0.8rem]")} value={o.approbation} placeholder="Règle d'approbation : aucune, humaine au-delà de…, toujours" onChange={(ev) => majOutil(o.id, { approbation: ev.target.value })} />
               </div>
             </div>
           ))}
@@ -424,11 +424,11 @@ export function OutilAgentDesigner() {
         </Bloc>
 
         <Bloc numero={6} titre="Évaluation et défaillances">
-          {e.criteres.map((c) => (
+          {e.criteres.map((c, i) => (
             <div key={c.id} className="grid gap-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)_6.5rem_auto]">
-              <input aria-label="Critère" className={CLASSES_SAISIE} value={c.critere} placeholder="Critère" onChange={(ev) => majCritere(c.id, { critere: ev.target.value })} />
-              <input aria-label="Mesure" className={CLASSES_SAISIE} value={c.mesure} placeholder="Jeu de test et méthode de notation" onChange={(ev) => majCritere(c.id, { mesure: ev.target.value })} />
-              <input aria-label="Seuil" className={CLASSES_SAISIE} value={c.seuil} placeholder="Seuil" onChange={(ev) => majCritere(c.id, { seuil: ev.target.value })} />
+              <input aria-label={`Critère ${i + 1}`} className={CLASSES_SAISIE} value={c.critere} placeholder="Critère" onChange={(ev) => majCritere(c.id, { critere: ev.target.value })} />
+              <input aria-label={`Mesure du critère ${i + 1}`} className={CLASSES_SAISIE} value={c.mesure} placeholder="Jeu de test et méthode de notation" onChange={(ev) => majCritere(c.id, { mesure: ev.target.value })} />
+              <input aria-label={`Seuil du critère ${i + 1}`} className={CLASSES_SAISIE} value={c.seuil} placeholder="Seuil" onChange={(ev) => majCritere(c.id, { seuil: ev.target.value })} />
               <Bouton variante="discret" taille="sm" className="h-9" aria-label={`Supprimer le critère ${c.critere}`} onClick={() => champ("criteres", e.criteres.filter((x) => x.id !== c.id))}>
                 <Trash2 className="size-3.5" aria-hidden />
               </Bouton>
@@ -465,25 +465,15 @@ export function OutilAgentDesigner() {
         </Carte>
 
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <div role="tablist" aria-label="Aperçu" className="flex rounded-lg border border-line bg-surface-2 p-0.5">
-            {(
-              [
-                ["fiche", "Fiche agent"],
-                ["prompt", "Ossature du system prompt"],
-              ] as const
-            ).map(([id, nom]) => (
-              <button
-                key={id}
-                type="button"
-                role="tab"
-                aria-selected={vue === id}
-                onClick={() => setVue(id)}
-                className={cn("rounded-md px-3 py-1.5 text-[0.82rem] font-medium transition-colors", vue === id ? "bg-surface text-ink shadow-card" : "text-ink-2 hover:text-ink")}
-              >
-                {nom}
-              </button>
-            ))}
-          </div>
+          <OngletsSegmentes
+            libelle="Aperçu"
+            valeur={vue}
+            onChange={setVue}
+            onglets={[
+              { id: "fiche", nom: "Fiche agent" },
+              { id: "prompt", nom: "Ossature du system prompt" },
+            ]}
+          />
           {vue === "prompt" && <BoutonCopier texte={prompt} libelle="Copier l'ossature" />}
         </div>
 

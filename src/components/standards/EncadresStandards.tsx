@@ -42,7 +42,8 @@ const MOMENTS = [
   },
   {
     nom: "Avant la mise en production",
-    quand: "Avant le jalon G6 — Prêt pour l'échelle, et à chaque vague",
+    quand:
+      "Avant la première vague de généralisation (revue de préparation de la phase Industrialiser), puis avant chaque vague ; constatée au jalon G6",
     portee:
       "Revue complète des dix domaines, homologation du RSSI, runbooks exercés par l'équipe du client. Chaque écart obligatoire restant est arbitré et daté.",
   },
@@ -73,6 +74,8 @@ export function EncadreUsage() {
       </ol>
       <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 border-t border-line pt-3.5">
         {[
+          { href: "/templates/checklist-securite-conformite", nom: "Checklist sécurité et conformité (revue 1)" },
+          { href: "/templates/checklist-llmops", nom: "Checklist LLMOps (revues 2 et 3)" },
           { href: "/templates/checklist-mise-en-production", nom: "Checklist de mise en production" },
           { href: "/frameworks/securite-agents", nom: "Sécurité des agents" },
           { href: "/templates/registre-raid", nom: "Registre RAID" },

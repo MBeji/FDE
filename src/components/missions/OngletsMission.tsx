@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Download, Plus, Trash2 } from "lucide-react";
+import { ArrowRight, Download, Plus, Trash2 } from "lucide-react";
 import { Markdown } from "@/components/Markdown";
 import { BoutonCopier } from "@/components/OngletsTemplate";
-import { Bouton, CLASSES_SAISIE, Carte, Champ, Pastille, Vide } from "@/components/ui";
+import { Bouton, CLASSES_SAISIE, Carte, Champ, Pastille, Vide, classesBouton } from "@/components/ui";
 import { OUTILS, PHASES_RESUME } from "@/data/referentiels";
 import { cn } from "@/lib/cn";
 import {
@@ -418,7 +418,7 @@ export function OngletExports({ mission }: { mission: Mission }) {
           {
             id: "rex" as const,
             titre: "Brouillon de REX",
-            texte: "Pré-rempli avec vos décisions, vos résultats et vos apprentissages. À anonymiser puis à proposer dans content/savoir.",
+            texte: "Aperçu pré-rempli avec vos décisions, vos résultats et vos apprentissages. Pour l'anonymiser et le proposer, finalisez-le dans l'assistant de contribution.",
           },
         ].map((e) => (
           <button
@@ -469,6 +469,18 @@ export function OngletExports({ mission }: { mission: Mission }) {
       </div>
 
       <div>
+        {apercu === "rex" && (
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-accent-line bg-accent-soft p-4">
+            <p className="max-w-xl text-[0.85rem] leading-relaxed text-ink">
+              L&apos;assistant de contribution reprend ce journal, contrôle l&apos;anonymisation et produit une
+              fiche au bon format, prête pour une pull request.
+            </p>
+            <Link href="/savoir/contribuer" className={classesBouton("primaire", "sm")}>
+              Finaliser dans l&apos;assistant de contribution
+              <ArrowRight className="size-3.5" aria-hidden />
+            </Link>
+          </div>
+        )}
         <div className="mb-3 flex flex-wrap items-center justify-end gap-1.5">
           <BoutonCopier texte={texte} libelle="Copier le Markdown" />
           <Bouton taille="sm" onClick={() => telecharger(apercu === "point" ? "point-avancement.md" : "rex-brouillon.md", texte)}>
