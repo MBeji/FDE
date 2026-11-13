@@ -320,7 +320,7 @@ export const CHARTE: Engagement[] = [
     titre: "Je travaille au plus près du métier et de l'IT",
     principe: "Je comprends le travail tel qu'il se fait et le SI tel qu'il est, pas tel qu'ils sont décrits.",
     comportements: [
-      "Je passe au moins une demi-journée par semaine sur le terrain, auprès des utilisateurs.",
+      "Je passe au moins une demi-journée par semaine sur le terrain, auprès des utilisateurs. FDE Build d'un binôme, je m'y immerge chaque semaine à distance et je viens sur site aux moments clés.",
       "J'ai un binôme nommé côté métier et un interlocuteur nommé à la DSI.",
       "Je soumets mes choix d'architecture aux équipes du client avant de les appliquer.",
     ],
@@ -561,7 +561,7 @@ export const REGLES_POOL: TempsPool[] = [
       "Un point hebdomadaire écrit est envoyé au sponsor : avancement, valeur, décisions attendues, risques.",
       "Le registre RAID et le registre de valeur sont à jour avant chaque COPIL.",
       "Aucune mise en production sans évaluation passée, checklist et procédure d'incident.",
-      "Chaque FDE a un binôme côté client et passe au moins une demi-journée par semaine sur le terrain.",
+      "Chaque FDE a un binôme côté client et passe au moins une demi-journée par semaine sur le terrain. Dans un binôme Design · Build, le FDE Build s'immerge chaque semaine à distance et vient sur site au lancement, à la première mise en production et au go-live.",
     ],
     rituels: [
       {

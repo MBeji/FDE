@@ -62,6 +62,7 @@ const PAGES_FIXES = [
   "/missions",
   "/copilote",
   "/metier",
+  "/raci",
   "/onboarding",
   "/competences",
   "/standards",

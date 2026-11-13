@@ -99,6 +99,14 @@ export function SectionRole() {
         </Link>
         .
       </p>
+      <p className="mt-2 text-[0.86rem] text-ink-2">
+        Quand une mission répartit les deux moitiés entre un FDE Design sur site et un FDE Build à distance, le binôme
+        porte ensemble le résultat : voir{" "}
+        <Link href="/raci" className="font-medium text-accent hover:underline">
+          qui fait quoi dans le binôme Design · Build
+        </Link>
+        .
+      </p>
     </SectionMetier>
   );
 }
