@@ -11,8 +11,8 @@ import { Topbar } from "@/components/shell/Topbar";
 
 export const metadata: Metadata = {
   title: {
-    default: "FDE Atlas — Transformation AI-Native",
-    template: "%s · FDE Atlas",
+    default: "FDE Sofrecom — Transformation AI-Native",
+    template: "%s · FDE Sofrecom",
   },
   description:
     "L'environnement de travail des Forward Deployed Engineers : méthode, frameworks, templates, outils et copilote pour conduire une transformation AI-Native.",

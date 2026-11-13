@@ -1,4 +1,4 @@
-# FDE Atlas
+# FDE Sofrecom
 
 L'environnement de travail des Forward Deployed Engineers (FDE) qui conduisent des missions de transformation AI-Native : une méthode de bout en bout, les frameworks et les livrables de chaque étape, des ateliers interactifs, un espace de pilotage de mission et un copilote méthodologique.
 
