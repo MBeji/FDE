@@ -66,6 +66,16 @@ export const AIDE_PAGES: Record<string, TexteAide> = {
       "Le référentiel de compétences sur quatre niveaux, l'auto-évaluation, la grille de préparation à l'intervention chez un client et le plan de progression.",
     quand: "vous faites le point sur votre niveau ou préparez un entretien de progression.",
   },
+  "/raci": {
+    resume:
+      "Qui fait quoi dans le binôme FDE Design (chez le client) et FDE Build (en nearshore) : matrice RACI de chaque activité, livrable et jalon, passages de relais, rituels, contraintes d'accès aux données et escalade. Exportable en Markdown et imprimable.",
+    quand: "vous démarrez une mission en binôme, ou devez trancher qui porte une activité ou un livrable.",
+    sousLiens: [
+      { href: "/raci#matrice", nom: "Matrice RACI" },
+      { href: "/raci#relais", nom: "Passages de relais" },
+      { href: "/raci#nearshore", nom: "Contraintes du nearshore" },
+    ],
+  },
   "/methode": {
     resume:
       "La méthode en huit phases : pour chacune, objectifs, activités, questions à poser au client, livrables, jalon avec critères de passage et signaux d'arrêt, pièges et parades.",
