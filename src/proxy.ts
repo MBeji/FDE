@@ -30,7 +30,7 @@ export function proxy(request: NextRequest) {
 
   return new NextResponse("Authentification requise.", {
     status: 401,
-    headers: { "WWW-Authenticate": 'Basic realm="FDE Sofrecom", charset="UTF-8"' },
+    headers: { "WWW-Authenticate": 'Basic realm="FDE Atlas", charset="UTF-8"' },
   });
 }
 

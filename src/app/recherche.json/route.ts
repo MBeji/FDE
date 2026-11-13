@@ -13,7 +13,7 @@ import type { EntreeRecherche } from "@/lib/recherche";
 export async function GET() {
   const sections: EntreeRecherche[] = [
     { t: "Section", h: "/metier", n: "Le métier FDE : rôle, charte, règles du pool", r: "Le rôle face aux autres métiers, la charte, les règles de fonctionnement et les situations délicates.", k: "posture responsabilités consultant développeur architecte chef de projet" },
-    { t: "Section", h: "/raci", n: "RACI du binôme FDE Design · FDE Build", r: "Qui fait quoi entre le FDE Design sur site et le FDE Build à distance : matrice RACI par phase, passages de relais, rituels, nearshore et RGPD, arbitrages.", k: "raci binôme design build nearshore back-office à distance sur site relais rituels responsabilités qui fait quoi" },
+    { t: "Section", h: "/raci", n: "RACI du binôme FDE Design · FDE Build", r: "Qui fait quoi entre le FDE Design sur site et le FDE Build à distance : matrice RACI par phase, passages de relais, rituels, travail à distance et RGPD, arbitrages.", k: "raci binôme design build back-office à distance sur site relais rituels responsabilités qui fait quoi" },
     { t: "Section", h: "/onboarding", n: "Parcours d'onboarding", r: "Cinq étapes, exercices, plan 30/60/90 et mentorat pour les nouveaux FDE.", k: "intégration arrivée nouveau mentor exercices" },
     { t: "Section", h: "/competences", n: "Référentiel de compétences", r: "Compétences, niveaux de maîtrise, auto-évaluation et préparation à l'intervention.", k: "readiness progression niveaux évaluation" },
     { t: "Section", h: "/standards", n: "Standards d'ingénierie", r: "Standards obligatoires, recommandés et contextuels sur dix domaines, et revue de conformité.", k: "devsecops llmops sécurité cloud qualité revue" },

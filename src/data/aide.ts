@@ -68,12 +68,12 @@ export const AIDE_PAGES: Record<string, TexteAide> = {
   },
   "/raci": {
     resume:
-      "Qui fait quoi dans le binôme FDE Design (chez le client) et FDE Build (en nearshore) : matrice RACI de chaque activité, livrable et jalon, passages de relais, rituels, contraintes d'accès aux données et escalade. Exportable en Markdown et imprimable.",
+      "Qui fait quoi dans le binôme FDE Design (chez le client) et FDE Build (à distance) : matrice RACI de chaque activité, livrable et jalon, passages de relais, rituels, contraintes d'accès aux données et escalade. Exportable en Markdown et imprimable.",
     quand: "vous démarrez une mission en binôme, ou devez trancher qui porte une activité ou un livrable.",
     sousLiens: [
       { href: "/raci#matrice", nom: "Matrice RACI" },
       { href: "/raci#relais", nom: "Passages de relais" },
-      { href: "/raci#nearshore", nom: "Contraintes du nearshore" },
+      { href: "/raci#distance", nom: "Travail à distance" },
     ],
   },
   "/methode": {

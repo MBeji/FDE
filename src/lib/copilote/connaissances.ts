@@ -60,7 +60,7 @@ function sommaire(): string {
     "- [Cas d'usage par secteur](/cas-usage) ; [Glossaire](/glossaire) ; [Mes missions](/missions)",
     "- [Le métier FDE : rôle, charte, règles du pool, situations délicates](/metier) ; [Parcours d'onboarding](/onboarding) ; [Référentiel de compétences et auto-évaluation](/competences)",
     "- [Standards d'ingénierie et revue de conformité](/standards) ; [Entrée par situation](/situations) ; [Assistant de contribution au savoir terrain](/savoir/contribuer)",
-    "- [RACI du binôme FDE Design · FDE Build : rôles, matrice, relais, rituels, nearshore, arbitrages](/raci)",
+    "- [RACI du binôme FDE Design · FDE Build : rôles, matrice, relais, rituels, travail à distance, arbitrages](/raci)",
     "# Charte FDE (/metier)",
     ...CHARTE.map((e) => `${e.numero}. ${e.titre} — ${e.principe}`),
     "# RACI du binôme FDE Design · FDE Build (/raci)",
