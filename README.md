@@ -21,6 +21,7 @@ L'environnement de travail des Forward Deployed Engineers (FDE) qui conduisent d
 | **Espace mission** | Suivi par phase (activités, livrables, jalons), registre de valeur, journal (décisions, risques, apprentissages), exports (point d'avancement, brouillon de REX). |
 | **Copilote** | Assistant qui connaît le contenu du portail, la page consultée et, sur autorisation, la mission. Quatre modes : guide, rédacteur, challenger, coach. Bibliothèque de 32 prompts. |
 | **Savoir terrain** | Patterns, anti-patterns et retours d'expérience, avec un assistant de contribution qui génère une fiche prête pour une pull request ; glossaire de 96 termes. |
+| **Aide** | Toutes les fonctionnalités du portail : par où commencer selon sa situation, catalogue des pages construit à partir du menu, fonctions transverses, raccourcis clavier, questions fréquentes. |
 
 ## Démarrer
 
