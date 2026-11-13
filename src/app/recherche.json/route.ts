@@ -18,6 +18,7 @@ export async function GET() {
     { t: "Section", h: "/standards", n: "Standards d'ingénierie", r: "Standards obligatoires, recommandés et contextuels sur dix domaines, et revue de conformité.", k: "devsecops llmops sécurité cloud qualité revue" },
     { t: "Section", h: "/situations", n: "Entrée par situation", r: "Trouver quoi faire et quoi ouvrir selon sa situation du moment.", k: "par où commencer" },
     { t: "Section", h: "/savoir/contribuer", n: "Contribuer au savoir terrain", r: "Assistant de rédaction d'un REX, d'un pattern ou d'un anti-pattern prêt pour une pull request.", k: "capitaliser retour d'expérience partager" },
+    { t: "Section", h: "/aide", n: "Aide : toutes les fonctionnalités du portail", r: "Par où commencer, à quoi sert chaque page, fonctions transverses, raccourcis clavier et questions fréquentes.", k: "aide mode d'emploi raccourcis clavier faq données copilote hors ligne export import" },
   ];
 
   const index: EntreeRecherche[] = [

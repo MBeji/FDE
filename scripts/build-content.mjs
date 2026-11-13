@@ -67,6 +67,7 @@ const PAGES_FIXES = [
   "/standards",
   "/situations",
   "/savoir/contribuer",
+  "/aide",
 ];
 
 const erreurs = [];

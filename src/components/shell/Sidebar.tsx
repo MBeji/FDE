@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { X } from "lucide-react";
+import { CircleHelp, X } from "lucide-react";
 import { useShell } from "@/components/shell/ShellProvider";
 import { cn } from "@/lib/cn";
 import { NAVIGATION, estActif } from "@/lib/navigation";
@@ -70,6 +70,24 @@ function Liens({ onNaviguer }: { onNaviguer?: () => void }) {
   );
 }
 
+function LienAide({ onNaviguer }: { onNaviguer?: () => void }) {
+  const actif = usePathname() === "/aide";
+  return (
+    <Link
+      href="/aide"
+      onClick={onNaviguer}
+      aria-current={actif ? "page" : undefined}
+      className={cn(
+        "flex items-center gap-2.5 rounded-lg px-3 py-[0.4rem] text-[0.85rem] transition-colors",
+        actif ? "bg-surface-3 font-medium text-ink" : "text-ink-2 hover:bg-surface-2 hover:text-ink",
+      )}
+    >
+      <CircleHelp className={cn("size-4 flex-none", actif ? "text-accent" : "text-ink-3")} aria-hidden />
+      Aide
+    </Link>
+  );
+}
+
 export function Sidebar() {
   const { menuOuvert, setMenuOuvert } = useShell();
   const boutonFermer = useRef<HTMLButtonElement>(null);
@@ -92,7 +110,10 @@ export function Sidebar() {
         <div className="defilement-fin flex-1 overflow-y-auto px-3 py-5">
           <Liens />
         </div>
-        <p className="flex-none border-t border-line px-5 py-3 text-[0.7rem] leading-relaxed text-ink-3">
+        <div className="flex-none border-t border-line px-3 pt-2">
+          <LienAide />
+        </div>
+        <p className="flex-none px-5 pt-1 pb-3 text-[0.7rem] leading-relaxed text-ink-3">
           Données de mission conservées sur ce poste uniquement.
         </p>
       </aside>
@@ -121,6 +142,9 @@ export function Sidebar() {
             </div>
             <div className="defilement-fin flex-1 overflow-y-auto px-3 py-5">
               <Liens onNaviguer={() => setMenuOuvert(false)} />
+            </div>
+            <div className="flex-none border-t border-line px-3 py-2">
+              <LienAide onNaviguer={() => setMenuOuvert(false)} />
             </div>
           </div>
         </div>
