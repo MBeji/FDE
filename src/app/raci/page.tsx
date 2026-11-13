@@ -20,7 +20,7 @@ import { EnTetePage } from "@/components/ui";
 import { phases } from "@/data/phases";
 import {
   ARBITRAGES,
-  CONTRAINTES_NEARSHORE,
+  CONTRAINTES_DISTANCE,
   CONTRE_TELEPHONE_ARABE,
   DEFINITION_PRET,
   DEFINITION_TERMINE,
@@ -42,7 +42,7 @@ import { getTemplate } from "@/lib/content";
 export const metadata: Metadata = {
   title: "RACI Design · Build",
   description:
-    "Qui fait quoi dans le binôme FDE Design (sur site) et FDE Build (à distance), du cadrage à la pérennisation : rôles, matrice RACI, passages de relais, rituels, conformité du nearshore et arbitrages.",
+    "Qui fait quoi dans le binôme FDE Design (sur site) et FDE Build (à distance), du cadrage à la pérennisation : rôles, matrice RACI, passages de relais, rituels, conformité du travail à distance et arbitrages.",
 };
 
 const SECTIONS = [
@@ -51,7 +51,7 @@ const SECTIONS = [
   { id: "relais", titre: "Passages de relais", resume: "Artefacts, prêt et terminé" },
   { id: "rituels", titre: "Rituels du binôme", resume: "Synchro, écrit, démo, journal" },
   { id: "terrain", titre: "Éviter le téléphone arabe", resume: "Le Build au contact du terrain" },
-  { id: "nearshore", titre: "Contraintes du nearshore", resume: "Accès aux données et RGPD" },
+  { id: "distance", titre: "Travail à distance", resume: "Accès aux données et RGPD" },
   { id: "arbitrages", titre: "Escalade et arbitrages", resume: "Qui tranche, et comment" },
 ] as const;
 
@@ -179,7 +179,7 @@ export default function PageRaci() {
         fil={[{ href: "/metier", nom: "Le métier FDE" }]}
         surtitre="Le métier"
         titre="Le binôme FDE Design · FDE Build : qui fait quoi"
-        chapo="Le FDE Design travaille chez le client, en France ; le FDE Build construit à distance, depuis le back-office nearshore. Cette page fixe leur répartition, du cadrage à la pérennisation, rattachée aux activités, livrables et jalons du Parcours AI-Native."
+        chapo="Le FDE Design travaille chez le client ; le FDE Build construit à distance, depuis le back-office. Cette page fixe leur répartition, du cadrage à la pérennisation, rattachée aux activités, livrables et jalons du Parcours AI-Native."
       >
         <ExportRaci markdown={raciEnMarkdown()} />
       </EnTetePage>
@@ -372,9 +372,9 @@ export default function PageRaci() {
         </Section>
 
         <Section
-          id="nearshore"
+          id="distance"
           numero={6}
-          titre="Contraintes du nearshore : accès aux données et conformité"
+          titre="Travail à distance : accès aux données et conformité"
           description={
             <>
               Travailler à distance sur les données d&apos;un client se prépare au cadrage. Voir aussi les{" "}
@@ -390,7 +390,7 @@ export default function PageRaci() {
           }
         >
           <div className="overflow-hidden rounded-xl border border-line bg-surface shadow-card">
-            {CONTRAINTES_NEARSHORE.map((c) => (
+            {CONTRAINTES_DISTANCE.map((c) => (
               <div key={c.titre} className="grid gap-x-6 gap-y-1.5 border-b border-line px-4 py-4 break-inside-avoid last:border-b-0 md:grid-cols-[1fr_2fr]">
                 <h3 className="flex gap-2 text-[0.92rem] font-semibold text-ink">
                   <ShieldCheck className="mt-0.5 size-4 flex-none text-accent" aria-hidden />

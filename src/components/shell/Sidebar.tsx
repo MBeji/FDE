@@ -10,7 +10,7 @@ import { NAVIGATION, estActif } from "@/lib/navigation";
 
 export function Logo({ className }: { className?: string }) {
   return (
-    <Link href="/" className={cn("flex items-center gap-2.5", className)} aria-label="FDE Sofrecom, accueil">
+    <Link href="/" className={cn("flex items-center gap-2.5", className)} aria-label="FDE Atlas, accueil">
       <svg viewBox="0 0 28 28" className="size-7 flex-none" aria-hidden>
         <rect width="28" height="28" rx="7" fill="var(--ink)" />
         <path
@@ -24,7 +24,7 @@ export function Logo({ className }: { className?: string }) {
         <circle cx="14" cy="16.5" r="1.9" fill="var(--series-1)" />
       </svg>
       <span className="flex flex-col leading-none">
-        <span className="text-[0.95rem] font-semibold tracking-tight text-ink">FDE Sofrecom</span>
+        <span className="text-[0.95rem] font-semibold tracking-tight text-ink">FDE Atlas</span>
         <span className="mt-1 text-[0.65rem] font-medium tracking-wide text-ink-3 uppercase">
           Transformation AI-Native
         </span>

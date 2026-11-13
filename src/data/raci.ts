@@ -76,7 +76,7 @@ export const ROLES_BINOME: Record<RoleBinome, DefinitionRole> = {
       "Industrialiser et transférer l'exploitation à l'équipe du client.",
     ],
     presence: {
-      mode: "À distance, depuis le back-office nearshore",
+      mode: "À distance, depuis le back-office",
       detail: "Travaille dans l'environnement du client à distance ; s'immerge chaque semaine dans le terrain par écran interposé et vient sur site aux moments clés.",
     },
     competences: [
@@ -605,7 +605,7 @@ export const CONTRE_TELEPHONE_ARABE: Pratique[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* 6. Contraintes du nearshore                                         */
+/* 6. Contraintes du travail à distance                                 */
 /* ------------------------------------------------------------------ */
 
 export interface Contrainte {
@@ -614,7 +614,7 @@ export interface Contrainte {
   controle: string;
 }
 
-export const CONTRAINTES_NEARSHORE: Contrainte[] = [
+export const CONTRAINTES_DISTANCE: Contrainte[] = [
   {
     titre: "Les données du client restent chez le client",
     regle: "Le Build travaille dans l'environnement du client, par un poste virtuel (VDI) ou un bastion fourni et journalisé par la DSI. Aucune donnée de production sur un poste ou un espace de stockage du pool.",
@@ -776,8 +776,8 @@ export function raciEnMarkdown(): string {
   CONTRE_TELEPHONE_ARABE.forEach((x) => l.push(`- **${x.titre}.** ${x.texte}`));
   l.push("");
 
-  l.push("## Contraintes du nearshore : données et conformité", "");
-  CONTRAINTES_NEARSHORE.forEach((x) => l.push(`- **${x.titre}.** ${x.regle} *Contrôle : ${x.controle}*`));
+  l.push("## Travail à distance : données et conformité", "");
+  CONTRAINTES_DISTANCE.forEach((x) => l.push(`- **${x.titre}.** ${x.regle} *Contrôle : ${x.controle}*`));
   l.push("");
 
   l.push("## Escalade et arbitrages", "", "| Sujet | Qui tranche | Comment |", "| --- | --- | --- |");
