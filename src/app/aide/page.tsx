@@ -20,7 +20,7 @@ import { NAVIGATION } from "@/lib/navigation";
 export const metadata: Metadata = {
   title: "Aide",
   description:
-    "Toutes les fonctionnalités du portail FDE Atlas, par où commencer selon votre situation, les fonctions transverses, les raccourcis clavier et les questions fréquentes.",
+    "Toutes les fonctionnalités du portail FDE Sofrecom, par où commencer selon votre situation, les fonctions transverses, les raccourcis clavier et les questions fréquentes.",
 };
 
 const SOMMAIRE = [
