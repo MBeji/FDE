@@ -86,7 +86,7 @@ function CarteRole({ role }: { role: DefinitionRole }) {
   const Icone = role.id === "design" ? BriefcaseBusiness : Cpu;
   const Presence = role.id === "design" ? MapPin : MonitorSmartphone;
   return (
-    <article className="flex flex-col rounded-xl border border-line bg-surface p-5 shadow-card break-inside-avoid">
+    <article className="flex flex-col rounded-xl border border-line bg-surface p-5 shadow-card">
       <div className="flex items-center gap-2">
         <Icone className="size-4 text-accent" aria-hidden />
         <h3 className="text-[1.05rem] font-semibold text-ink">{role.nom}</h3>
@@ -301,7 +301,7 @@ export default function PageRaci() {
                         Phase {p?.numero} · {p?.nom}
                       </Link>
                     </h3>
-                    <p className="text-[0.8rem] text-ink-3">Au plus tard : {r.quand.replace(/\.$/, "").toLowerCase()}</p>
+                    <p className="text-[0.8rem] text-ink-3">Au plus tard : {r.quand.charAt(0).toLowerCase() + r.quand.slice(1).replace(/\.$/, "")}</p>
                   </div>
                   <div className="mt-3 grid gap-4 md:grid-cols-2">
                     <div>

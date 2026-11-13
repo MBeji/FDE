@@ -44,7 +44,7 @@ function responsable(code: CodeRaci) {
 function Ligne({ l, vue }: { l: LigneResolue; vue: Vue }) {
   const precisions = (["design", "build"] as const).filter((r) => l.precision?.[r] && (vue === "matrice" || vue === r));
   return (
-    <tr id={vue === "matrice" ? l.ancre : undefined} className={cn("border-t border-line align-top", l.type === "jalon" && "bg-surface-2")}>
+    <tr id={vue === "matrice" ? l.ancre : undefined} className={cn("border-t border-line align-top break-inside-avoid", l.type === "jalon" && "bg-surface-2")}>
       <th scope="row" className="py-2.5 pr-2 pl-3 text-left font-normal sm:pl-4">
         <span className="block text-[0.68rem] font-medium tracking-wide text-ink-3 uppercase">{LIBELLE_TYPE[l.type]}</span>
         {l.template ? (
@@ -117,8 +117,8 @@ export function MatriceRaci({ lignes, phases }: { lignes: LigneResolue[]; phases
         {visibles.map((p) => {
           const ls = filtrer(p.id);
           return (
-            <div key={p.id} id={p.ancre} className="scroll-mt-24 break-inside-avoid-page">
-              <h3 className="mb-2 text-[0.98rem] font-semibold text-ink">
+            <div key={p.id} id={p.ancre} className="scroll-mt-24">
+              <h3 className="mb-2 break-after-avoid text-[0.98rem] font-semibold text-ink">
                 Phase {p.numero} · {p.nom}
               </h3>
               {ls.length === 0 ? (

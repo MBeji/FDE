@@ -24,7 +24,7 @@ export function CodeRaciPastille({ code, colonne }: { code: CodeRaci; colonne?: 
     <span
       title={NOMS_CODES[code]}
       className={cn(
-        "inline-flex h-6 min-w-8 items-center justify-center rounded-md border px-1 text-[0.75rem] font-semibold tabular-nums",
+        "inline-flex h-6 min-w-8 items-center [print-color-adjust:exact] justify-center rounded-md border px-1 text-[0.75rem] font-semibold tabular-nums",
         STYLES_CODES[code],
       )}
     >
