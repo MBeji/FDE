@@ -8,6 +8,7 @@ L'environnement de travail des Forward Deployed Engineers (FDE) qui conduisent d
 | --- | --- |
 | **Entrée par situation** | Onze situations (« je rejoins le pool », « je prépare une mission », « je réalise un diagnostic »…) : par où commencer, étapes ordonnées, ressources à ouvrir. |
 | **Le métier FDE** | Le rôle et la double compétence, le FDE face aux autres métiers, la charte en douze engagements, les règles de fonctionnement du pool, dix fiches réflexes pour les situations délicates. |
+| **RACI Design · Build** | La répartition du binôme FDE Design (sur site) et FDE Build (à distance) : rôles, matrice RACI rattachée aux activités, livrables et jalons, passages de relais, rituels, conformité du nearshore, arbitrages. Export Markdown. |
 | **Onboarding** | Parcours d'intégration en cinq étapes, exercices pratiques avec grille d'évaluation, plan 30/60/90, mentorat, priorités par profil d'origine. Progression suivie localement. |
 | **Compétences** | Référentiel de 18 compétences sur quatre niveaux, auto-évaluation, grille de préparation à l'intervention chez un client, plan de progression. |
 | **Parcours AI-Native** | La méthode en 8 phases (Cadrer, Diagnostiquer, Cibler, Réinventer, Concevoir, Construire, Industrialiser, Pérenniser). Pour chaque phase : objectifs, activités, questions à poser au client, livrables, jalon avec critères de passage et signaux d'arrêt, pièges et parades. Trois fils transverses : valeur, confiance, adoption. |

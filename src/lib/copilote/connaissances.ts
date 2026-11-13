@@ -1,6 +1,7 @@
 import "server-only";
 import { phases } from "@/data/phases";
 import { CHARTE } from "@/data/metier";
+import { ARBITRAGES, LIGNES_RACI, PRINCIPE_BINOME, ROLES_BINOME, contientA } from "@/data/raci";
 import { AUTONOMIE, CONVICTIONS, FILS, OUTILS } from "@/data/referentiels";
 import { DOMAINES_STANDARDS } from "@/data/standards";
 import { frameworks, getFramework, getGuide, getFicheSavoir, getTemplate, guides, savoir, templates } from "@/lib/content";
@@ -59,8 +60,23 @@ function sommaire(): string {
     "- [Cas d'usage par secteur](/cas-usage) ; [Glossaire](/glossaire) ; [Mes missions](/missions)",
     "- [Le métier FDE : rôle, charte, règles du pool, situations délicates](/metier) ; [Parcours d'onboarding](/onboarding) ; [Référentiel de compétences et auto-évaluation](/competences)",
     "- [Standards d'ingénierie et revue de conformité](/standards) ; [Entrée par situation](/situations) ; [Assistant de contribution au savoir terrain](/savoir/contribuer)",
+    "- [RACI du binôme FDE Design · FDE Build : rôles, matrice, relais, rituels, nearshore, arbitrages](/raci)",
     "# Charte FDE (/metier)",
     ...CHARTE.map((e) => `${e.numero}. ${e.titre} — ${e.principe}`),
+    "# RACI du binôme FDE Design · FDE Build (/raci)",
+    PRINCIPE_BINOME,
+    ...Object.values(ROLES_BINOME).map((r) => `- ${r.nom} (${r.presence.mode.toLowerCase()}) : ${r.mission}`),
+    ...phases.map((p) => {
+      const lignes = LIGNES_RACI.filter((l) => l.phase === p.id);
+      const de = (role: "design" | "build") =>
+        lignes
+          .filter((l) => l.type !== "jalon" && contientA(l[role]))
+          .map((l) => l.intitule)
+          .join(", ");
+      const jalon = lignes.find((l) => l.type === "jalon");
+      return `- ${p.nom} — le Design répond de : ${de("design") || "rien"} ; le Build répond de : ${de("build") || "rien"}. Jalon ${p.jalon.code} (décision du client) : Design — ${jalon?.precision?.design} Build — ${jalon?.precision?.build}`;
+    }),
+    `Arbitrages : ${ARBITRAGES.map((a) => `${a.sujet} → ${a.tranche}`).join(" ; ")}.`,
     "# Standards d'ingénierie obligatoires (/standards)",
     ...DOMAINES_STANDARDS.map(
       (d) =>

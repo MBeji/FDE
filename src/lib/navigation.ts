@@ -22,6 +22,7 @@ import {
   Signpost,
   Sparkles,
   Workflow,
+  Users,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
@@ -46,6 +47,7 @@ export const NAVIGATION: { titre: string; liens: LienNav[] }[] = [
     titre: "Le métier",
     liens: [
       { href: "/metier", nom: "Rôle & charte FDE", icone: IdCard },
+      { href: "/raci", nom: "RACI Design · Build", icone: Users },
       { href: "/onboarding", nom: "Onboarding", icone: GraduationCap },
       { href: "/competences", nom: "Compétences", icone: Award },
     ],

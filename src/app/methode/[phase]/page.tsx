@@ -20,6 +20,7 @@ import { BlocRail, ListeLiens, MiseEnPageDocument } from "@/components/Document"
 import { Carte, EnTetePage, Pastille, classesBouton } from "@/components/ui";
 import { getPhase, phases } from "@/data/phases";
 import { QUESTIONS_CLIENT } from "@/data/questions-client";
+import { ancrePhaseRaci } from "@/data/raci";
 import { FILS, OUTILS } from "@/data/referentiels";
 import type { Activite, FilId } from "@/data/types";
 import { getFicheSavoir, getFramework, getGuide, getTemplate, resoudre } from "@/lib/content";
@@ -347,6 +348,16 @@ export default async function PagePhase({ params }: PageProps<"/methode/[phase]"
             </div>
           ))}
         </dl>
+        <p className="mt-4 text-[0.86rem] text-ink-2">
+          <Link
+            href={`/raci#${ancrePhaseRaci(p.id)}`}
+            className="inline-flex items-center gap-1 font-medium text-accent hover:underline"
+          >
+            Qui fait quoi dans le binôme Design · Build
+            <ArrowRight className="size-3" aria-hidden />
+          </Link>{" "}
+          : la matrice RACI de cette phase, activité par activité.
+        </p>
       </Section>
 
       <nav className="hors-impression mt-14 grid gap-3 border-t border-line pt-6 sm:grid-cols-2" aria-label="Phases voisines">

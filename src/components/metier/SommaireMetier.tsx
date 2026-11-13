@@ -4,6 +4,7 @@ import { SECTIONS_METIER } from "@/components/metier/commun";
 
 const LIENS_PARCOURS = [
   { href: "/guides/posture-fde", nom: "La posture du FDE" },
+  { href: "/raci", nom: "Le binôme Design · Build (RACI)" },
   { href: "/onboarding", nom: "Parcours d'intégration" },
   { href: "/competences", nom: "Référentiel de compétences" },
   { href: "/guides/gerer-resistances", nom: "Gérer les résistances" },
