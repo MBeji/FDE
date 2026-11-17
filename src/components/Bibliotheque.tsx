@@ -166,7 +166,7 @@ export function Bibliotheque({
                   titre={e.titre}
                   resume={e.resume}
                   pied={e.pastilles.map((p) => (
-                    <Pastille key={p.nom} ton={p.ton} className="max-w-full whitespace-normal">
+                    <Pastille key={p.nom} ton={p.ton} retourLigne>
                       {p.nom}
                     </Pastille>
                   ))}
