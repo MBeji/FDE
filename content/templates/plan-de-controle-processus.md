@@ -19,7 +19,7 @@ Il ne remplace ni le [tableau de bord de valeur](/templates/tableau-de-bord-vale
 
 ## Quand l'utiliser
 
-En phase Industrialiser, avant la dernière vague de déploiement. Il est exigé au jalon G6 et sa tenue par le client seul est vérifiée au jalon G7. Inutile pour un prototype ou un pilote court : le [plan de pilote](/templates/plan-pilote) suffit.
+En phase Industrialiser, au plus tard pendant la dernière vague de déploiement. Il est exigé au jalon G6 et sa tenue par le client seul est vérifiée au jalon G7. Inutile pour un prototype ou un pilote court : le [plan de pilote](/templates/plan-pilote) suffit.
 
 ## Comment le remplir
 
@@ -38,7 +38,7 @@ En phase Industrialiser, avant la dernière vague de déploiement. Il est exigé
 - [ ] Aucun indicateur ne dépend d'un relevé manuel.
 - [ ] Chaque type de changement a un décideur et une preuve exigée.
 - [ ] Une revue périodique rejoue l'analyse des parcours réels.
-- [ ] Le client a animé au moins une revue sans l'équipe FDE.
+- [ ] La date à laquelle le client anime chaque revue sans l'équipe FDE est fixée.
 
 <!-- section: template -->
 # Plan de contrôle du processus — {{client}} — {{domaine}}
@@ -147,12 +147,14 @@ Sophie Lambert répond du délai, du coût et de la qualité du traitement des i
 
 | Indicateur | Définition | Source | Fréquence | Référence | Cible | Seuil d'alerte | Réaction | Qui déclenche |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Délai moyen de résolution | De l'ouverture à la clôture, en heures d'horloge ; lu aussi par voie | Traces du système | Hebdomadaire | 31 h | 12 h à 18 mois ; 13,2 h à +3 mois | Plus de 16 h deux semaines de suite | Lecture par voie, puis par motif | Sophie Lambert |
-| Coût par ticket | Coût complet du domaine rapporté aux tickets | Contrôle de gestion | Trimestrielle | 41 € | 26 € ; 29 € à +3 mois | Écart de plus de 10 % à la trajectoire du business case | Revue avec Julien Faure | Product owner |
-| Taux de réouverture | Tickets rouverts après clôture | Traces du système | Hebdomadaire | 14 % | 7 % ; 8 % à +3 mois | Plus de 10 % | Relecture de 30 tickets rouverts, analyse des causes | Responsable de plateau |
-| Résolution sans intervention humaine | Cas clos sans action ni approbation d'une personne | Journal des décisions | Hebdomadaire | 0 % | 35 % ; 33 % à +3 mois | Moins de 28 %, ou chute de 5 points en une semaine | Recherche du motif ou de l'outil en cause | Responsable AgentOps |
-| Propositions acceptées sans correction, voie assistée | Part des propositions approuvées telles quelles | Poste de supervision | Hebdomadaire | Sans objet | Au moins 85 % | Moins de 80 % ; ou cas témoins non détectés | Revue de cas avec les superviseurs | Responsable de plateau |
+| Délai moyen de résolution | De l'ouverture à la clôture, en heures d'horloge ; lu aussi par voie | Traces du système | Hebdomadaire | 31 h | 12 h à 18 mois | Plus de 16 h deux semaines de suite | Lecture par voie, puis par motif | Sophie Lambert |
+| Coût par ticket | Coût complet du domaine rapporté aux tickets | Contrôle de gestion | Trimestrielle | 41 € | 26 € | Écart de plus de 10 % à la trajectoire du business case | Revue avec Julien Faure | Product owner |
+| Taux de réouverture | Tickets rouverts après clôture | Traces du système | Hebdomadaire | 14 % | 7 % | Plus de 10 % | Relecture de 30 tickets rouverts, analyse des causes | Responsable de plateau |
+| Résolution sans intervention humaine | Cas clos sans action ni approbation d'une personne | Journal des décisions | Hebdomadaire | 0 % | 35 % | Moins de 28 %, ou chute de 5 points en une semaine | Recherche du motif ou de l'outil en cause | Responsable AgentOps |
+| Propositions acceptées sans correction, voie assistée | Part des propositions approuvées telles quelles | Poste de supervision | Hebdomadaire | Sans objet | Au moins 85 % | Moins de 80 % ; ou plus de 98 % avec un temps de décision inférieur à 10 secondes ; ou cas témoins non détectés | Revue de cas avec les superviseurs | Responsable de plateau |
 | Usage quotidien du poste de supervision | Conseillers actifs chaque jour | Poste de supervision | Hebdomadaire | Sans objet | Au moins 90 % ; 16 conseillers sur 18 à la fin du pilote | Moins de 80 % sur un plateau | Entretiens, observation d'une demi-journée | Responsable de plateau |
+
+Mesures à +3 mois, portées au journal des écarts : délai moyen 13,2 h, coût par ticket 29 €, réouverture 8 %, résolution sans intervention humaine 33 %.
 
 ### Technologie et données
 
@@ -169,13 +171,13 @@ Sophie Lambert répond du délai, du coût et de la qualité du traitement des i
 | Exactitude de la qualification | Sur le golden set rejoué | Chaîne d'évaluation | Chaque nuit | Au moins 95 % | Sous le seuil | Blocage du déploiement en cours | Automatique |
 | Justesse du diagnostic | Golden set, et 5 % des diagnostics revus par les experts N2 | Chaîne d'évaluation, échantillons | Chaque nuit ; chaque semaine | Au moins 90 % | Moins de 88 % en moyenne hebdomadaire | Analyse d'erreurs avant toute retouche | Responsable AgentOps |
 | Conformité des messages | Contrôle de chaque cas clos | Agent Qualité | Continue | Au moins 98 % | Sous le seuil | Revue des gabarits | Responsable de plateau |
-| Actions inappropriées | Action hors règle exécutée | Contrôle des cas clos | Continue | 0 | Une seule | Arrêt de la voie ; revue le jour même | Responsable de plateau ou AgentOps |
+| Actions inappropriées | Action hors règle exécutée | Contrôle des cas clos | Continue | 0 | Une seule | Motif retiré de la voie autonome le jour même ; arrêt de la voie si la cause n'est pas isolée | Responsable de plateau ou AgentOps |
 
 ## 3. Conformité au modèle
 
 | Parcours prévu | Part attendue | Part constatée | Écart à examiner |
 | --- | --- | --- | --- |
-| Voie autonome | 35 % | 33 % de résolution sans intervention humaine à +3 mois | Motifs encore fermés à la voie |
+| Voie autonome | 35 % | Suivie chaque semaine dans le journal des décisions | Motifs encore fermés à la voie |
 | Voie assistée | 45 % | Suivie chaque semaine | Bascules depuis la voie autonome |
 | Voie experte | 20 % | Suivie chaque semaine | Récidives |
 

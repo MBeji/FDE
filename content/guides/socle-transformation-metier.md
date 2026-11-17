@@ -2,7 +2,7 @@
 id: socle-transformation-metier
 titre: "Socle transformation métier : réinventer le flux avant de construire l'agent"
 resume: "La chaîne qui relie la réingénierie des grands cabinets, le BPM et le process mining, puis le build FDE : cinq étapes calées sur les jalons du Parcours, leurs livrables, le rôle de chaque membre du binôme, et les trois ponts qui transforment un livrable métier en spécification d'agent."
-phases: [cadrer, diagnostiquer, cibler, reinventer, concevoir, industrialiser, perenniser]
+phases: [cadrer, diagnostiquer, cibler, reinventer, concevoir, construire, industrialiser, perenniser]
 duree: "14 min"
 niveau: avance
 tags: [processus, bpm, reingenierie, excellence-operationnelle, methode]
@@ -49,10 +49,10 @@ La chaîne n'est pas une cascade. La stratégie pose une question, la mesure y r
 | Source | Ce que nous en gardons | Ce que l'agentique y change | Où dans le portail |
 | --- | --- | --- | --- |
 | McKinsey : le flux d'abord, l'organisation agentique | La valeur vient du flux redessiné, pas de l'agent ; un flux combine règles, analytique, IA générative et agents ; les rôles et les droits de décision se redéfinissent | Le droit de décision se fixe par action et par niveau de risque | [Grille de décision](/frameworks/eliminer-automatiser-agentifier), [RACI augmenté](/frameworks/raci-augmente), [modèle opérationnel](/frameworks/modele-operationnel-cible) |
-| BCG : la feuille blanche et la règle 10-20-70 | Repartir du résultat, non de l'existant ; mettre 70 % de l'effort sur les personnes et les processus | La règle sert aussi à lire les indicateurs, par étages | [Réinvention à base zéro](/frameworks/reinvention-zero-base), [règle 10-20-70](/frameworks/regle-10-20-70) |
-| Bain : la création de valeur et la simplification | Supprimer avant d'automatiser ; retirer les couches de coordination ; classer par effet sur le résultat | Un agent rend un gaspillage presque gratuit, donc invisible : on supprime d'abord | [Carte de flux de valeur](/frameworks/value-stream-mapping), [arbre de valeur](/frameworks/arbre-de-valeur) |
-| Accenture : le digital core et le fil numérique | Un cas, un identifiant, des données continues d'un système à l'autre | Le fil enregistre aussi les décisions des agents et nourrit les évaluations | [Fil numérique](/frameworks/fil-numerique) |
-| Deloitte et le Lean Six Sigma : l'excellence opérationnelle par les données | Les traces d'exécution avant les ateliers ; le cycle DMAIC | Améliorer inclut des agents, contrôler inclut leur dérive | [Process mining et DMAIC augmenté](/frameworks/process-mining-dmaic) |
+| BCG : remodeler de bout en bout et la règle 10-20-70 | Remodeler une fonction entière plutôt que déployer des outils ; mettre 70 % de l'effort sur les personnes et les processus | La règle sert aussi à lire les indicateurs, par étages | [Déployer, Remodeler, Inventer](/frameworks/deploy-reshape-invent), [règle 10-20-70](/frameworks/regle-10-20-70) |
+| Bain : le zero-based redesign et la création de valeur | Repartir d'une feuille blanche : rien ne survit parce qu'il existait ; supprimer avant d'automatiser ; retirer les couches de coordination ; classer par effet sur le résultat | Un agent rend un gaspillage presque gratuit, donc invisible : on supprime d'abord | [Réinvention à base zéro](/frameworks/reinvention-zero-base), [carte de flux de valeur](/frameworks/value-stream-mapping), [arbre de valeur](/frameworks/arbre-de-valeur) |
+| Accenture : le digital core et la continuité numérique | Un cas, un identifiant, des données continues d'un système à l'autre | Le fil enregistre aussi les décisions des agents et nourrit les évaluations | [Fil numérique](/frameworks/fil-numerique) |
+| Lean Six Sigma et process mining, tels que les pratiquent les cabinets d'excellence opérationnelle comme Deloitte | Les traces d'exécution avant les ateliers ; le cycle DMAIC | Améliorer inclut des agents, contrôler inclut leur dérive | [Process mining et DMAIC augmenté](/frameworks/process-mining-dmaic) |
 | APQC, BPMN, BPM | Une taxonomie, une notation, un propriétaire de processus | La notation distingue le déterministe du probabiliste | [Architecture de processus](/frameworks/architecture-processus), [BPMN augmenté](/frameworks/bpmn-agentique), [gouvernance des processus](/frameworks/gouvernance-processus) |
 
 ## Le playbook en cinq étapes
@@ -91,7 +91,7 @@ Phase [Cibler](/methode/cibler), jalon G2.
 
 Phase [Réinventer](/methode/reinventer), jalon G3.
 
-- **Philosophie.** La feuille blanche pour le flux, le modèle pour le contrat. Une cible que le build doit réinterpréter n'est pas une cible.
+- **Philosophie.** Une feuille blanche pour le flux, un modèle pour le contrat. Une cible que le build doit réinterpréter n'est pas une cible.
 - **Étapes et outils.** Reconstruire à partir du résultat par la [réinvention à base zéro](/frameworks/reinvention-zero-base). Modéliser chaque voie en [BPMN augmenté](/frameworks/bpmn-agentique). Classer chaque règle : garde-fou, jugement ou décision humaine. Fixer les droits de décision avec le [RACI augmenté](/frameworks/raci-augmente).
 - **Livrables.** Le [processus cible](/templates/processus-cible-ai-native), la [matrice humain-agent](/templates/matrice-humain-agent), le [modèle opérationnel cible](/templates/modele-operationnel-cible), et une [fiche de conception](/templates/fiche-conception-processus-agentique) par segment à construire.
 - **Binôme.** Le FDE Design tient le modèle et les règles. Le FDE Build relit chaque passerelle probabiliste avec une seule question : saura-t-on l'évaluer ?
@@ -105,32 +105,17 @@ Phases [Concevoir](/methode/concevoir) à [Pérenniser](/methode/perenniser), ja
 - **Étapes et outils.** Porter les garde-fous dans le code et les critères d'acceptation dans le [plan d'évaluation](/templates/plan-evaluation). Tirer le [fil numérique](/frameworks/fil-numerique) : identifiant du cas, journal des décisions. Installer la [gouvernance des processus](/frameworks/gouvernance-processus). Rejouer l'analyse des traces en production.
 - **Livrables.** Les [fiches agents](/templates/fiche-agent), le plan d'évaluation, puis le [plan de contrôle du processus](/templates/plan-de-controle-processus).
 - **Binôme.** Le FDE Build construit et instrumente. Le FDE Design tient la conformité à la cible, l'adoption et le transfert du plan de contrôle.
-- **Passage.** Au G4, les garde-fous du registre sont dans le code, hors du prompt. Au G6, le propriétaire tient le plan de contrôle. Au G7, le client anime seul la revue qui rejoue l'analyse des traces.
+- **Passage.** Au G4, chaque garde-fou du registre a sa place dans le code, hors du prompt, et son test est écrit. Au G5, les garde-fous sont codés et testés. Au G6, le propriétaire tient le plan de contrôle. Au G7, le client a animé seul une revue de performance, et la première revue d'amélioration, qui rejoue l'analyse des traces, est datée.
 
 ## Les trois ponts vers le build
 
-### Pont 1 — Du diagnostic au cadrage du build
+| Pont | Le livrable métier | Ce qu'il devient côté build | Le détail |
+| --- | --- | --- | --- |
+| 1. Du diagnostic au cadrage | Parcours réels, tri de la valeur, verdicts | Les voies et leur dimensionnement, le tirage du golden set, la référence, la liste des outils à exposer, et ce qu'on ne construit pas | [Process mining et DMAIC augmenté](/frameworks/process-mining-dmaic) |
+| 2. Du modèle aux garde-fous | Modèle du processus et registre des règles | Du code testé pour ce qui doit être toujours vrai ; un agent, un seuil et une évaluation pour ce qui relève du jugement ; une approbation pour ce qui engage | [BPMN augmenté](/frameworks/bpmn-agentique) |
+| 3. Des indicateurs aux evals | Indicateurs cibles du processus | Des critères d'acceptation, repris dans le plan d'évaluation puis dans le plan de contrôle | Ci-dessous |
 
-| Ce que le diagnostic établit | Ce que le build en fait |
-| --- | --- |
-| Les familles de cas et leurs parts | Les voies du processus cible et leur dimensionnement |
-| Les cas réels, classés par parcours | Le tirage du golden set, exceptions comprises |
-| Les délais et les taux de reprise | La référence, puis les critères de succès |
-| Les applications touchées à chaque étape | La liste des outils à exposer aux agents |
-| Les étapes classées gaspillage | Ce qu'on ne construit pas |
-
-### Pont 2 — Du modèle aux garde-fous et à l'autonomie
-
-| Dans le modèle du processus | Dans le système |
-| --- | --- |
-| Règle métier, passerelle déterministe, délai | Du code et des contrôles, couverts par des tests |
-| Tâche d'agent, passerelle probabiliste | Un prompt, des outils, un seuil, et un critère d'évaluation |
-| Point d'approbation humaine | Une règle d'approbation sur l'outil et un écran de supervision |
-| Exception | Une escalade et un mode dégradé |
-
-Ce qui doit être toujours vrai va dans le code. Ce qui doit être bon la plupart du temps va dans l'agent, avec un seuil mesuré. Ce qui engage va à une personne.
-
-### Pont 3 — Des indicateurs aux evals
+### Le troisième pont, pas à pas
 
 Un indicateur métier ne s'évalue pas tel quel : un golden set ne mesure pas un délai. Il faut le traduire en comportement vérifiable.
 

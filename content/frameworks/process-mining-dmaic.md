@@ -102,8 +102,7 @@ En production, le même instrument sert au contrôle. Le système SAV Augmenté 
 
 ## Pièges à éviter
 
-- **Prendre un statut pour du travail.** « En cours chez le N2 » ne veut pas dire qu'on y travaille. Parade : recaler par l'observation et l'écrire dans les limites.
-- **S'arrêter à la moyenne.** Deux populations opposées donnent une moyenne qui n'existe pas. Parade : segmenter avant de conclure.
+- **Prendre un statut pour du travail, s'arrêter à la moyenne.** Les deux erreurs classiques de la mesure : voir les pièges de la [cartographie du processus](/frameworks/cartographie-processus).
 - **Analyser sans question.** Un outil d'exploration produit des cartes sans fin. Parade : une question de décision par analyse.
 - **Glisser vers la surveillance.** Un classement par conseiller détruit la confiance du terrain et expose le client. Parade : résultats agrégés, cadre validé par le DPO et présenté aux représentants du personnel.
 - **Attendre un journal parfait.** Parade : commencer avec trois colonnes et documenter les défauts.

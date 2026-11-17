@@ -36,7 +36,7 @@ Un segment est une activité, ou un groupe d'activités entre deux passages de r
 1. **Valeur.** L'étape survit-elle au tri de la [carte de flux de valeur](/frameworks/value-stream-mapping) ? Si c'est un gaspillage : supprimer.
 2. **Santé du flux.** Le délai ou le coût du segment vient-il du travail lui-même, ou de son organisation : attentes, relais, reprises, parcours multiples pour un même résultat ? Si c'est l'organisation : réingénierer d'abord.
 3. **Spécifiabilité.** Les entrées sont-elles structurées et la règle stable, écrite, vérifiable ? Si oui : automatiser, de façon déterministe.
-4. **Jugement borné.** Les entrées sont-elles ambiguës, le chemin variable, l'erreur détectable et réversible, le résultat vérifiable ? Si oui : agentifier. Sinon, l'étape reste à un humain, que l'on outille.
+4. **Jugement borné.** Le travail demande-t-il d'interpréter, et passe-t-il les six questions de l'[échelle des solutions](/frameworks/faut-il-un-agent) ? Si oui : agentifier. Sinon, l'étape reste à un humain, que l'on outille.
 
 ### 3. Lire la matrice
 
@@ -55,8 +55,8 @@ La case en bas à droite est la plus dangereuse. C'est là que naît l'agent pan
 | --- | --- | --- | --- |
 | Supprimer | Étape classée gaspillage ; contrôle qui n'a rien arrêté sur la période ; relais qui n'existe que par l'organigramme | Une décision du propriétaire du processus et une procédure mise à jour | Personne |
 | Réingénierer | L'attente dépasse le traitement ; reprises ou réouvertures élevées ; plus de trois relais ; parcours nombreux pour un même résultat | Un [processus cible](/templates/processus-cible-ai-native) | Le métier, avec le FDE Design |
-| Automatiser | Logique qui s'écrit en moins de dix branches ; données accessibles par API ; volume élevé | Une règle, un script, une intégration : barreau 1 de l'échelle | Le FDE Build ou la DSI, en jours |
-| Agentifier | Texte libre ou pièces jointes ; ordre des vérifications qui dépend de ce qu'on trouve ; valeur unitaire suffisante ; évaluation possible | Une [fiche de conception](/templates/fiche-conception-processus-agentique), puis le barreau 2 à 5 fixé par l'échelle | Le binôme, en semaines |
+| Automatiser | Logique entièrement spécifiable ; données accessibles par API ; volume élevé | Une règle, un script, une intégration : barreau 1 de l'échelle | Le FDE Build ou la DSI, en jours |
+| Agentifier | Texte libre ou pièces jointes ; ordre des vérifications qui dépend de ce qu'on trouve ; les six questions de l'échelle des solutions passées | Une [fiche de conception](/templates/fiche-conception-processus-agentique), puis le barreau 2 à 5 fixé par l'échelle | Le binôme, en semaines |
 | Garder à l'humain | Relation, arbitrage, responsabilité ; erreur irréversible | Un poste outillé : dossier préparé, recherche, synthèse | Le binôme |
 
 Les seuils sont des repères à calibrer sur le domaine, pas des constantes.
@@ -80,8 +80,8 @@ Les verdicts rendus chez Voxalis sur le traitement d'un incident technique, à p
 | Rédaction du transfert au N2 | N'existe que par le passage de niveau | Supprimer |
 | Complément demandé au client | 23 % des incidents ; 8,5 h avec les attentes | Réingénierer : réunir l'information dès le signalement |
 | Qualification du ticket | Texte libre du client ; 9 % d'erreurs | Agentifier, au barreau 2 |
-| Choix de la voie | Critères écrits : motif, risque de l'action, incident collectif, réclamation ouverte | Automatiser : règles d'entrée des voies |
-| Collecte et diagnostic, hors reprise | 4,5 h dans 6 outils ; l'ordre des vérifications dépend des résultats | Agentifier, au barreau 4 |
+| Choix de la voie | Critères écrits : motif, risque de l'action, incident collectif, réclamation ouverte | Automatiser : règles d'entrée des voies, codées et appliquées par l'orchestration du cas |
+| Collecte et diagnostic, hors reprise | 4,5 h dans 4 outils ; l'ordre des vérifications dépend des résultats | Agentifier, au barreau 4 |
 | Remédiation des motifs récurrents | 12 motifs documentés, 58 % des incidents | Agentifier sur le catalogue d'actions à risque faible ; décision humaine au-delà |
 | Vérification du rétablissement | Un contrôle, un résultat attendu | Automatiser |
 | Geste commercial | Décision qui engage l'entreprise | Garder à l'humain |

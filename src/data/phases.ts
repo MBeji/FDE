@@ -829,7 +829,7 @@ export const phases: Phase[] = [
         "La sécurité a validé les droits d'accès et le modèle de menace.",
         "La qualification réglementaire est validée par le juridique.",
         "Le coût cible par cas est compatible avec le business case.",
-        "Les garde-fous du registre des règles sont implémentés dans le code, hors des prompts.",
+        "Chaque garde-fou du registre des règles a sa place prévue dans le code, hors des prompts, et son test est écrit.",
       ],
       arret: [
         "On ne sait pas définir objectivement un bon résultat pour l'agent.",
@@ -994,6 +994,7 @@ export const phases: Phase[] = [
         "Les utilisateurs du pilote utilisent le système au quotidien.",
         "Le coût par cas constaté est compatible avec le business case.",
         "Le registre de valeur contient des résultats mesurés.",
+        "Les garde-fous du registre des règles sont codés et couverts par des tests.",
       ],
       arret: [
         "Les seuils d'évaluation ne sont pas atteints malgré plusieurs itérations.",
@@ -1313,7 +1314,7 @@ export const phases: Phase[] = [
         "Les rituels d'amélioration continue sont tenus par le client.",
         "Le prochain domaine est identifié.",
         "Le retour d'expérience est publié sur le portail.",
-        "Le client anime seul la revue qui rejoue l'analyse des parcours réels.",
+        "Le client a animé seul une revue de performance du processus ; la première revue d'amélioration, qui rejoue l'analyse des parcours réels, est datée.",
       ],
       arret: [
         "La valeur mesurée est durablement inférieure au coût récurrent : il faut le dire et décider.",

@@ -4,7 +4,7 @@ titre: "Fil numérique : continuité des données et traçabilité des décision
 resume: "Faire suivre à chaque cas un identifiant unique d'un système à l'autre, et enregistrer chaque décision, humaine ou d'agent, avec ce qui l'a fondée. Le même fil sert à exploiter, à mesurer et à apprendre."
 categorie: industrialisation
 phases: [diagnostiquer, concevoir, industrialiser]
-origine: "Accenture (digital core, digital thread), adaptation Maison"
+origine: "Maison, d'après le digital core (Accenture) et le digital thread de l'industrie"
 niveau: avance
 tags: [donnees, tracabilite, integration, observabilite, bpm]
 templates: [revue-donnees-si, fiche-conception-processus-agentique]
@@ -13,7 +13,7 @@ lies: [architecture-reference, conception-outils, agentops, process-mining-dmaic
 
 ## En bref
 
-Un processus traverse plusieurs applications, et à chaque frontière l'information se perd : on ressaisit, on recopie, on redemande. Le fil numérique, ou digital thread, est la continuité qui l'empêche. Un cas porte le même identifiant partout, et chaque décision laisse une trace reliée à ce cas. Accenture en fait, avec le digital core (plateformes, socle de données et d'IA, fondation technique), la condition de toute réinvention.
+Un processus traverse plusieurs applications, et à chaque frontière l'information se perd : on ressaisit, on recopie, on redemande. Le fil numérique, ou digital thread, est la continuité qui l'empêche. Un cas porte le même identifiant partout, et chaque décision laisse une trace reliée à ce cas. La notion vient de l'industrie, où elle relie un produit à ses données tout au long de sa vie. Accenture en fait, avec son digital core (plateformes, socle de données et d'IA, fondation technique), la condition de toute réinvention.
 
 Les agents rendent le fil plus nécessaire encore. Un agent décide vite et souvent : sans trace, personne ne peut expliquer un résultat, mesurer un indicateur ni corriger une erreur. Pour un FDE, le fil se conçoit **avec** le processus cible, pas après.
 

@@ -69,9 +69,9 @@ Chez Voxalis, la demande initiale parlait d'un chatbot pour « le SAV ». Situé
 | L3 | Traitement d'un incident technique PME, du signalement au rétablissement confirmé | 260 000 incidents par an ; premier processus mesuré et reconstruit. Laissés pour plus tard : demandes de modification (23 % des tickets), réclamations et facturation (15 %) |
 | L4 | Les neuf étapes de la [fiche processus](/templates/fiche-processus-existant), de l'ouverture du ticket à la clôture | Unité des verdicts et de la matrice humain-agent |
 
-Quatre interfaces sont marquées dès le cadrage : la Direction Réseau (incidents collectifs, équipements partagés entre clients), le back-office (interventions sur site), le recouvrement (comptes suspendus), le commerce (gestes commerciaux). Toutes réapparaissent comme exceptions du processus cible. Aucune n'a été découverte en cours de pilote.
+Quatre interfaces sont relevées avant la conception : la Direction Réseau (incidents collectifs, équipements partagés entre clients), le back-office (interventions sur site), le recouvrement (comptes suspendus, sortis du flux dès la qualification), la sécurité (suspicion d'incident, équipe de Marc Dubois). Les incidents collectifs, les interventions sur site et la sécurité réapparaissent comme exceptions du processus cible ; le compte suspendu sort du périmètre.
 
-La carte a resservi au jalon G7 : le domaine suivant a été cherché parmi les processus voisins capables de réutiliser la qualification, la passerelle d'outils et la chaîne d'évaluation.
+Au domaine suivant, la même carte sert à chercher les processus voisins capables de réutiliser la qualification, la passerelle d'outils et la chaîne d'évaluation.
 
 ## Pièges à éviter
 

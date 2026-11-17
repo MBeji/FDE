@@ -246,7 +246,7 @@ _[Extrait de la matrice humain-agent pour ce segment ; la matrice complète fait
 - [x] Au moins dix cas réels sont fournis : 30 tickets du motif, dont des cas où la cause était ailleurs.
 - [x] Les critères d'acceptation sont testables : quatre seuils, repris dans le plan d'évaluation.
 - [x] Les règles et les exceptions connues sont listées, avec leur source.
-- [ ] Les accès et les données sont obtenus : trois interfaces à construire, calendrier arrêté avec la DSI et la Direction Réseau.
+- [x] Les accès et les données sont obtenus, ou leur date est connue : trois interfaces à construire, calendrier arrêté avec la DSI et la Direction Réseau.
 - [x] Le FDE Build a posé ses questions et reçu une réponse écrite.
 
 | Rôle | Nom | Date |

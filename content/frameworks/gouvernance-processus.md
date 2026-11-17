@@ -55,7 +55,7 @@ La [règle 10-20-70](/frameworks/regle-10-20-70) répartit l'effort. Elle répar
 | | Escalades et bascules de voie | Où l'agent doute-t-il ? | Journal des décisions |
 | | Actions inappropriées | Les garde-fous tiennent-ils ? Doit rester à zéro | Contrôle des cas clos |
 
-Deux lectures piègent. Un taux d'intervention humaine qui monte signale un agent en difficulté. Un taux qui chute brutalement signale souvent une validation devenue réflexe.
+Deux lectures piègent. Un taux d'intervention humaine qui monte signale un agent en difficulté. Un taux d'acceptation sans correction qui approche 100 %, avec des décisions prises en quelques secondes, signale une validation devenue réflexe.
 
 ### 4. Écrire le plan de contrôle
 
@@ -78,7 +78,7 @@ Pour chaque indicateur retenu : sa définition, sa source, sa fréquence, sa ré
 
 ### 7. Transférer la tenue des revues
 
-Au jalon G7, le client anime ces revues seul. Le FDE prépare les deux premières, coanime la troisième et assiste à la quatrième sans intervenir.
+Le transfert se fait rythme par rythme : le FDE prépare la première séance, coanime la suivante, puis assiste sans intervenir. Au jalon G7, le client a animé seul au moins un point hebdomadaire et une revue mensuelle ; la première revue trimestrielle est datée.
 
 ## Exemple
 
@@ -95,7 +95,7 @@ Lecture à trois mois de la généralisation.
 | 20 | Coût d'inférence par ticket | Sans objet | Plafond de 0,50 € | 0,38 € (mesure du pilote) |
 | 10 | Justesse du diagnostic | Sans objet | Au moins 90 % | Seuil tenu au pilote ; alerte sous 88 % en moyenne hebdomadaire |
 
-La revue commence par le délai et le coût. La réouverture, à un point de sa cible, est le seul écart ouvert : elle est donnée à l'analyse des causes avant toute retouche d'un prompt. Le changement d'un critère d'entrée de la voie autonome relève de Sophie Lambert. L'ouverture d'un nouveau motif à cette voie passe par le comité, avec son dossier de preuves.
+La revue commence par le délai et le coût, tous deux sur la trajectoire de leur cible à 18 mois, comme la résolution sans intervention humaine. La réouverture, à un point de sa cible, est le seul garde-fou en écart : elle est donnée à l'analyse des causes avant toute retouche d'un prompt. Le changement d'un critère d'entrée de la voie autonome relève de Sophie Lambert. L'ouverture d'un nouveau motif à cette voie passe par le comité, avec son dossier de preuves.
 
 ## Pièges à éviter
 

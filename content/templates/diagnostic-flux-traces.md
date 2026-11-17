@@ -174,7 +174,7 @@ _[Ce que les traces ne montrent pas, ce qui reste à confirmer, par qui et pour 
 
 | Champ | Source | Remarque |
 | --- | --- | --- |
-| Identifiant du cas | Numéro de ticket, CRM et ticketing | Les réouvertures gardent le numéro d'origine |
+| Identifiant du cas | Numéro de ticket, CRM et ticketing | Un ticket rouvert garde son numéro, ce qui permet de compter les réouvertures |
 | Activité | Statuts du ticket, ramenés aux 9 étapes de la fiche processus | Correspondance validée avec les deux experts N2 détachés |
 | Horodatage | Changement de statut | En heures d'horloge, nuits et week-ends compris |
 | Équipe ou rôle | File d'affectation : N1, N2, back-office | Aucun identifiant de personne n'est extrait |
@@ -229,7 +229,7 @@ Les files entre N1 et N2 totalisent 12,7 h, soit 41 % du délai. L'attente du cl
 | --- | --- | --- | --- | --- | --- |
 | 1 | Ouverture du ticket | 0,1 h | Nécessaire sans valeur ajoutée | — | Il faut un dossier, le client n'y gagne rien |
 | 2 | Qualification | 0,2 h | Nécessaire sans valeur ajoutée | — | Sert à orienter le cas |
-| 3 | Collecte et premier diagnostic | 0,6 h | Nécessaire sans valeur ajoutée | — | Imposée par la dispersion de l'information dans 6 outils |
+| 3 | Collecte et premier diagnostic | 0,6 h | Nécessaire sans valeur ajoutée | — | Imposée par la dispersion de l'information entre les outils |
 | 4 | Résolution au premier contact, ou rédaction du transfert | 0,2 h | Valeur ajoutée | — | Comptée entière : les deux parts ne sont pas isolées |
 | 5 | Reprise et nouvelle collecte au N2 | 2,4 h | Gaspillage | Reprise | Vérifications déjà faites au N1 |
 | 6 | Diagnostic approfondi | 3,9 h | Valeur ajoutée | — | Fait avancer le rétablissement |
@@ -240,7 +240,7 @@ Les files entre N1 et N2 totalisent 12,7 h, soit 41 % du délai. L'attente du cl
 | — | Attente du client | 5,6 h | Gaspillage | Attente | Réductible par une information complète et proactive |
 | **Total** | | **31,0 h** | | | |
 
-**Efficience de flux** : 9,3 h de valeur ajoutée sur 31 h, soit 30 % au plus. La part nécessaire sans valeur ajoutée pèse 0,9 h, le gaspillage 20,8 h.
+**Efficience de flux** : 9,3 h de valeur ajoutée sur 31 h, soit 30 % au plus. La part nécessaire sans valeur ajoutée pèse 0,9 h, le gaspillage 20,8 h. Les réouvertures, 14 % des tickets clos, sont une reprise qui s'ajoute à ce compte.
 
 ## 7. Verdicts par segment
 
@@ -251,8 +251,8 @@ Les files entre N1 et N2 totalisent 12,7 h, soit 41 % du délai. L'attente du cl
 | Rédaction du transfert | N'existe que par les niveaux | Supprimer | Faible en délai, forte en qualité | Disparaît avec les niveaux |
 | Complément auprès du client | 23 % des cas, 8,5 h | Réingénierer | Plus du quart du délai | Informations réunies dès le signalement |
 | Qualification | 9 % d'erreurs, texte libre | Agentifier | Moins de tickets mal orientés | Cas d'usage « qualification et routage » |
-| Choix du circuit de traitement | Critères écrits | Automatiser | Délai d'orientation nul | Règles d'entrée, phase Réinventer |
-| Collecte et diagnostic, hors reprise | 4,5 h dans 6 outils | Agentifier | Cœur du délai utile | Cas d'usage « diagnostic technique » |
+| Choix de la voie | Critères écrits | Automatiser | Délai d'orientation nul | Règles d'entrée, phase Réinventer |
+| Collecte et diagnostic, hors reprise | 4,5 h dans 4 outils | Agentifier | Cœur du délai utile | Cas d'usage « diagnostic technique » |
 | Remédiation des motifs récurrents | 12 motifs, 58 % des incidents | Agentifier, sous catalogue d'actions | Résolution sans attente | Cas d'usage « résolution autonome » |
 | Vérification du rétablissement | Un contrôle, un résultat attendu | Automatiser | Réouvertures évitées | Règle de clôture |
 | Geste commercial | Engage l'entreprise | Garder à l'humain | — | Décision du conseiller |

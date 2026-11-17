@@ -37,17 +37,17 @@ Partir des étapes de la [fiche processus existant](/templates/fiche-processus-e
 
 ### 3. Classer chaque étape
 
-Trois tests, dans l'ordre.
+Deux tests décident, le troisième isole la reprise.
 
 1. **Le client paierait-il pour cette étape s'il la voyait ?**
 2. **Fait-elle avancer le cas vers son résultat ?**
 3. **Est-elle faite bien du premier coup ?**
 
-Trois oui : valeur ajoutée. Sinon, une question de plus : l'étape est-elle imposée par un texte, un contrat, la sécurité ou une limite réelle du système d'information ? Si oui, elle est nécessaire sans valeur ajoutée. Sinon, c'est un gaspillage. À chaque « c'est obligatoire », demander le texte.
+Oui aux deux premiers : valeur ajoutée. La part refaite, que révèle le troisième, se compte à part, en gaspillage de type reprise. Sinon, une question de plus : l'étape est-elle imposée par un texte, un contrat, la sécurité ou une limite réelle du système d'information ? Si oui, elle est nécessaire sans valeur ajoutée. Sinon, c'est un gaspillage. À chaque « c'est obligatoire », demander le texte.
 
 ### 4. Nommer les gaspillages
 
-Les huit gaspillages du Lean se transposent au travail de service.
+Les sept gaspillages décrits par Taiichi Ohno, et le huitième que les praticiens du Lean y ont ajouté, se transposent au travail de service.
 
 | Gaspillage | Dans un processus de service |
 | --- | --- |
@@ -62,7 +62,7 @@ Les huit gaspillages du Lean se transposent au travail de service.
 
 ### 5. Calculer l'efficience de flux
 
-Efficience de flux = temps à valeur ajoutée ÷ délai de bout en bout. Le constat classique du Lean, à vérifier à chaque fois, est qu'elle est faible dans les services : le dossier attend plus qu'il n'est traité. Tant qu'elle est basse, accélérer le traitement change peu de chose pour le client.
+Efficience de flux = temps à valeur ajoutée ÷ délai de bout en bout. Elle est souvent faible dans les services, comme le rappelle la [cartographie du processus](/frameworks/cartographie-processus). Tant qu'elle est basse, accélérer le traitement change peu de chose pour le client.
 
 ### 6. Décider par catégorie
 
@@ -97,7 +97,7 @@ La carte du traitement d'un incident technique chez Voxalis reprend les neuf ét
 | Nécessaire sans valeur ajoutée | Ouverture du ticket (1), qualification (2), collecte et premier diagnostic (3) | 0,9 h | 3 % |
 | Gaspillage | Nouvelle collecte par le N2 (5), complément demandé au client (7), attente entre N1 et N2, attente du client | 20,8 h | 67 % |
 
-L'étape 4 mêle la résolution au premier contact et la rédaction du transfert, que les mesures n'isolent pas : elle est comptée entière en valeur ajoutée. L'efficience de flux est donc de 30 % au plus. Elle est moindre en temps réellement travaillé, puisque le temps « en cours » chez un acteur n'est pas sa charge. La fiche processus compte 18 % de traitement effectif : elle classe par nature de travail et range le diagnostic approfondi avec la collecte. La carte de flux classe par valeur pour le client, pour qui un diagnostic juste fait avancer son rétablissement.
+L'étape 4 mêle la résolution au premier contact et la rédaction du transfert, que les mesures n'isolent pas : elle est comptée entière en valeur ajoutée. Les réouvertures, 14 % des tickets clos, sont une reprise qui s'ajoute à ce compte. L'efficience de flux est donc de 30 % au plus. Elle est moindre en temps réellement travaillé, puisque le temps « en cours » chez un acteur n'est pas sa charge. La fiche processus compte 18 % de traitement effectif : elle classe par nature de travail et range le diagnostic approfondi avec la collecte. La carte de flux classe par valeur pour le client, pour qui un diagnostic juste fait avancer son rétablissement.
 
 Trois décisions suivent, sans aucun agent.
 
@@ -121,4 +121,4 @@ La demande initiale, un chatbot d'accueil, visait l'ouverture du ticket : 0,1 h,
 - Frameworks : [cartographier et mesurer le processus existant](/frameworks/cartographie-processus), [process mining et DMAIC augmenté](/frameworks/process-mining-dmaic), [grille de décision](/frameworks/eliminer-automatiser-agentifier), [réinvention à base zéro](/frameworks/reinvention-zero-base)
 - Template : [diagnostic de flux par les traces](/templates/diagnostic-flux-traces)
 - Savoir terrain : [automatiser l'existant](/savoir/automatiser-l-existant)
-- Références : Taiichi Ohno pour les gaspillages ; Mike Rother et John Shook, « Learning to See », pour la carte de flux de valeur.
+- Références : Taiichi Ohno pour les sept gaspillages d'origine ; Mike Rother et John Shook, « Learning to See », pour la carte de flux de valeur.
