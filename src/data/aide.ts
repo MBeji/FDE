@@ -85,6 +85,18 @@ export const AIDE_PAGES: Record<string, TexteAide> = {
       nom: `${PHASES_RESUME[id].numero}. ${PHASES_RESUME[id].nom}`,
     })),
   },
+  "/guides/socle-transformation-metier": {
+    resume:
+      "Le socle transformation métier et excellence opérationnelle : la chaîne qui va de la réingénierie et du process mining jusqu'au build, en cinq étapes calées sur les jalons, avec la grille « supprimer, réingénierer, automatiser, agentifier ».",
+    quand: "vous devez réinventer un processus avant de construire un agent, ou vérifier qu'un agent est bien la bonne réponse.",
+    sousLiens: [
+      { href: "/frameworks/eliminer-automatiser-agentifier", nom: "Grille de décision" },
+      { href: "/frameworks/process-mining-dmaic", nom: "Process mining et DMAIC" },
+      { href: "/frameworks/bpmn-agentique", nom: "BPMN augmenté" },
+      { href: "/templates/fiche-conception-processus-agentique", nom: "Fiche de conception" },
+      { href: "/templates/plan-de-controle-processus", nom: "Plan de contrôle" },
+    ],
+  },
   "/guides/cas-fil-rouge": {
     resume:
       "Une mission complète chez Voxalis, client fictif dont sont tirés les exemples des templates, des frameworks et des exercices.",

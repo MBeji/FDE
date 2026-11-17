@@ -86,6 +86,7 @@ Les cinq principes s'y lisent. Le ticket déclenche qualification et diagnostic 
 
 ## Pour aller plus loin
 
+- Pour spécifier la cible : [BPMN augmenté](/frameworks/bpmn-agentique), [fiche de conception de processus agentique](/templates/fiche-conception-processus-agentique)
 - Outil interactif : [Redesign de processus](/outils/redesign-processus)
 - Templates : [processus cible AI-Native](/templates/processus-cible-ai-native), [matrice humain-agent](/templates/matrice-humain-agent)
 - Guide : [repenser un processus](/guides/repenser-un-processus)

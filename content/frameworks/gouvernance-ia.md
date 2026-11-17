@@ -72,6 +72,7 @@ Première décision notable du comité : refuser l'élargissement de l'Agent Com
 
 ## Pour aller plus loin
 
+- Pour gouverner le processus, et pas seulement les agents : [gouvernance des processus](/frameworks/gouvernance-processus), [plan de contrôle du processus](/templates/plan-de-controle-processus)
 - Frameworks : [NIST AI RMF et ISO/IEC 42001](/frameworks/nist-ai-rmf), [IA responsable](/frameworks/ia-responsable), [usine à agents](/frameworks/usine-agents), [modèle opérationnel cible](/frameworks/modele-operationnel-cible), [niveaux d'autonomie](/frameworks/niveaux-autonomie)
 - Templates : [registre des agents](/templates/registre-agents), [analyse de risques agent](/templates/analyse-risques-agent)
 - Savoir terrain : [autonomie progressive](/savoir/autonomie-progressive)

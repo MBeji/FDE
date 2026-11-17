@@ -80,6 +80,7 @@ export const phases: Phase[] = [
         description:
           "Écrire ce qui est dans la mission et ce qui n'y est pas. Convenir avec le sponsor de deux ou trois signaux qui conduiraient à arrêter ou à réorienter : absence de données exploitables, valeur inférieure à un seuil, indisponibilité du métier.",
         resultat: "Un périmètre et des critères d'arrêt écrits.",
+        frameworks: ["architecture-processus"],
         templates: ["charte-de-mission"],
       },
       {
@@ -134,6 +135,7 @@ export const phases: Phase[] = [
         "L'hypothèse de valeur est chiffrée en ordre de grandeur.",
         "Le périmètre et les critères d'arrêt sont écrits.",
         "Les accès aux données, aux outils et au terrain sont obtenus ou datés.",
+        "Le périmètre est situé dans l'architecture de processus, du macro-processus à l'activité, avec ses interfaces.",
       ],
       arret: [
         "Le sponsor ne peut pas nommer l'indicateur qu'il veut voir bouger.",
@@ -224,7 +226,7 @@ export const phases: Phase[] = [
         description:
           "Passer du temps à côté de ceux qui font le travail. Cartographier les étapes, les passages de relais, les outils, les exceptions. Séparer le temps de traitement du temps d'attente : c'est presque toujours là que se trouve la valeur.",
         resultat: "Une fiche par processus, avec volumes et délais mesurés.",
-        frameworks: ["observation-terrain", "cartographie-processus", "decomposition-taches"],
+        frameworks: ["observation-terrain", "cartographie-processus", "value-stream-mapping", "decomposition-taches"],
         templates: ["fiche-processus-existant"],
         outils: ["redesign-processus"],
       },
@@ -232,9 +234,11 @@ export const phases: Phase[] = [
         id: "diagnostiquer-3",
         titre: "Analyser les données opérationnelles",
         description:
-          "Exploiter douze mois d'historique : distribution des motifs, des délais, des réouvertures, concentration des volumes. Vérifier les chiffres annoncés en entretien. Identifier la part répétitive et documentée du flux.",
+          "Exploiter douze mois d'historique : distribution des motifs, des délais, des réouvertures, concentration des volumes. Vérifier les chiffres annoncés en entretien. Identifier la part répétitive et documentée du flux. Quand une application horodate les changements d'état, reconstituer les parcours réels, les attentes et les boucles de reprise.",
         resultat: "La décomposition chiffrée des délais et des coûts.",
-        frameworks: ["analyse-80-20", "analyse-causes-racines", "arbre-de-valeur"],
+        frameworks: ["process-mining-dmaic", "analyse-80-20", "analyse-causes-racines", "arbre-de-valeur"],
+        templates: ["diagnostic-flux-traces"],
+        guides: ["socle-transformation-metier"],
       },
       {
         id: "diagnostiquer-4",
@@ -252,7 +256,7 @@ export const phases: Phase[] = [
         description:
           "Inventorier les sources, leur qualité, leur fraîcheur, leurs droits d'accès. Cartographier les applications et leurs interfaces. Rendre un verdict par besoin : prêt, à préparer, bloquant.",
         resultat: "Une revue de préparation et un plan de remédiation.",
-        frameworks: ["memoire-connaissance", "architecture-reference"],
+        frameworks: ["memoire-connaissance", "architecture-reference", "fil-numerique"],
         templates: ["revue-donnees-si"],
       },
       {
@@ -285,6 +289,12 @@ export const phases: Phase[] = [
         obligatoire: true,
       },
       {
+        template: "diagnostic-flux-traces",
+        titre: "Diagnostic de flux par les traces",
+        description: "Parcours réels, attentes, boucles de reprise, tri de la valeur et verdict par segment.",
+        obligatoire: false,
+      },
+      {
         template: "guide-entretien",
         titre: "Synthèses d'entretiens",
         description: "Constats, verbatims et faits par interlocuteur.",
@@ -301,6 +311,8 @@ export const phases: Phase[] = [
         "Le profil de maturité est partagé et non contesté.",
         "Les points bloquants sur les données et le SI sont connus et chiffrés.",
         "Les hypothèses de cadrage sont confirmées, amendées ou abandonnées.",
+        "Les parcours réels, les attentes et les boucles de reprise sont chiffrés à partir des traces, quand elles existent.",
+        "Chaque étape du processus est classée : valeur ajoutée, nécessaire sans valeur ajoutée ou gaspillage.",
       ],
       arret: [
         "Les données nécessaires n'existent pas ou ne seront pas accessibles dans le délai de la mission.",
@@ -389,9 +401,9 @@ export const phases: Phase[] = [
         id: "cibler-2",
         titre: "Qualifier le niveau de solution",
         description:
-          "Pour chaque cas d'usage, déterminer s'il relève d'une règle, d'un appel de modèle, d'un workflow, d'un agent ou d'un système multi-agents. Cette décision conditionne le coût, le délai et le risque.",
+          "Rendre d'abord un verdict par segment du flux : supprimer, réingénierer, automatiser ou agentifier. Puis, pour chaque cas d'usage, déterminer s'il relève d'une règle, d'un appel de modèle, d'un workflow, d'un agent ou d'un système multi-agents. Cette décision conditionne le coût, le délai et le risque.",
         resultat: "Un barreau de solution justifié par cas d'usage.",
-        frameworks: ["faut-il-un-agent", "patterns-agentiques"],
+        frameworks: ["eliminer-automatiser-agentifier", "faut-il-un-agent", "patterns-agentiques"],
         outils: ["agent-ou-pas"],
       },
       {
@@ -469,6 +481,7 @@ export const phases: Phase[] = [
         "Le niveau de solution de chaque cas est justifié.",
         "Le business case est validé par la finance, scénario prudent compris.",
         "Les cas écartés le sont explicitement, avec leur raison.",
+        "Chaque segment du flux a un verdict fondé sur un fait : supprimer, réingénierer, automatiser ou agentifier.",
       ],
       arret: [
         "Aucun cas d'usage ne dépasse le seuil de valeur convenu au cadrage.",
@@ -554,8 +567,8 @@ export const phases: Phase[] = [
         description:
           "Dessiner le flux cible : déclenché par événement, traitements en parallèle, voies différenciées selon le risque et la complexité, humain positionné sur la décision et l'exception. Comparer étape par étape avec l'existant.",
         resultat: "Un processus cible avec ses voies et ses indicateurs.",
-        frameworks: ["reinvention-zero-base", "design-sprint", "decomposition-taches"],
-        templates: ["processus-cible-ai-native"],
+        frameworks: ["reinvention-zero-base", "bpmn-agentique", "design-sprint", "decomposition-taches"],
+        templates: ["processus-cible-ai-native", "fiche-conception-processus-agentique"],
         outils: ["redesign-processus"],
       },
       {
@@ -573,7 +586,7 @@ export const phases: Phase[] = [
         description:
           "Définir les nouveaux rôles (superviseur, propriétaire d'agent, exploitation des agents), les compétences, les effectifs et leur trajectoire, la gouvernance. Traiter explicitement la question de l'emploi avec les RH.",
         resultat: "Un modèle opérationnel cible et sa trajectoire.",
-        frameworks: ["modele-operationnel-cible", "gouvernance-ia"],
+        frameworks: ["modele-operationnel-cible", "gouvernance-ia", "gouvernance-processus"],
         templates: ["modele-operationnel-cible"],
       },
       {
@@ -613,6 +626,12 @@ export const phases: Phase[] = [
         description: "Rôles, compétences, gouvernance et trajectoire.",
         obligatoire: true,
       },
+      {
+        template: "fiche-conception-processus-agentique",
+        titre: "Fiches de conception de processus agentique",
+        description: "Par segment à construire : critères d'acceptation, flux, règles classées, droits de décision, données.",
+        obligatoire: true,
+      },
     ],
     jalon: {
       code: "G3",
@@ -624,6 +643,8 @@ export const phases: Phase[] = [
         "Les indicateurs cibles sont reliés au business case.",
         "Les engagements sociaux sont posés avec les RH et la direction.",
         "Le propriétaire du processus porte la cible devant le COPIL.",
+        "Chaque règle métier de la cible est classée : garde-fou dans le code, jugement confié à un agent ou décision humaine.",
+        "Chaque indicateur cible a un critère d'acceptation mesurable, cosigné par le Design et le Build.",
       ],
       arret: [
         "La cible n'est qu'une version automatisée de l'existant : mêmes étapes, mêmes relais.",
@@ -701,7 +722,7 @@ export const phases: Phase[] = [
           "Avec les experts métier, définir ce qu'est un bon résultat pour chaque agent. Constituer un jeu de cas réels annotés, stratifié par type de situation, et un jeu de cas adverses. Ce travail précède tout développement.",
         resultat: "Un plan d'évaluation et un golden set annoté.",
         frameworks: ["evaluation-agents", "eval-driven-development"],
-        templates: ["plan-evaluation"],
+        templates: ["plan-evaluation", "fiche-conception-processus-agentique"],
         guides: ["construire-les-evals"],
       },
       {
@@ -745,7 +766,7 @@ export const phases: Phase[] = [
         description:
           "Établir le modèle de menace : entrées, outils, mémoire, sorties. Pour chaque scénario, le garde-fou et le risque résiduel. Faire valider les droits d'accès par la sécurité et la qualification réglementaire par le juridique.",
         resultat: "Une analyse de risques et des garde-fous validés.",
-        frameworks: ["garde-fous", "securite-agents", "nist-ai-rmf", "eu-ai-act"],
+        frameworks: ["garde-fous", "securite-agents", "nist-ai-rmf", "eu-ai-act", "bpmn-agentique"],
         templates: ["analyse-risques-agent", "checklist-securite-conformite"],
       },
       {
@@ -808,6 +829,7 @@ export const phases: Phase[] = [
         "La sécurité a validé les droits d'accès et le modèle de menace.",
         "La qualification réglementaire est validée par le juridique.",
         "Le coût cible par cas est compatible avec le business case.",
+        "Les garde-fous du registre des règles sont implémentés dans le code, hors des prompts.",
       ],
       arret: [
         "On ne sait pas définir objectivement un bon résultat pour l'agent.",
@@ -1065,10 +1087,10 @@ export const phases: Phase[] = [
         id: "industrialiser-3",
         titre: "Installer la gouvernance",
         description:
-          "Nommer un propriétaire métier par agent, ouvrir le registre des agents, installer le comité qui décide des mises en service, des élargissements d'autonomie et des retraits. Proportionner le niveau de revue au risque.",
-        resultat: "Un registre des agents et un comité de gouvernance en fonctionnement.",
-        frameworks: ["gouvernance-ia", "nist-ai-rmf", "ia-responsable"],
-        templates: ["registre-agents"],
+          "Nommer un propriétaire métier par agent, ouvrir le registre des agents, installer le comité qui décide des mises en service, des élargissements d'autonomie et des retraits. Proportionner le niveau de revue au risque. Remettre au propriétaire du processus son plan de contrôle : indicateurs, seuils et réactions.",
+        resultat: "Un registre des agents, un plan de contrôle du processus et un comité de gouvernance en fonctionnement.",
+        frameworks: ["gouvernance-ia", "gouvernance-processus", "nist-ai-rmf", "ia-responsable"],
+        templates: ["registre-agents", "plan-de-controle-processus"],
       },
       {
         id: "industrialiser-4",
@@ -1122,6 +1144,12 @@ export const phases: Phase[] = [
         description: "Impacts, communication, formation, indicateurs d'adoption.",
         obligatoire: true,
       },
+      {
+        template: "plan-de-controle-processus",
+        titre: "Plan de contrôle du processus",
+        description: "Indicateurs en trois étages, seuils, réactions, règles de changement et revues.",
+        obligatoire: true,
+      },
     ],
     jalon: {
       code: "G6",
@@ -1134,6 +1162,7 @@ export const phases: Phase[] = [
         "Les évaluations de non-régression tournent automatiquement.",
         "Le coût par cas est suivi et conforme au business case.",
         "Les utilisateurs de toutes les vagues sont formés et actifs.",
+        "Le propriétaire du processus tient le plan de contrôle : indicateurs, seuils et réactions.",
       ],
       arret: [
         "Une vague dégrade les indicateurs et la cause n'est pas comprise.",
@@ -1227,7 +1256,8 @@ export const phases: Phase[] = [
         description:
           "Revue régulière des échantillons, des incidents et des retours utilisateurs ; enrichissement du golden set ; arbitrage des évolutions par le propriétaire de l'agent. La qualité d'un agent se dégrade si personne ne s'en occupe.",
         resultat: "Des rituels d'amélioration tenus par le client.",
-        frameworks: ["agentops", "eval-driven-development", "gouvernance-ia"],
+        frameworks: ["agentops", "eval-driven-development", "gouvernance-ia", "gouvernance-processus", "process-mining-dmaic"],
+        templates: ["plan-de-controle-processus"],
       },
       {
         id: "perenniser-4",
@@ -1283,6 +1313,7 @@ export const phases: Phase[] = [
         "Les rituels d'amélioration continue sont tenus par le client.",
         "Le prochain domaine est identifié.",
         "Le retour d'expérience est publié sur le portail.",
+        "Le client anime seul la revue qui rejoue l'analyse des parcours réels.",
       ],
       arret: [
         "La valeur mesurée est durablement inférieure au coût récurrent : il faut le dire et décider.",

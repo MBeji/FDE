@@ -14,6 +14,7 @@ import {
   LayoutDashboard,
   Lightbulb,
   Library,
+  Network,
   PenLine,
   Route,
   ScatterChart,
@@ -56,6 +57,7 @@ export const NAVIGATION: { titre: string; liens: LienNav[] }[] = [
     titre: "Méthode",
     liens: [
       { href: "/methode", nom: "Parcours AI-Native", icone: Route },
+      { href: "/guides/socle-transformation-metier", nom: "Socle métier & processus", icone: Network },
       { href: "/guides/cas-fil-rouge", nom: "Cas fil rouge", icone: BookMarked },
       { href: "/outils", nom: "Ateliers", icone: Wrench },
     ],
@@ -89,10 +91,13 @@ export const ICONES_OUTILS: Record<string, LucideIcon> = {
   "agent-designer": Bot,
 };
 
+/** Guides qui ont leur propre entrée de menu : ils n'activent pas « Guides pratiques ». */
+const GUIDES_AU_MENU = ["/guides/cas-fil-rouge", "/guides/socle-transformation-metier"];
+
 /** Un lien est actif s'il correspond à la page, ou à l'une de ses sous-pages. */
 export function estActif(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
-  if (href === "/guides") return pathname.startsWith("/guides") && pathname !== "/guides/cas-fil-rouge";
+  if (href === "/guides") return pathname.startsWith("/guides") && !GUIDES_AU_MENU.includes(pathname);
   if (href === "/savoir") return pathname.startsWith("/savoir") && pathname !== "/savoir/contribuer";
   return pathname === href || pathname.startsWith(`${href}/`);
 }
