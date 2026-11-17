@@ -182,6 +182,10 @@ export const MATRICE_RACI: LigneRaci[] = [
   liv("diagnostic-maturite", "AR", "C"),
   liv("fiche-processus-existant", "AR", "C"),
   liv("revue-donnees-si", "C", "AR"),
+  liv("diagnostic-flux-traces", "A", "R", "C", {
+    design: "Formule la question, classe la valeur de chaque étape et rend les verdicts.",
+    build: "Extrait le journal d'événements et reconstitue parcours, attentes et boucles de reprise.",
+  }),
   liv("guide-entretien", "AR", "I"),
   jal("G1", "R", "R", {
     design: "Présente le diagnostic, la référence chiffrée et les irritants prioritaires.",
@@ -214,6 +218,10 @@ export const MATRICE_RACI: LigneRaci[] = [
   liv("processus-cible-ai-native", "AR", "C"),
   liv("matrice-humain-agent", "A", "R"),
   liv("modele-operationnel-cible", "AR", "I"),
+  liv("fiche-conception-processus-agentique", "AR", "R", "C", {
+    design: "Écrit le résultat, les règles et les droits de décision de chaque segment à construire.",
+    build: "Relit chaque passerelle probabiliste, cosigne les critères d'acceptation et déclare le segment prêt.",
+  }),
   jal("G3", "R", "C", {
     design: "Présente la cible avec le propriétaire du processus, qui la porte devant le comité.",
     build: "Confirme que la cible est constructible et signale les points qui en dépendent.",
@@ -273,6 +281,10 @@ export const MATRICE_RACI: LigneRaci[] = [
   liv("runbook-agent", "I", "AR"),
   liv("registre-agents", "C", "AR"),
   liv("plan-conduite-changement", "AR", "C"),
+  liv("plan-de-controle-processus", "A", "R", "R", {
+    design: "Construit le plan avec le propriétaire du processus et lui en transfère la tenue.",
+    build: "Branche chaque indicateur sur sa source : traces, évaluations, coûts.",
+  }),
   jal("G6", "R", "R", {
     design: "Présente le plan de déploiement, l'adoption et la gouvernance.",
     build: "Présente la revue de préparation, l'exploitation et les coûts. Sur site pour la mise en service.",
@@ -417,6 +429,7 @@ export const RELAIS: Relais[] = [
     versDesign: [
       { libelle: "Revue de préparation des données et du SI", template: "revue-donnees-si" },
       { libelle: "Analyses de données qui confirment ou infirment les irritants" },
+      { libelle: "Parcours réels, attentes et boucles reconstitués à partir des traces", template: "diagnostic-flux-traces" },
     ],
     quand: "Au fil des entretiens, et une semaine avant la restitution.",
   },
@@ -437,6 +450,10 @@ export const RELAIS: Relais[] = [
     versBuild: [
       { libelle: "Processus cible AI-Native", template: "processus-cible-ai-native" },
       { libelle: "Projet de matrice humain-agent", template: "matrice-humain-agent" },
+      {
+        libelle: "Fiche de conception de chaque segment à construire : règles classées et critères d'acceptation",
+        template: "fiche-conception-processus-agentique",
+      },
     ],
     versDesign: [
       { libelle: "Niveaux d'autonomie atteignables et ce qu'il faudra prouver pour chacun" },
@@ -476,6 +493,7 @@ export const RELAIS: Relais[] = [
     versBuild: [
       { libelle: "Plan de conduite du changement et calendrier des vagues", template: "plan-conduite-changement" },
       { libelle: "Décisions du comité de gouvernance" },
+      { libelle: "Plan de contrôle du processus : indicateurs à instrumenter", template: "plan-de-controle-processus" },
     ],
     versDesign: [
       { libelle: "Revue de préparation à la mise en production", template: "checklist-mise-en-production" },
@@ -506,6 +524,7 @@ export const DEFINITION_PRET: string[] = [
   "Les règles métier et les exceptions connues sont listées, avec leur source.",
   "Les accès et les données nécessaires sont obtenus, ou leur date d'obtention est connue.",
   "Le Build a pu poser ses questions et a reçu une réponse écrite.",
+  "La fiche de conception du segment est signée par le propriétaire du processus, le Design et le Build.",
 ];
 
 /** Quand un sujet revient du Build au Design. */

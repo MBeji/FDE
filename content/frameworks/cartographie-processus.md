@@ -84,6 +84,7 @@ Trois conséquences. Accélérer le traitement ne peut agir que sur 18 % du dél
 
 ## Pour aller plus loin
 
+- Pour aller au bout de la mesure : [process mining et DMAIC augmenté](/frameworks/process-mining-dmaic), [carte de flux de valeur](/frameworks/value-stream-mapping), [diagnostic de flux par les traces](/templates/diagnostic-flux-traces)
 - Templates : [fiche processus existant](/templates/fiche-processus-existant), [guide d'entretien](/templates/guide-entretien), [revue des données et du SI](/templates/revue-donnees-si)
 - Guides : [mener des entretiens de diagnostic](/guides/mener-entretiens), [chiffrer la valeur](/guides/chiffrer-la-valeur)
 - Frameworks : [décomposition des tâches](/frameworks/decomposition-taches), [réinvention à base zéro](/frameworks/reinvention-zero-base), [mesure d'impact](/frameworks/mesure-impact)

@@ -36,6 +36,13 @@ function variablesDeTheme() {
   };
 }
 
+/**
+ * Un diagramme large ne rétrécit pas jusqu'à devenir illisible : en dessous de cette largeur,
+ * ou de cette part de sa taille naturelle, il défile horizontalement dans son cadre.
+ */
+const LARGEUR_MIN_LISIBLE = 620;
+const PART_MIN_LISIBLE = 0.6;
+
 export function Mermaid({ code }: { code: string }) {
   const id = useId().replace(/[^a-zA-Z0-9]/g, "");
   const conteneur = useRef<HTMLDivElement>(null);
@@ -58,6 +65,14 @@ export function Mermaid({ code }: { code: string }) {
         const { svg } = await mermaid.render(`mmd${id}${Date.now()}`, code);
         if (!annule && conteneur.current) {
           conteneur.current.innerHTML = svg;
+          const dessin = conteneur.current.querySelector("svg");
+          const largeur = dessin?.viewBox.baseVal.width ?? 0;
+          if (dessin && largeur) {
+            const minimum = Math.max(LARGEUR_MIN_LISIBLE, Math.round(largeur * PART_MIN_LISIBLE));
+            dessin.style.minWidth = `${Math.min(largeur, minimum)}px`;
+          }
+          // Un cadre qui défile doit pouvoir recevoir le focus pour être parcouru au clavier.
+          conteneur.current.tabIndex = conteneur.current.scrollWidth > conteneur.current.clientWidth ? 0 : -1;
           setErreur(false);
         }
       } catch {
@@ -91,7 +106,7 @@ export function Mermaid({ code }: { code: string }) {
       data-mermaid
       role="img"
       aria-label="Diagramme"
-      className="mb-5 flex min-h-24 justify-center overflow-x-auto rounded-[10px] border border-line bg-surface p-4 [&_svg]:h-auto [&_svg]:max-w-full"
+      className="defilement-fin mb-5 min-h-24 overflow-x-auto rounded-[10px] border border-line bg-surface p-4 [&_svg]:mx-auto [&_svg]:block [&_svg]:h-auto [&_svg]:max-w-full"
     />
   );
 }

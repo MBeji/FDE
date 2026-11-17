@@ -89,6 +89,7 @@ Le potentiel brut sur l'effort lié aux incidents est d'environ 52 %. Le busines
 
 ## Pour aller plus loin
 
+- À la maille du flux, avant celle des tâches : [grille de décision](/frameworks/eliminer-automatiser-agentifier), [carte de flux de valeur](/frameworks/value-stream-mapping)
 - Outil : [redesign de processus](/outils/redesign-processus)
 - Frameworks : [cartographie des processus](/frameworks/cartographie-processus), [réinvention à partir de zéro](/frameworks/reinvention-zero-base), [faut-il un agent ?](/frameworks/faut-il-un-agent)
 - Templates : [fiche processus existant](/templates/fiche-processus-existant), [matrice humain-agent](/templates/matrice-humain-agent)

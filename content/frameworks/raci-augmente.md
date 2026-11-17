@@ -66,6 +66,7 @@ Deux décisions ont découlé de cette matrice. Le geste commercial reste sous l
 
 ## Pour aller plus loin
 
+- Pour dessiner les points d'approbation dans le flux : [BPMN augmenté](/frameworks/bpmn-agentique)
 - Template : [matrice humain-agent](/templates/matrice-humain-agent)
 - Frameworks : [modèle opérationnel AI-Native](/frameworks/modele-operationnel-cible), [collaboration humain-agent](/frameworks/collaboration-humain-agent), [niveaux d'autonomie](/frameworks/niveaux-autonomie)
 - Template : [fiche agent](/templates/fiche-agent)

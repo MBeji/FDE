@@ -12,16 +12,17 @@ L'environnement de travail des Forward Deployed Engineers (FDE) qui conduisent d
 | **Onboarding** | Parcours d'intégration en cinq étapes, exercices pratiques avec grille d'évaluation, plan 30/60/90, mentorat, priorités par profil d'origine. Progression suivie localement. |
 | **Compétences** | Référentiel de 18 compétences sur quatre niveaux, auto-évaluation, grille de préparation à l'intervention chez un client, plan de progression. |
 | **Parcours AI-Native** | La méthode en 8 phases (Cadrer, Diagnostiquer, Cibler, Réinventer, Concevoir, Construire, Industrialiser, Pérenniser). Pour chaque phase : objectifs, activités, questions à poser au client, livrables, jalon avec critères de passage et signaux d'arrêt, pièges et parades. Trois fils transverses : valeur, confiance, adoption. |
-| **Frameworks** | 53 fiches, du conseil en stratégie (MECE, 80/20, pyramide, causes racines…) à l'ingénierie des agents : quand l'utiliser, comment l'appliquer, exemple chiffré, pièges. |
-| **Templates** | 42 livrables : document vierge, exemple entièrement rempli, mode d'emploi. Copie, téléchargement Markdown, pré-remplissage avec la mission active. |
-| **Guides pratiques** | 17 playbooks : entretiens, ateliers, chiffrage de la valeur, conception d'agents, évaluations, pilote, COPIL, dialogue avec les dirigeants, redressement de mission. |
+| **Socle métier & processus** | Le socle transformation métier et excellence opérationnelle, côté Design du FDE : architecture de processus (APQC), process mining et DMAIC, carte de flux de valeur, grille « supprimer, réingénierer, automatiser, agentifier », BPMN augmenté, fil numérique, gouvernance des processus. Trois livrables (diagnostic par les traces, fiche de conception de processus agentique, plan de contrôle) et les ponts vers le build. |
+| **Frameworks** | 60 fiches, du conseil en stratégie (MECE, 80/20, pyramide, causes racines…) à l'ingénierie des agents : quand l'utiliser, comment l'appliquer, exemple chiffré, pièges. |
+| **Templates** | 45 livrables : document vierge, exemple entièrement rempli, mode d'emploi. Copie, téléchargement Markdown, pré-remplissage avec la mission active. |
+| **Guides pratiques** | 18 playbooks : entretiens, ateliers, chiffrage de la valeur, conception d'agents, évaluations, pilote, COPIL, dialogue avec les dirigeants, redressement de mission. |
 | **Standards d'ingénierie** | 96 standards sur dix domaines, classés obligatoire, recommandé ou contextuel, avec un mode revue de conformité exportable. |
 | **Cas fil rouge** | Une mission complète (client fictif Voxalis) dont sont tirés tous les exemples. |
 | **Cas d'usage** | 82 cas par secteur et par fonction, reliés à l'atelier de priorisation. |
 | **Ateliers** | Diagnostic de maturité, Agent ou pas ?, Priorisation, Business case, Redesign de processus, Agent Designer. Chacun produit un résultat exportable. |
 | **Espace mission** | Suivi par phase (activités, livrables, jalons), registre de valeur, journal (décisions, risques, apprentissages), exports (point d'avancement, brouillon de REX). |
 | **Copilote** | Assistant qui connaît le contenu du portail, la page consultée et, sur autorisation, la mission. Quatre modes : guide, rédacteur, challenger, coach. Bibliothèque de 32 prompts. |
-| **Savoir terrain** | Patterns, anti-patterns et retours d'expérience, avec un assistant de contribution qui génère une fiche prête pour une pull request ; glossaire de 96 termes. |
+| **Savoir terrain** | Patterns, anti-patterns et retours d'expérience, avec un assistant de contribution qui génère une fiche prête pour une pull request ; glossaire de 110 termes. |
 | **Aide** | Toutes les fonctionnalités du portail : par où commencer selon sa situation, catalogue des pages construit à partir du menu, fonctions transverses, raccourcis clavier, questions fréquentes. |
 
 ## Démarrer

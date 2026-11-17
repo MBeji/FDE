@@ -48,10 +48,13 @@ export function Pastille({
   children,
   ton = "neutre",
   className,
+  retourLigne = false,
 }: {
   children: ReactNode;
   ton?: "neutre" | "accent" | "plein" | "bon" | "alerte" | "critique";
   className?: string;
+  /** Laisse un libellé long passer à la ligne au lieu de déborder de son conteneur. */
+  retourLigne?: boolean;
 }) {
   const tons = {
     neutre: "border-line bg-surface text-ink-2",
@@ -64,7 +67,8 @@ export function Pastille({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1 rounded-md border px-1.5 py-px text-[0.7rem] leading-5 font-medium whitespace-nowrap",
+        "inline-flex items-center gap-1 rounded-md border px-1.5 py-px text-[0.7rem] leading-5 font-medium",
+        retourLigne ? "max-w-full whitespace-normal" : "whitespace-nowrap",
         tons[ton],
         className,
       )}

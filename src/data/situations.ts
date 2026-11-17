@@ -335,6 +335,13 @@ export const SITUATIONS: Situation[] = [
         lien: "Fiche processus existant",
       },
       {
+        titre: "Faire parler les traces, puis trier la valeur",
+        detail:
+          "Quand une application horodate les dossiers, reconstituez les parcours réels, les attentes et les boucles de reprise. Classez ensuite chaque étape : valeur ajoutée, nécessaire, gaspillage. Chez Voxalis, deux tiers du délai étaient du gaspillage.",
+        href: "/templates/diagnostic-flux-traces",
+        lien: "Diagnostic de flux par les traces",
+      },
+      {
         titre: "Remonter aux causes racines",
         detail:
           "Distinguer symptômes et causes avant toute proposition : une cause mal identifiée produit un cas d'usage qui ne déplace pas l'indicateur.",
@@ -383,6 +390,18 @@ export const SITUATIONS: Situation[] = [
       },
       {
         type: "framework",
+        href: "/frameworks/process-mining-dmaic",
+        titre: "Process mining et DMAIC augmenté",
+        usage: "Reconstituer le flux réel à partir des journaux d'événements.",
+      },
+      {
+        type: "framework",
+        href: "/frameworks/value-stream-mapping",
+        titre: "Carte de flux de valeur",
+        usage: "Décider de ce qu'on supprime avant de parler d'agent.",
+      },
+      {
+        type: "framework",
         href: "/frameworks/analyse-80-20",
         titre: "Analyse 80/20",
         usage:
@@ -404,6 +423,13 @@ export const SITUATIONS: Situation[] = [
     commencer:
       "Reconstruisez le processus à partir du résultat attendu avant de dessiner le moindre agent, puis choisissez pour chaque tâche le barreau le plus bas qui suffit.",
     etapes: [
+      {
+        titre: "Avant de concevoir, rendre un verdict par segment du flux",
+        detail:
+          "Supprimer, réingénierer, automatiser ou agentifier : dans cet ordre, sur des faits mesurés. Un agent posé sur un flux cassé en absorbe les défauts au lieu de les faire disparaître.",
+        href: "/frameworks/eliminer-automatiser-agentifier",
+        lien: "Grille de décision",
+      },
       {
         titre: "D'abord, repenser le processus à partir du résultat",
         detail:

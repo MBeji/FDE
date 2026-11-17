@@ -16,6 +16,9 @@ Un [processus cible](/templates/processus-cible-ai-native) que le métier reconn
 
 Le point de départ est la [fiche du processus existant](/templates/fiche-processus-existant) issue du diagnostic. Chez Voxalis : 9 étapes, 4 passages de relais, 6 outils, et un MTTR de 31 h dont 41 % d'attente entre N1 et N2.
 
+> [!TIP]
+> Ce guide couvre l'étape 4 du [socle transformation métier](/guides/socle-transformation-metier). En amont : le [diagnostic par les traces](/templates/diagnostic-flux-traces) et la [grille de décision](/frameworks/eliminer-automatiser-agentifier). En aval : le [BPMN augmenté](/frameworks/bpmn-agentique) et la [fiche de conception](/templates/fiche-conception-processus-agentique), qui passent la cible au build.
+
 > [!WARNING]
 > Placer un agent derrière chaque étape existante, c'est [automatiser l'existant](/savoir/automatiser-l-existant) : les passages de relais et les files d'attente restent, le travail arrive seulement plus vite à la file suivante.
 

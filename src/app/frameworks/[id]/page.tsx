@@ -70,7 +70,7 @@ export default async function PageFramework({ params }: PageProps<"/frameworks/[
         chapo={f.resume}
       >
         <div className="flex flex-wrap items-center gap-1.5">
-          <Pastille>Origine : {f.origine}</Pastille>
+          <Pastille retourLigne>Origine : {f.origine}</Pastille>
           <Pastille>{NIVEAUX[f.niveau]}</Pastille>
           <Pastille>{minutesDeLecture(f.mots)} min de lecture</Pastille>
         </div>

@@ -71,6 +71,15 @@ export const glossaire: TermeGlossaire[] = [
     voir: ["/frameworks/conception-outils", "/frameworks/anatomie-agent"],
   },
   {
+    id: "apqc-pcf",
+    terme: "APQC PCF",
+    alias: "Process Classification Framework",
+    definition:
+      "Taxonomie de référence des processus d'une entreprise, publiée par l'APQC : treize catégories, puis groupes de processus, processus, activités et tâches. En mission, elle sert à situer un périmètre et à parler la même langue que le client : on s'engage sur un groupe de processus, on mesure des processus, on construit sur des activités.",
+    categorie: "conseil",
+    voir: ["/frameworks/architecture-processus"],
+  },
+  {
     id: "arbre-de-questions",
     terme: "Arbre de questions",
     alias: "Issue tree",
@@ -87,6 +96,24 @@ export const glossaire: TermeGlossaire[] = [
       "Cycle qu'exécute un agent : le modèle lit le contexte, décide d'une action, appelle un outil, observe le résultat, et recommence jusqu'à l'objectif ou jusqu'à une limite. Toute boucle doit porter des bornes explicites (nombre d'étapes, budget, délai), faute de quoi ni le coût ni la durée d'un cas ne sont maîtrisés.",
     categorie: "agents",
     voir: ["/frameworks/anatomie-agent", "/frameworks/patterns-agentiques"],
+  },
+  {
+    id: "bpm",
+    terme: "BPM",
+    alias: "Business Process Management",
+    definition:
+      "Discipline qui gère un processus comme un actif : un propriétaire, un modèle de référence, des indicateurs, une amélioration continue. C'est elle qui tient le résultat une fois les agents en production.",
+    categorie: "gouvernance",
+    voir: ["/frameworks/gouvernance-processus", "/templates/plan-de-controle-processus"],
+  },
+  {
+    id: "bpmn",
+    terme: "BPMN",
+    alias: "Business Process Model and Notation",
+    definition:
+      "Notation standard des processus : événements, tâches, passerelles, couloirs. Le portail l'augmente de conventions pour les agents : tâches typées, passerelles marquées déterministes ou probabilistes, approbations humaines dessinées.",
+    categorie: "conseil",
+    voir: ["/frameworks/bpmn-agentique"],
   },
   {
     id: "business-case",
@@ -220,6 +247,15 @@ export const glossaire: TermeGlossaire[] = [
     voir: ["/frameworks/agentops", "/frameworks/evaluation-agents"],
   },
   {
+    id: "dmaic",
+    terme: "DMAIC",
+    alias: "Définir, Mesurer, Analyser, Améliorer, Contrôler",
+    definition:
+      "Cycle d'amélioration du Lean Six Sigma. Dans sa version augmentée, la mesure s'appuie sur les traces des applications, l'amélioration peut inclure des agents et le contrôle se poursuit en production.",
+    categorie: "conseil",
+    voir: ["/frameworks/process-mining-dmaic"],
+  },
+  {
     id: "domaine",
     terme: "Domaine",
     definition:
@@ -243,6 +279,14 @@ export const glossaire: TermeGlossaire[] = [
       "Cinq barreaux, du plus simple au plus autonome : règle déterministe, appel de modèle unique, workflow, agent, système multi-agents. La règle est de retenir le barreau le plus bas qui suffit et de ne monter que sur preuve, mesurée sur le golden set.",
     categorie: "methode",
     voir: ["/frameworks/faut-il-un-agent", "/outils/agent-ou-pas"],
+  },
+  {
+    id: "efficience-de-flux",
+    terme: "Efficience de flux",
+    definition:
+      "Temps à valeur ajoutée rapporté au délai de bout en bout. Tant qu'elle est faible, accélérer le traitement change peu de chose pour le client : le délai est dans les attentes. Chez Voxalis, elle est de 30 % au plus.",
+    categorie: "conseil",
+    voir: ["/frameworks/value-stream-mapping"],
   },
   {
     id: "embedding",
@@ -307,6 +351,24 @@ export const glossaire: TermeGlossaire[] = [
     voir: ["/frameworks/context-engineering", "/frameworks/memoire-connaissance"],
   },
   {
+    id: "fiche-de-conception-de-processus-agentique",
+    terme: "Fiche de conception de processus agentique",
+    alias: "Agentic Process Design Card",
+    definition:
+      "Contrat remis par le FDE Design au FDE Build pour un segment du processus cible : résultat attendu, critères d'acceptation, flux, règles classées, droits de décision, données. Elle est signée avant le jalon G3.",
+    categorie: "methode",
+    voir: ["/templates/fiche-conception-processus-agentique", "/raci"],
+  },
+  {
+    id: "fil-numerique",
+    terme: "Fil numérique",
+    alias: "Digital thread",
+    definition:
+      "Continuité qui fait suivre à un cas le même identifiant d'un système à l'autre et relie à ce cas chaque décision, humaine ou d'agent. Le même fil sert à exploiter, à mesurer et à apprendre.",
+    categorie: "delivery",
+    voir: ["/frameworks/fil-numerique"],
+  },
+  {
     id: "fil-transverse",
     terme: "Fil transverse",
     definition:
@@ -339,6 +401,15 @@ export const glossaire: TermeGlossaire[] = [
       "Contrôle placé autour d'un agent pour borner ce qu'il reçoit, produit ou exécute : filtrage des entrées, validation des sorties, restriction des outils et des droits, limites de budget. Un garde-fou efficace est du code vérifiable, pas une consigne dans le prompt, et il se teste sur le jeu adverse.",
     categorie: "agents",
     voir: ["/frameworks/garde-fous", "/frameworks/securite-agents", "/templates/analyse-risques-agent"],
+  },
+  {
+    id: "gaspillage",
+    terme: "Gaspillage",
+    alias: "Muda",
+    definition:
+      "Étape ou attente qui n'apporte rien au client et qu'aucune obligation n'impose : file, reprise, ressaisie, contrôle redondant. Un gaspillage se supprime ; il ne s'agentifie pas.",
+    categorie: "conseil",
+    voir: ["/frameworks/value-stream-mapping", "/frameworks/eliminer-automatiser-agentifier"],
   },
   {
     id: "golden-set",
@@ -427,6 +498,15 @@ export const glossaire: TermeGlossaire[] = [
       "Point de décision qui clôt chaque phase, de G0 (mandat clair) à G7 (client autonome) : un comité répond à une question précise, sur des critères connus à l'avance, et décide de poursuivre, de réorienter ou d'arrêter. Un jalon franchi sans ses livrables obligatoires est une dette qui se paie à la phase suivante.",
     categorie: "methode",
     voir: ["/methode", "/templates/support-copil"],
+  },
+  {
+    id: "journal-d-evenements",
+    terme: "Journal d'événements",
+    alias: "Event log",
+    definition:
+      "Trace laissée par une application à chaque changement d'état d'un dossier : au minimum un identifiant de cas, une activité et un horodatage. C'est la matière première du process mining.",
+    categorie: "delivery",
+    voir: ["/frameworks/process-mining-dmaic", "/templates/diagnostic-flux-traces"],
   },
   {
     id: "llmops",
@@ -577,12 +657,28 @@ export const glossaire: TermeGlossaire[] = [
     voir: ["/frameworks/cartographie-processus", "/frameworks/reinvention-zero-base"],
   },
   {
+    id: "passerelle-deterministe-ou-probabiliste",
+    terme: "Passerelle déterministe ou probabiliste",
+    definition:
+      "Aiguillage d'un modèle de processus. Déterministe, sa condition porte sur des données et vit dans le code. Probabiliste, la branche dépend de la sortie d'un modèle : elle exige un seuil, une branche par défaut vers un humain et un critère d'évaluation.",
+    categorie: "agents",
+    voir: ["/frameworks/bpmn-agentique"],
+  },
+  {
     id: "pilote",
     terme: "Pilote",
     definition:
       "Mise en conditions réelles sur un périmètre limité (un site, un segment, quelques semaines), avec de vrais utilisateurs, de vrais cas et une mesure contre la référence. Il doit se conclure par une décision ; chez Voxalis, 8 semaines à Nantes, 18 conseillers et 9 400 tickets.",
     categorie: "delivery",
     voir: ["/templates/plan-pilote", "/templates/bilan-pilote", "/guides/reussir-le-pilote"],
+  },
+  {
+    id: "plan-de-controle",
+    terme: "Plan de contrôle",
+    definition:
+      "Document du propriétaire de processus : pour chaque indicateur, sa source, son seuil d'alerte, la réaction prévue et la personne qui la déclenche. Il est exigé au jalon G6.",
+    categorie: "gouvernance",
+    voir: ["/templates/plan-de-controle-processus", "/frameworks/gouvernance-processus"],
   },
   {
     id: "poc",
@@ -603,6 +699,14 @@ export const glossaire: TermeGlossaire[] = [
     voir: ["/frameworks/pyramide-scqa", "/templates/support-copil"],
   },
   {
+    id: "process-mining",
+    terme: "Process mining",
+    definition:
+      "Reconstitution du flux réel d'un processus à partir des journaux d'événements des applications : parcours suivis, attentes, boucles de reprise, écarts à la procédure. Il remplace la cartographie déclarative par des faits.",
+    categorie: "conseil",
+    voir: ["/frameworks/process-mining-dmaic", "/templates/diagnostic-flux-traces"],
+  },
+  {
     id: "proprietaire-d-agent",
     terme: "Propriétaire d'agent",
     alias: "Agent owner",
@@ -610,6 +714,15 @@ export const glossaire: TermeGlossaire[] = [
       "Responsable métier nommé qui répond des résultats d'un agent en production : il valide sa mission et ses limites, arbitre les élargissements d'autonomie et décide de son arrêt. Un agent sans propriétaire n'est pas mis en service ; son nom figure sur la fiche agent et au registre des agents.",
     categorie: "methode",
     voir: ["/templates/fiche-agent", "/templates/registre-agents", "/frameworks/raci-augmente"],
+  },
+  {
+    id: "proprietaire-de-processus",
+    terme: "Propriétaire de processus",
+    alias: "Process owner",
+    definition:
+      "Personne du métier qui répond d'un processus de bout en bout : ses indicateurs, ses règles, ses arbitrages entre équipes. À ne pas confondre avec le propriétaire d'agent, qui répond d'un seul agent.",
+    categorie: "gouvernance",
+    voir: ["/frameworks/gouvernance-processus", "/templates/plan-de-controle-processus"],
   },
   {
     id: "prototype",
@@ -827,6 +940,15 @@ export const glossaire: TermeGlossaire[] = [
       "Les trois voies entre lesquelles un processus cible AI-Native répartit les cas selon leur risque et leur complexité : autonome (les agents résolvent, l'humain contrôle par échantillonnage), assistée (les agents préparent, l'humain décide) et experte (l'expert mène le cas, les agents exécutent à la demande). Chez Voxalis, elles visent respectivement 35 %, 45 % et 20 % des tickets.",
     categorie: "methode",
     voir: ["/templates/processus-cible-ai-native", "/frameworks/collaboration-humain-agent", "/guides/repenser-un-processus"],
+  },
+  {
+    id: "vsm",
+    terme: "VSM",
+    alias: "Value Stream Mapping, carte de flux de valeur",
+    definition:
+      "Carte qui suit un cas de bout en bout et classe chaque étape : valeur ajoutée, nécessaire sans valeur ajoutée, gaspillage. Elle décide de ce qu'on supprime avant de décider de ce qu'on confie à un agent.",
+    categorie: "conseil",
+    voir: ["/frameworks/value-stream-mapping"],
   },
   {
     id: "workflow",

@@ -98,6 +98,7 @@ Le prototype a d'ailleurs commencé avec un agent unique. La séparation Diagnos
 
 ## Pour aller plus loin
 
+- En amont, pour savoir s'il faut construire quelque chose : [supprimer, réingénierer, automatiser ou agentifier](/frameworks/eliminer-automatiser-agentifier)
 - Outil interactif : [Agent ou pas ?](/outils/agent-ou-pas)
 - Frameworks : [patterns agentiques](/frameworks/patterns-agentiques), [topologies multi-agents](/frameworks/topologies-multi-agents), [niveaux d'autonomie](/frameworks/niveaux-autonomie)
 - Templates : [fiche agent](/templates/fiche-agent), [ADR](/templates/adr)
