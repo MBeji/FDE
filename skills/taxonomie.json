@@ -1,0 +1,234 @@
+{
+  "revisionMois": 12,
+  "etapes": [
+    {
+      "id": "avant-vente",
+      "dossier": "01-avant-vente",
+      "nom": "Avant-vente",
+      "resume": "Décider d'y aller, comprendre le besoin, vérifier que c'est faisable et dire ce que cela coûte.",
+      "sousProcessus": [
+        { "id": "qualification", "nom": "Qualification des opportunités" },
+        { "id": "analyse-besoin", "nom": "Analyse des besoins" },
+        { "id": "faisabilite", "nom": "Étude de faisabilité" },
+        { "id": "estimation", "nom": "Estimation des charges et des coûts" }
+      ]
+    },
+    {
+      "id": "appel-offres",
+      "dossier": "02-appel-offres",
+      "nom": "Réponse aux appels d'offres",
+      "resume": "Lire la consultation, tracer chaque exigence, construire la solution et écrire une offre qui se défend.",
+      "sousProcessus": [
+        { "id": "analyse-consultation", "nom": "Analyse du cahier des charges" },
+        { "id": "exigences", "nom": "Identification des exigences" },
+        { "id": "solution", "nom": "Élaboration de la solution" },
+        { "id": "offre", "nom": "Rédaction de l'offre technique et commerciale" },
+        { "id": "soutenance", "nom": "Soutenance" }
+      ]
+    },
+    {
+      "id": "cadrage",
+      "dossier": "03-cadrage",
+      "nom": "Cadrage et diagnostic",
+      "resume": "Poser le bon problème, mesurer le point de départ et choisir où créer de la valeur.",
+      "sousProcessus": [
+        { "id": "cadrage", "nom": "Cadrage de la mission" },
+        { "id": "diagnostic", "nom": "Diagnostic du métier, des données et du SI" },
+        { "id": "ciblage", "nom": "Ciblage et business case" }
+      ]
+    },
+    {
+      "id": "conception",
+      "dossier": "04-conception",
+      "nom": "Conception",
+      "resume": "Reconstruire le processus, arrêter l'architecture, tracer les choix et spécifier ce qui sera construit.",
+      "sousProcessus": [
+        { "id": "processus-cible", "nom": "Processus cible" },
+        { "id": "architecture", "nom": "Architecture fonctionnelle et technique" },
+        { "id": "choix-technologiques", "nom": "Choix technologiques" },
+        { "id": "specifications", "nom": "Spécifications et conception détaillée" }
+      ]
+    },
+    {
+      "id": "developpement",
+      "dossier": "05-developpement",
+      "nom": "Développement",
+      "resume": "Produire le code et les prompts, appliquer les standards, relire et intégrer au SI.",
+      "sousProcessus": [
+        { "id": "generation-code", "nom": "Génération de code" },
+        { "id": "standards", "nom": "Application des standards" },
+        { "id": "revue", "nom": "Revues de code" },
+        { "id": "integration", "nom": "Intégration" }
+      ]
+    },
+    {
+      "id": "tests",
+      "dossier": "06-tests-validation",
+      "nom": "Tests et validation",
+      "resume": "Dire comment on prouve que cela marche, l'automatiser, et le vérifier jusqu'en conditions réelles.",
+      "sousProcessus": [
+        { "id": "strategie", "nom": "Stratégie de tests" },
+        { "id": "automatisation", "nom": "Automatisation" },
+        { "id": "fonctionnel", "nom": "Tests fonctionnels" },
+        { "id": "technique", "nom": "Tests techniques" },
+        { "id": "non-regression", "nom": "Non-régression" },
+        { "id": "evaluation-agents", "nom": "Évaluation des agents" },
+        { "id": "pilote", "nom": "Pilote en conditions réelles" }
+      ]
+    },
+    {
+      "id": "deploiement",
+      "dossier": "07-deploiement",
+      "nom": "Déploiement",
+      "resume": "Préparer les environnements, industrialiser la chaîne de livraison, mettre en production et le constater.",
+      "sousProcessus": [
+        { "id": "environnements", "nom": "Préparation des environnements" },
+        { "id": "ci-cd", "nom": "CI/CD" },
+        { "id": "mise-en-production", "nom": "Mise en production" },
+        { "id": "validation", "nom": "Validation après déploiement" }
+      ]
+    },
+    {
+      "id": "livraison",
+      "dossier": "08-livraison",
+      "nom": "Livraison",
+      "resume": "Documenter, transmettre les compétences, passer la main et accompagner le client jusqu'à l'autonomie.",
+      "sousProcessus": [
+        { "id": "documentation", "nom": "Documentation" },
+        { "id": "transfert", "nom": "Transfert de compétences" },
+        { "id": "passation", "nom": "Passation" },
+        { "id": "accompagnement", "nom": "Accompagnement du client" }
+      ]
+    },
+    {
+      "id": "exploitation",
+      "dossier": "09-exploitation",
+      "nom": "Exploitation et maintenance",
+      "resume": "Tenir le service : support, supervision, incidents, amélioration continue et évolutions.",
+      "sousProcessus": [
+        { "id": "support", "nom": "Support" },
+        { "id": "monitoring", "nom": "Monitoring" },
+        { "id": "incidents", "nom": "Gestion des incidents" },
+        { "id": "amelioration", "nom": "Amélioration continue" },
+        { "id": "maintenance", "nom": "Maintenance et évolutions" }
+      ]
+    },
+    {
+      "id": "pilotage",
+      "dossier": "10-pilotage",
+      "nom": "Pilotage et capitalisation",
+      "resume": "Les activités transverses : piloter la mission, mesurer la valeur, capitaliser et faire vivre la bibliothèque.",
+      "sousProcessus": [
+        { "id": "pilotage", "nom": "Pilotage de mission" },
+        { "id": "valeur", "nom": "Mesure de la valeur" },
+        { "id": "capitalisation", "nom": "Capitalisation" },
+        { "id": "bibliotheque", "nom": "Vie de la bibliothèque" }
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "id": "design",
+      "nom": "FDE Design",
+      "resume": "Le problème, la cible, la valeur, l'adoption."
+    },
+    {
+      "id": "build",
+      "nom": "FDE Build",
+      "resume": "L'architecture, les agents, la preuve, la production."
+    },
+    {
+      "id": "binome",
+      "nom": "Design + Build",
+      "resume": "Activité portée à deux : chacun y tient sa moitié."
+    }
+  ],
+  "domaines": [
+    { "id": "commerce", "nom": "Commerce et offres" },
+    { "id": "conseil", "nom": "Conseil et transformation métier" },
+    { "id": "architecture", "nom": "Architecture" },
+    { "id": "ingenierie", "nom": "Ingénierie logicielle" },
+    { "id": "ia-agents", "nom": "IA et agents" },
+    { "id": "qualite", "nom": "Qualité et tests" },
+    { "id": "ops", "nom": "DevOps et exploitation" },
+    { "id": "securite", "nom": "Sécurité et conformité" },
+    { "id": "changement", "nom": "Changement et adoption" },
+    { "id": "pilotage", "nom": "Pilotage et valeur" }
+  ],
+  "technologies": [
+    { "id": "llm-agents", "nom": "LLM et agents" },
+    { "id": "rag-connaissance", "nom": "RAG et mémoire" },
+    { "id": "mcp-outils", "nom": "Outils et protocoles (MCP, A2A)" },
+    { "id": "api-integration", "nom": "API et intégration SI" },
+    { "id": "donnees", "nom": "Données" },
+    { "id": "cloud", "nom": "Cloud et infrastructure" },
+    { "id": "ci-cd", "nom": "CI/CD et DevSecOps" },
+    { "id": "observabilite", "nom": "Observabilité" },
+    { "id": "tests-evals", "nom": "Tests et évaluations" },
+    { "id": "process-mining", "nom": "Process mining et BPMN" }
+  ],
+  "casUsage": [
+    { "id": "tout-projet", "nom": "Tout projet", "resume": "S'applique quel que soit le type de solution." },
+    { "id": "assistant", "nom": "Assistant", "resume": "Appel de modèle, assistant ou recherche augmentée (RAG)." },
+    { "id": "workflow", "nom": "Workflow", "resume": "Enchaînement piloté par le code, automatisation de processus." },
+    { "id": "agent", "nom": "Agent", "resume": "Agent qui choisit ses actions et utilise des outils." },
+    { "id": "multi-agents", "nom": "Multi-agents", "resume": "Plusieurs agents coordonnés." },
+    { "id": "application", "nom": "Application classique", "resume": "Logiciel ou intégration sans composant d'IA générative." }
+  ],
+  "statuts": [
+    {
+      "id": "brouillon",
+      "nom": "Brouillon",
+      "resume": "En cours d'écriture. Visible dans le portail, jamais servi aux agents."
+    },
+    {
+      "id": "en-revue",
+      "nom": "En revue",
+      "resume": "Complet, en attente de la relecture du propriétaire. Jamais servi aux agents."
+    },
+    {
+      "id": "publie",
+      "nom": "Publié",
+      "resume": "Validé et fusionné. Servi aux agents par le catalogue et le serveur MCP."
+    },
+    {
+      "id": "deprecie",
+      "nom": "Déprécié",
+      "resume": "Remplacé ou abandonné. Reste consultable, n'est plus servi aux agents."
+    }
+  ],
+  "proprietaires": [
+    {
+      "id": "avant-vente",
+      "nom": "Référents avant-vente",
+      "resume": "Répondent des skills d'avant-vente et de réponse aux appels d'offres."
+    },
+    {
+      "id": "design",
+      "nom": "Référents FDE Design",
+      "resume": "Répondent des skills de cadrage, de conception métier, d'adoption et de pilotage."
+    },
+    {
+      "id": "build",
+      "nom": "Référents FDE Build",
+      "resume": "Répondent des skills d'architecture, de développement, de tests, de déploiement et d'exploitation."
+    },
+    {
+      "id": "bibliotheque",
+      "nom": "Gardiens de la bibliothèque",
+      "resume": "Tiennent le format, la taxonomie et les skills qui font vivre la bibliothèque."
+    }
+  ],
+  "diffusions": [
+    {
+      "id": "interne",
+      "nom": "Interne",
+      "resume": "Réservé au pool et à ses agents. Ne sort pas de l'entreprise."
+    },
+    {
+      "id": "client",
+      "nom": "Transférable au client",
+      "resume": "Peut être remis à l'équipe du client et à ses agents lors du transfert."
+    }
+  ]
+}

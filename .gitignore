@@ -43,3 +43,6 @@ next-env.d.ts
 
 # contenu compilé (généré par scripts/build-content.mjs)
 /src/generated/
+
+# export à plat des skills (généré par scripts/exporter-skills.mjs)
+/dist/

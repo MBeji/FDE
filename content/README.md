@@ -10,6 +10,8 @@ content/
 └── savoir/       Patterns, anti-patterns et retours d'expérience
 ```
 
+Les skills IA, écrits pour être exécutés par des agents, vivent dans un dossier voisin, `skills/`, avec leur propre guide : [`skills/README.md`](../skills/README.md).
+
 `npm run content` valide l'ensemble (champs obligatoires, valeurs autorisées, liens internes) et échoue avec un message explicite en cas d'erreur.
 
 ## Règles communes
@@ -17,7 +19,7 @@ content/
 - **Nom de fichier = `id`** : `content/frameworks/regle-10-20-70.md` porte `id: regle-10-20-70`. Minuscules, chiffres et tirets uniquement.
 - **Front matter YAML** en tête de fichier, entre deux lignes `---`. Mettre entre guillemets doubles toute valeur contenant `:`, `#`, `[` ou commençant par un guillemet. Les listes s'écrivent en ligne : `tags: [cadrage, valeur]`.
 - **Pas de titre H1** dans le corps (le titre vient du front matter), sauf dans les sections `template` et `exemple` d'un template, qui sont des documents autonomes.
-- **Liens internes** en chemins absolus du portail : `/frameworks/<id>`, `/templates/<id>`, `/guides/<id>`, `/savoir/<id>`, `/methode/<phase>`, `/outils/<outil>`, `/cas-usage`, `/glossaire`. Ne lier que des identifiants existants.
+- **Liens internes** en chemins absolus du portail : `/frameworks/<id>`, `/templates/<id>`, `/guides/<id>`, `/savoir/<id>`, `/methode/<phase>`, `/outils/<outil>`, `/skills/<nom>`, `/skills/workflows/<id>`, `/standards#<ID>`, `/cas-usage`, `/glossaire`. Ne lier que des identifiants existants.
 - **Encadrés** avec la syntaxe d'alertes : `> [!TIP]`, `> [!NOTE]`, `> [!WARNING]`, `> [!IMPORTANT]` en première ligne d'une citation.
 - **Diagrammes** en blocs ` ```mermaid ` (`flowchart LR|TD`, `sequenceDiagram`). Mettre entre guillemets doubles tout libellé contenant parenthèses, deux-points, slash ou apostrophe : `A["Agent (L3)"]`. Rester simple : moins de 15 nœuds.
 - **Tableaux** GFM pour tout ce qui se compare ou se remplit.

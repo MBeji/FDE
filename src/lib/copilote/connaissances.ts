@@ -4,7 +4,21 @@ import { CHARTE } from "@/data/metier";
 import { ARBITRAGES, LIGNES_RACI, PRINCIPE_BINOME, ROLES_BINOME, contientA } from "@/data/raci";
 import { AUTONOMIE, CONVICTIONS, FILS, OUTILS } from "@/data/referentiels";
 import { DOMAINES_STANDARDS } from "@/data/standards";
-import { frameworks, getFramework, getGuide, getFicheSavoir, getTemplate, guides, savoir, templates } from "@/lib/content";
+import {
+  frameworks,
+  getFramework,
+  getGuide,
+  getFicheSavoir,
+  getSkill,
+  getTemplate,
+  getWorkflow,
+  guides,
+  savoir,
+  templates,
+  type Skill,
+  type Workflow,
+} from "@/lib/content";
+import { nomEtape, nomRole, skillsPublies, workflowsPublies } from "@/lib/skills";
 
 /**
  * Base de connaissances du copilote, construite à partir du contenu du portail.
@@ -56,7 +70,17 @@ function sommaire(): string {
     ...savoir.map((s) => `- [${s.titre}](/savoir/${s.id}) (${s.type}) — ${s.resume}`),
     "## Ateliers interactifs",
     ...OUTILS.map((o) => `- [${o.nom}](/outils/${o.id}) — ${o.resume}`),
+    "## Skills IA (/skills) — procédures exécutables, une par activité du cycle de vie d'un projet",
+    "Quand la demande correspond à l'un de ces skills, son contenu complet t'est fourni dans le contexte : suis sa procédure et ses garde-fous.",
+    ...skillsPublies.map(
+      (s) => `- [${s.titre}](/skills/${s.id}) (${nomEtape(s.etape)}, ${nomRole(s.role)}) — ${s.description}`,
+    ),
+    "## Workflows agentiques (/skills/workflows) — enchaînements de skills",
+    ...workflowsPublies.map(
+      (w) => `- [${w.titre}](/skills/workflows/${w.id}) — ${w.resume} Skills : ${w.etapes.map((e) => e.skill).join(" → ")}.`,
+    ),
     "## Autres pages",
+    "- [Gouvernance de la bibliothèque de skills : format, statuts, versions, droits, accès des agents](/skills/gouvernance)",
     "- [Cas d'usage par secteur](/cas-usage) ; [Glossaire](/glossaire) ; [Mes missions](/missions)",
     "- [Le métier FDE : rôle, charte, règles du pool, situations délicates](/metier) ; [Parcours d'onboarding](/onboarding) ; [Référentiel de compétences et auto-évaluation](/competences)",
     "- [Standards d'ingénierie et revue de conformité](/standards) ; [Entrée par situation](/situations) ; [Assistant de contribution au savoir terrain](/savoir/contribuer)",
@@ -103,8 +127,45 @@ interface Document {
   motsCles: string;
 }
 
+const texteSkill = (s: Skill) =>
+  [
+    `Skill \`${s.id}\`, version ${s.version}. Étape : ${nomEtape(s.etape)}. Rôle : ${nomRole(s.role)}.`,
+    `Entrées : ${s.entrees.join(" ; ")}.`,
+    `Sorties : ${s.sorties.join(" ; ")}.`,
+    "",
+    s.corps,
+  ].join("\n");
+
+const texteWorkflow = (w: Workflow) =>
+  [
+    w.resume,
+    `Déclencheur : ${w.declencheur}`,
+    `Résultat : ${w.resultat}`,
+    "",
+    "## Étapes",
+    "",
+    ...w.etapes.map(
+      (e, i) =>
+        `${i + 1}. [${getSkill(e.skill)?.titre ?? e.skill}](/skills/${e.skill}) — ${e.intention}${e.controle ? ` Contrôle humain : ${e.controle}` : ""}`,
+    ),
+    "",
+    w.corps,
+  ].join("\n");
+
 function tousLesDocuments(): Document[] {
   return [
+    ...skillsPublies.map((s) => ({
+      href: `/skills/${s.id}`,
+      titre: `Skill : ${s.titre}`,
+      texte: texteSkill(s),
+      motsCles: `${s.description} ${s.tags.join(" ")} skill`,
+    })),
+    ...workflowsPublies.map((w) => ({
+      href: `/skills/workflows/${w.id}`,
+      titre: `Workflow : ${w.titre}`,
+      texte: texteWorkflow(w),
+      motsCles: `${w.resume} workflow enchaînement`,
+    })),
     ...frameworks.map((f) => ({
       href: `/frameworks/${f.id}`,
       titre: f.titre,
@@ -149,8 +210,16 @@ function termes(question: string): string[] {
 
 /** Document du portail affiché sur la page d'où vient la question, s'il y en a un. */
 export function documentDeLaPage(chemin: string): Document | null {
-  const [, section, id] = chemin.split("/");
+  const [, section, id, sousId] = chemin.split("/");
   if (!id) return null;
+  if (section === "skills") {
+    if (id === "workflows") {
+      const w = sousId ? getWorkflow(sousId) : undefined;
+      return w ? { href: chemin, titre: `Workflow : ${w.titre}`, texte: texteWorkflow(w), motsCles: "" } : null;
+    }
+    const s = getSkill(id);
+    return s && !sousId ? { href: chemin, titre: `Skill : ${s.titre}`, texte: texteSkill(s), motsCles: "" } : null;
+  }
   if (section === "frameworks") {
     const f = getFramework(id);
     return f ? { href: chemin, titre: f.titre, texte: f.corps, motsCles: "" } : null;

@@ -119,6 +119,13 @@ function CarteRole({ role }: { role: DefinitionRole }) {
           </li>
         ))}
       </ul>
+      <Link
+        href={`/skills?role=${role.id}`}
+        className="hors-impression mt-4 inline-flex items-center gap-1 self-start text-[0.84rem] font-medium text-accent hover:underline"
+      >
+        Les skills IA du {role.nom}
+        <ArrowRight className="size-3" aria-hidden />
+      </Link>
     </article>
   );
 }

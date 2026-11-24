@@ -23,7 +23,7 @@ import { QUESTIONS_CLIENT } from "@/data/questions-client";
 import { ancrePhaseRaci } from "@/data/raci";
 import { FILS, OUTILS } from "@/data/referentiels";
 import type { Activite, FilId } from "@/data/types";
-import { getFicheSavoir, getFramework, getGuide, getTemplate, resoudre } from "@/lib/content";
+import { getFicheSavoir, getFramework, getGuide, getTemplate, resoudre, skills } from "@/lib/content";
 
 export function generateStaticParams() {
   return phases.map((p) => ({ phase: p.id }));
@@ -100,6 +100,10 @@ export default async function PagePhase({ params }: PageProps<"/methode/[phase]"
   const precedente = phases[index - 1];
   const suivante = phases[index + 1];
   const savoirLie = resoudre(p.savoir, getFicheSavoir);
+  // Les skills propres à la phase d'abord ; ceux qui traversent tout le parcours ensuite.
+  const skillsLies = skills
+    .filter((s) => s.statut === "publie" && s.phases.includes(p.id))
+    .sort((a, b) => a.phases.length - b.phases.length);
 
   const sommaire = [
     ["objectifs", "Objectifs"],
@@ -138,6 +142,11 @@ export default async function PagePhase({ params }: PageProps<"/methode/[phase]"
               ))}
             </ul>
           </BlocRail>
+          {skillsLies.length > 0 && (
+            <BlocRail titre="Skills IA de la phase">
+              <ListeLiens section="skills" elements={skillsLies} />
+            </BlocRail>
+          )}
           {savoirLie.length > 0 && (
             <BlocRail titre="Savoir terrain">
               <ListeLiens section="savoir" elements={savoirLie} />

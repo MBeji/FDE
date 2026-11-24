@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Historique complet : le contrôle des versions de skills compare à la branche principale.
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -17,6 +20,9 @@ jobs:
       - run: npm ci
       # Validation stricte du contenu : front matter, sections, liens internes.
       - run: npm run content
+      # Un skill modifié doit monter de version.
+      - if: github.event_name == 'pull_request'
+        run: npm run skills:versions -- --base "origin/${{ github.base_ref }}"
       - run: npx next typegen
       - run: npm run typecheck
       - run: npm run lint

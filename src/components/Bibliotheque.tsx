@@ -148,7 +148,7 @@ export function Bibliotheque({
 
       <div className="flex flex-col gap-10">
         {sections.map((s) => (
-          <section key={s.valeur}>
+          <section key={s.valeur} id={s.valeur ? `groupe-${s.valeur}` : undefined} className="scroll-mt-24">
             {s.nom && (
               <div className="mb-3.5">
                 <h2 className="text-[1.05rem] font-semibold tracking-tight text-ink">

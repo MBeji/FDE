@@ -6,8 +6,9 @@ import { phases } from "@/data/phases";
 import { CATEGORIES_FRAMEWORK, OUTILS, SECTEURS, TYPES_SAVOIR } from "@/data/referentiels";
 import { SITUATIONS } from "@/data/situations";
 import { NIVEAUX, TOUS_LES_STANDARDS } from "@/data/standards";
-import { frameworks, guides, savoir, templates } from "@/lib/content";
+import { frameworks, guides, savoir, skills, templates, workflows } from "@/lib/content";
 import type { EntreeRecherche } from "@/lib/recherche";
+import { nomDomaine, nomEtape, nomRole } from "@/lib/skills";
 
 /** Index de recherche du portail. Sans donnée dynamique : généré une fois au build. */
 export async function GET() {
@@ -19,6 +20,9 @@ export async function GET() {
     { t: "Section", h: "/standards", n: "Standards d'ingénierie", r: "Standards obligatoires, recommandés et contextuels sur dix domaines, et revue de conformité.", k: "devsecops llmops sécurité cloud qualité revue" },
     { t: "Section", h: "/situations", n: "Entrée par situation", r: "Trouver quoi faire et quoi ouvrir selon sa situation du moment.", k: "par où commencer" },
     { t: "Section", h: "/savoir/contribuer", n: "Contribuer au savoir terrain", r: "Assistant de rédaction d'un REX, d'un pattern ou d'un anti-pattern prêt pour une pull request.", k: "capitaliser retour d'expérience partager" },
+    { t: "Section", h: "/skills", n: "Bibliothèque de skills IA", r: "Un skill par activité du cycle de vie d'un projet, de l'avant-vente à l'exploitation : classé, versionné et mobilisable par les agents.", k: "skills skill agent agents assets bibliothèque référentiel avant-vente appel d'offres conception développement tests déploiement livraison exploitation mcp catalogue" },
+    { t: "Section", h: "/skills/workflows", n: "Workflows agentiques", r: "Les enchaînements de skills qui traitent une situation de bout en bout, avec leurs points de contrôle humains.", k: "workflow orchestration composition enchaînement skills agents" },
+    { t: "Section", h: "/skills/gouvernance", n: "Gouvernance de la bibliothèque de skills", r: "Format, classification, statuts, versions, rôles et droits, circuit de publication et accès des agents.", k: "gouvernance skills versions droits propriétaire publication validation taxonomie mcp jeton" },
     { t: "Section", h: "/aide", n: "Aide : toutes les fonctionnalités du portail", r: "Par où commencer, à quoi sert chaque page, fonctions transverses, raccourcis clavier et questions fréquentes.", k: "aide mode d'emploi raccourcis clavier faq données copilote hors ligne export import" },
   ];
 
@@ -62,6 +66,20 @@ export async function GET() {
       n: g.titre,
       r: g.resume,
       k: `${g.tags.join(" ")} guide`,
+    })),
+    ...skills.map((s) => ({
+      t: "Skill",
+      h: `/skills/${s.id}`,
+      n: s.titre,
+      r: s.description,
+      k: `${s.id} ${s.tags.join(" ")} skill ${nomEtape(s.etape)} ${nomRole(s.role)} ${nomDomaine(s.domaine)}`,
+    })),
+    ...workflows.map((w) => ({
+      t: "Workflow",
+      h: `/skills/workflows/${w.id}`,
+      n: w.titre,
+      r: w.resume,
+      k: `workflow enchaînement ${w.etapes.map((e) => e.skill).join(" ")}`,
     })),
     ...savoir.map((s) => ({
       t: TYPES_SAVOIR[s.type]?.nom ?? "Savoir",

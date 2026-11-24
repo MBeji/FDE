@@ -10,6 +10,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
+import { lireBibliothequeSkills } from "./skills.mjs";
 
 const racine = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dossierContenu = path.join(racine, "content");
@@ -69,6 +70,9 @@ const PAGES_FIXES = [
   "/situations",
   "/savoir/contribuer",
   "/aide",
+  "/skills",
+  "/skills/workflows",
+  "/skills/gouvernance",
 ];
 
 const erreurs = [];
@@ -266,6 +270,15 @@ const savoir = lireDossier("savoir").map((doc) => ({
   _fichier: doc.relatif,
 }));
 
+/* Bibliothèque de skills : skills/<étape>/<skill>/SKILL.md, skills/workflows/<id>.md */
+const { taxonomie: taxonomieSkills, skills, workflows } = lireBibliothequeSkills({
+  racine,
+  signaler,
+  phases: PHASES,
+  extraireTitres,
+  compterMots,
+});
+
 /* ------------------------------------------------------------------ */
 /* Références croisées et liens internes                               */
 /* ------------------------------------------------------------------ */
@@ -275,7 +288,16 @@ const ids = {
   templates: new Set(templates.map((d) => d.id)),
   guides: new Set(guides.map((d) => d.id)),
   savoir: new Set(savoir.map((d) => d.id)),
+  skills: new Set(skills.map((d) => d.id)),
 };
+const idsWorkflows = new Set(workflows.map((d) => d.id));
+
+/** Identifiants des standards d'ingénierie, lus dans leur source TypeScript (ancres de /standards). */
+const idsStandards = new Set(
+  [...fs.readFileSync(path.join(racine, "src", "data", "standards.ts"), "utf8").matchAll(/\bid: "([A-Z]{3}-\d{2})"/g)].map(
+    (m) => m[1],
+  ),
+);
 
 function verifierRefs(doc, champ, ensemble, nom) {
   for (const ref of doc[champ] ?? []) {
@@ -296,6 +318,9 @@ for (const d of guides) {
 function lienValide(chemin) {
   if (PAGES_FIXES.includes(chemin)) return true;
   const segments = chemin.split("/").filter(Boolean);
+  if (segments.length === 3 && segments[0] === "skills" && segments[1] === "workflows") {
+    return idsWorkflows.has(segments[2]);
+  }
   if (segments.length !== 2) return false;
   const [section, id] = segments;
   if (section === "methode") return PHASES.includes(id);
@@ -306,9 +331,12 @@ function lienValide(chemin) {
 
 function verifierLiens(fichier, markdown) {
   const sansCode = markdown.replace(/```[\s\S]*?```/g, "").replace(/`[^`\n]*`/g, "");
-  for (const m of sansCode.matchAll(/\]\((\/[^)\s#?]*)(?:[#?][^)\s]*)?\)/g)) {
+  for (const m of sansCode.matchAll(/\]\((\/[^)\s#?]*)([#?][^)\s]*)?\)/g)) {
     const chemin = m[1].length > 1 ? m[1].replace(/\/$/, "") : m[1];
     if (!lienValide(chemin)) signaler(fichier, `lien interne introuvable : ${m[1]}`);
+    // Une ancre de standard (/standards#SEC-01) doit désigner un standard existant.
+    const standard = chemin === "/standards" && /^#([A-Z]{3}-\d{2})$/.exec(m[2] ?? "");
+    if (standard && !idsStandards.has(standard[1])) signaler(fichier, `standard introuvable : ${m[1]}${m[2]}`);
   }
 }
 
@@ -320,6 +348,8 @@ for (const d of templates) {
   verifierLiens(d._fichier, d.template);
   verifierLiens(d._fichier, d.exemple);
 }
+for (const d of skills) verifierLiens(d._fichier, d.corps);
+for (const d of workflows) verifierLiens(d._fichier, d.corps);
 
 /* ------------------------------------------------------------------ */
 /* Sortie                                                              */
@@ -341,6 +371,9 @@ fs.writeFileSync(
       templates: nettoyer(templates),
       guides: nettoyer(guides),
       savoir: nettoyer(savoir),
+      skills: nettoyer(skills),
+      workflows: nettoyer(workflows),
+      taxonomieSkills,
     },
     null,
     1,
@@ -351,6 +384,7 @@ const total = frameworks.length + templates.length + guides.length + savoir.leng
 console.log(
   `Contenu : ${frameworks.length} frameworks, ${templates.length} templates, ${guides.length} guides, ${savoir.length} fiches de savoir (${total} pages).`,
 );
+console.log(`Skills : ${skills.length} skills, ${workflows.length} workflows.`);
 
 if (erreurs.length) {
   const titre = tolerant ? "avertissement(s)" : "erreur(s)";
