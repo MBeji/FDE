@@ -5,6 +5,10 @@ import { NextResponse, type NextRequest } from "next/server";
  * Si la variable PORTAIL_MOT_DE_PASSE est définie, tout le site (pages et API) exige
  * une authentification HTTP Basic avec ce mot de passe, quel que soit l'identifiant saisi.
  * Sans cette variable, le portail est ouvert : à réserver à un déploiement déjà protégé (SSO, réseau privé).
+ *
+ * Les agents IA n'ont pas à connaître ce mot de passe : si SKILLS_JETON_AGENTS est défini, ils présentent
+ * ce jeton (Authorization: Bearer …), qui n'ouvre que les routes de la bibliothèque de skills servies aux
+ * machines — le serveur MCP, le catalogue et les SKILL.md bruts. Ni les pages, ni le copilote.
  */
 function egaux(a: string, b: string): boolean {
   if (a.length !== b.length) return false;
@@ -13,11 +17,20 @@ function egaux(a: string, b: string): boolean {
   return difference === 0;
 }
 
+/** Routes de la bibliothèque de skills ouvertes au jeton des agents. */
+function routeAgents(chemin: string): boolean {
+  return chemin === "/api/mcp" || chemin === "/skills/catalogue.json" || /^\/skills\/[a-z0-9-]+\/SKILL\.md$/.test(chemin);
+}
+
 export function proxy(request: NextRequest) {
   const attendu = process.env.PORTAIL_MOT_DE_PASSE;
   if (!attendu) return NextResponse.next();
 
   const entete = request.headers.get("authorization");
+  const jeton = process.env.SKILLS_JETON_AGENTS;
+  if (jeton && entete?.startsWith("Bearer ") && routeAgents(request.nextUrl.pathname)) {
+    if (egaux(entete.slice(7).trim(), jeton)) return NextResponse.next();
+  }
   if (entete?.startsWith("Basic ")) {
     try {
       const decode = atob(entete.slice(6));

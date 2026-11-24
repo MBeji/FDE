@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "content": "node scripts/build-content.mjs",
+    "skills:versions": "node scripts/verifier-versions-skills.mjs",
+    "skills:export": "node scripts/exporter-skills.mjs",
     "predev": "node scripts/build-content.mjs --lenient",
     "dev": "next dev",
     "prebuild": "node scripts/build-content.mjs --lenient",

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { FileText, Shapes, Compass, Route, Library, type LucideIcon } from "lucide-react";
+import { Blocks, FileText, Shapes, Compass, Route, Library, type LucideIcon } from "lucide-react";
 import { PHASES_RESUME } from "@/data/referentiels";
 import type { PhaseId } from "@/data/types";
 import type { Titre } from "@/lib/content";
@@ -54,13 +54,14 @@ const ICONES: Record<string, LucideIcon> = {
   guides: Compass,
   savoir: Library,
   methode: Route,
+  skills: Blocks,
 };
 
 export function ListeLiens({
   section,
   elements,
 }: {
-  section: "frameworks" | "templates" | "guides" | "savoir";
+  section: "frameworks" | "templates" | "guides" | "savoir" | "skills";
   elements: { id: string; titre: string }[];
 }) {
   const Icone = ICONES[section];

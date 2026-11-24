@@ -53,6 +53,8 @@ export default function Accueil() {
     { href: "/cas-usage", nom: "Cas d'usage", nombre: casUsage.length, texte: "Par secteur et par fonction" },
     { href: "/savoir", nom: "Fiches de savoir", nombre: statistiques.savoir, texte: "Patterns, anti-patterns, REX" },
     { href: "/standards", nom: "Standards d'ingénierie", nombre: TOUS_LES_STANDARDS.length, texte: "Obligatoires, recommandés, contextuels" },
+    { href: "/skills", nom: "Skills IA", nombre: statistiques.skills, texte: "De l'avant-vente à l'exploitation, pour les agents" },
+    { href: "/skills/workflows", nom: "Workflows agentiques", nombre: statistiques.workflows, texte: "Des skills enchaînés, contrôles humains compris" },
   ];
 
   return (
@@ -156,7 +158,7 @@ export default function Accueil() {
 
       <section className="mt-14">
         <TitreSection titre="La bibliothèque" description="Tout le contenu est versionné et s'enrichit par pull request à chaque mission." />
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {bibliotheque.map((b) => (
             <Link
               key={b.href}

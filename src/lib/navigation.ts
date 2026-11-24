@@ -1,5 +1,6 @@
 import {
   Award,
+  Blocks,
   BookA,
   BookMarked,
   Bot,
@@ -11,6 +12,7 @@ import {
   GitFork,
   GraduationCap,
   IdCard,
+  Landmark,
   LayoutDashboard,
   Lightbulb,
   Library,
@@ -22,6 +24,7 @@ import {
   ShieldCheck,
   Signpost,
   Sparkles,
+  Waypoints,
   Workflow,
   Users,
   Wrench,
@@ -73,6 +76,14 @@ export const NAVIGATION: { titre: string; liens: LienNav[] }[] = [
     ],
   },
   {
+    titre: "Assets IA",
+    liens: [
+      { href: "/skills", nom: "Skills IA", icone: Blocks },
+      { href: "/skills/workflows", nom: "Workflows agentiques", icone: Waypoints },
+      { href: "/skills/gouvernance", nom: "Gouvernance des skills", icone: Landmark },
+    ],
+  },
+  {
     titre: "Savoir",
     liens: [
       { href: "/savoir", nom: "Savoir terrain", icone: Library },
@@ -99,5 +110,9 @@ export function estActif(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";
   if (href === "/guides") return pathname.startsWith("/guides") && !GUIDES_AU_MENU.includes(pathname);
   if (href === "/savoir") return pathname.startsWith("/savoir") && pathname !== "/savoir/contribuer";
+  // Les workflows et la gouvernance ont leur propre entrée : ils n'activent pas « Skills IA ».
+  if (href === "/skills") {
+    return pathname.startsWith("/skills") && !/^\/skills\/(workflows|gouvernance)(\/|$)/.test(pathname);
+  }
   return pathname === href || pathname.startsWith(`${href}/`);
 }

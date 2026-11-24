@@ -140,6 +140,31 @@ export const AIDE_PAGES: Record<string, TexteAide> = {
       "Des cas d'usage par secteur et par fonction, avec des ordres de grandeur de valeur et de faisabilité, à envoyer vers l'atelier de priorisation.",
     quand: "vous préparez un atelier d'idéation ou cherchez des exemples dans le secteur du client.",
   },
+  "/skills": {
+    resume:
+      "La bibliothèque partagée de skills IA : un skill par activité du cycle de vie d'un projet, de l'avant-vente à l'exploitation, avec ses entrées, sa procédure, son livrable et ses garde-fous. Filtrable par rôle (Design, Build), domaine, technologie et cas d'usage ; chaque SKILL.md se copie ou se télécharge.",
+    quand: "vous confiez une activité à un agent, ou voulez la procédure de référence du pool pour la mener vous-même.",
+    sousLiens: [
+      { href: "/skills?role=design", nom: "Skills du FDE Design" },
+      { href: "/skills?role=build", nom: "Skills du FDE Build" },
+      { href: "/skills#agents", nom: "Brancher un agent" },
+    ],
+  },
+  "/skills/workflows": {
+    resume:
+      "Les enchaînements de skills qui traitent une situation de bout en bout (répondre à un appel d'offres, concevoir la solution, mettre en production, traiter un incident), avec l'intention de chaque étape et les décisions qui restent humaines.",
+    quand: "vous orchestrez plusieurs skills, ou voulez savoir où un agent doit s'arrêter pour laisser décider quelqu'un.",
+  },
+  "/skills/gouvernance": {
+    resume:
+      "Comment la bibliothèque est tenue : format et classification d'un skill, statuts, règles de version, rôles et droits, circuit de publication par pull request, et voies d'accès des agents (serveur MCP, catalogue, export).",
+    quand: "vous voulez proposer ou corriger un skill, ou brancher un agent sur la bibliothèque.",
+    sousLiens: [
+      { href: "/skills/gouvernance#cycle", nom: "Cycle de vie d'un skill" },
+      { href: "/skills/gouvernance#droits", nom: "Rôles et droits" },
+      { href: "/skills/gouvernance#acces", nom: "Accès des agents" },
+    ],
+  },
   "/savoir": {
     resume: "Les patterns, anti-patterns et retours d'expérience issus des missions.",
     quand: "vous voulez savoir ce qui a marché, ou raté, dans une situation proche de la vôtre.",
