@@ -12,7 +12,7 @@ metadata:
   phases: [construire, industrialiser]
   technologies: [ci-cd]
   cas-usage: [tout-projet]
-  tags: [ci-cd, pipeline, deploiement, devsecops, retour-arriere, llmops]
+  tags: [ci-cd, pipeline, deploiement, devsecops, retour-arriere, llmops, integration-continue, livraison-continue, automatisation]
   proprietaire: build
   diffusion: interne
   entrees: ["Dépôt de code et environnements disponibles", "Stratégie de tests et seuils", "Règles de déploiement et de séparation des rôles du client"]

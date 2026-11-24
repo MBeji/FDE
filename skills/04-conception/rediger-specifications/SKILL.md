@@ -12,7 +12,7 @@ metadata:
   phases: [reinventer, concevoir]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [specifications, regles-metier, criteres-acceptation, pret-a-construire]
+  tags: [specifications, regles-metier, criteres-acceptation, pret-a-construire, specs, user-stories, exigences-fonctionnelles]
   proprietaire: design
   diffusion: interne
   entrees: ["Processus cible validé et matrice humain-agent", "Règles métier et exemples réels fournis par les experts", "Questions du FDE Build"]

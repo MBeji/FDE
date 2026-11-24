@@ -12,7 +12,7 @@ metadata:
   phases: []
   technologies: []
   cas-usage: [tout-projet]
-  tags: [soutenance, presentation, objections, appel-offres]
+  tags: [soutenance, presentation, objections, appel-offres, oral, pitch, jury]
   proprietaire: avant-vente
   diffusion: interne
   entrees: ["Offre technique et offre commerciale déposées", "Convocation et format de la soutenance", "Critères de notation et composition du jury"]

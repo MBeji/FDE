@@ -12,7 +12,7 @@ metadata:
   phases: []
   technologies: []
   cas-usage: [tout-projet]
-  tags: [exigences, matrice-de-conformite, tracabilite, appel-offres]
+  tags: [exigences, matrice-de-conformite, tracabilite, appel-offres, rfp, conformite, requirements]
   proprietaire: avant-vente
   diffusion: interne
   entrees: ["Synthèse de consultation", "Pièces du dossier de consultation", "Réponses de l'acheteur aux questions"]

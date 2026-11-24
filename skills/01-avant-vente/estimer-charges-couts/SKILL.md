@@ -12,7 +12,7 @@ metadata:
   phases: []
   technologies: []
   cas-usage: [tout-projet]
-  tags: [estimation, chiffrage, charges, couts, tco, hypotheses]
+  tags: [estimation, chiffrage, charges, couts, tco, hypotheses, devis, budget, prix]
   proprietaire: avant-vente
   diffusion: interne
   entrees: ["Périmètre retenu et note de faisabilité", "Solution envisagée par lot", "Barème des profils et conditions commerciales internes"]

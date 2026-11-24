@@ -12,7 +12,7 @@ metadata:
   phases: [construire, industrialiser]
   technologies: [tests-evals, observabilite]
   cas-usage: [tout-projet]
-  tags: [tests-techniques, performance, charge, securite, robustesse, coupe-circuit]
+  tags: [tests-techniques, performance, charge, securite, robustesse, coupe-circuit, intrusion, pentest, latence, resilience]
   proprietaire: build
   diffusion: interne
   entrees: ["Exigences non fonctionnelles chiffrées", "Analyse de risques et plan de tests adverses", "Environnement représentatif de la production"]

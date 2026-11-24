@@ -12,7 +12,7 @@ metadata:
   phases: []
   technologies: []
   cas-usage: [tout-projet]
-  tags: [go-no-go, opportunite, qualification, avant-vente]
+  tags: [go-no-go, opportunite, qualification, avant-vente, prospect, demande-entrante]
   proprietaire: avant-vente
   diffusion: interne
   entrees: ["Sollicitation du client (courriel, compte rendu d'échange ou avis de consultation)", "Historique de la relation avec le client", "Disponibilité du pool sur la période"]

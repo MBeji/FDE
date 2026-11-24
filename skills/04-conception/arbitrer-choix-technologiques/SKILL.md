@@ -12,7 +12,7 @@ metadata:
   phases: [concevoir]
   technologies: [llm-agents, cloud]
   cas-usage: [tout-projet]
-  tags: [adr, choix-technologique, decision, architecture, reversibilite]
+  tags: [adr, choix-technologique, decision, architecture, reversibilite, choisir, comparer, technologie, modele, stockage, plateforme]
   proprietaire: build
   diffusion: interne
   entrees: ["Question à trancher et son contexte", "Exigences chiffrées et contraintes du client", "Options envisageables"]

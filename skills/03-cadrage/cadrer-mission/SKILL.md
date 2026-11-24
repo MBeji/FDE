@@ -12,7 +12,7 @@ metadata:
   phases: [cadrer]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [cadrage, charte-de-mission, probleme, hypotheses, criteres-arret, jalon-g0]
+  tags: [cadrage, charte-de-mission, probleme, hypotheses, criteres-arret, jalon-g0, kick-off, lancement, perimetre]
   proprietaire: design
   diffusion: interne
   entrees: ["Demande initiale du client, mot pour mot", "Notes de besoin et de faisabilité de l'avant-vente", "Volumes, coûts et délais connus du domaine", "État des accès aux données, aux outils et au terrain"]

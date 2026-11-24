@@ -12,7 +12,7 @@ metadata:
   phases: [concevoir]
   technologies: [llm-agents, mcp-outils]
   cas-usage: [agent, multi-agents]
-  tags: [fiche-agent, autonomie, outils, escalade, conception-detaillee]
+  tags: [fiche-agent, autonomie, outils, escalade, conception-detaillee, concevoir-agent, design-agent]
   proprietaire: build
   diffusion: interne
   entrees: ["Spécifications du segment de processus confié à l'agent", "Architecture technique et inventaire des systèmes accessibles", "Matrice humain-agent validée par le métier"]

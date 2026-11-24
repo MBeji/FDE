@@ -12,7 +12,7 @@ metadata:
   phases: [construire, industrialiser, perenniser]
   technologies: [tests-evals, ci-cd]
   cas-usage: [tout-projet]
-  tags: [non-regression, evaluations, reference, derive, changement-de-modele]
+  tags: [non-regression, evaluations, reference, derive, changement-de-modele, regression, tnr, comparaison-de-versions]
   proprietaire: build
   diffusion: client
   entrees: ["Changement à vérifier (code, prompt, outil, modèle, paramètre, données)", "Suite de non-régression et golden set versionnés", "Résultats de la version de référence"]

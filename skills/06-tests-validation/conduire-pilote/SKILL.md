@@ -12,7 +12,7 @@ metadata:
   phases: [construire]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [pilote, mode-fantome, groupe-temoin, preuve-de-valeur, adoption]
+  tags: [pilote, mode-fantome, groupe-temoin, preuve-de-valeur, adoption, poc, experimentation]
   proprietaire: design
   diffusion: interne
   entrees: ["Rapport d'évaluation et recette prononcée", "Référence chiffrée du processus", "Équipes pilotes et managers volontaires"]

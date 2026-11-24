@@ -12,7 +12,7 @@ metadata:
   phases: [construire]
   technologies: [tests-evals]
   cas-usage: [tout-projet]
-  tags: [recette, tests-fonctionnels, criteres-acceptation, anomalies, validation-metier]
+  tags: [recette, tests-fonctionnels, criteres-acceptation, anomalies, validation-metier, uat, vabf, cahier-de-recette]
   proprietaire: design
   diffusion: interne
   entrees: ["Fiches de conception et critères d'acceptation", "Version candidate en environnement de recette", "Experts métier disponibles pour recetter"]

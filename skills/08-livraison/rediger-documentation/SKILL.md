@@ -12,7 +12,7 @@ metadata:
   phases: [industrialiser, perenniser]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [documentation, runbook, guide-utilisateur, transfert, exploitabilite]
+  tags: [documentation, runbook, guide-utilisateur, transfert, exploitabilite, doc, manuel, mode-operatoire]
   proprietaire: build
   diffusion: client
   entrees: ["Système construit, dépôt et décisions d'architecture", "Fiches agent, prompts, outils et rapports d'évaluation", "Profils des lecteurs : exploitation, développement, utilisateurs"]

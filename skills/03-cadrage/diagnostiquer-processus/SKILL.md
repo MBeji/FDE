@@ -12,7 +12,7 @@ metadata:
   phases: [diagnostiquer]
   technologies: [process-mining]
   cas-usage: [tout-projet]
-  tags: [diagnostic, processus-existant, entretiens, observation-terrain, process-mining, reference-chiffree]
+  tags: [diagnostic, processus-existant, entretiens, observation-terrain, process-mining, reference-chiffree, as-is, existant, cartographie]
   proprietaire: design
   diffusion: interne
   entrees: ["Charte de mission et arbre d'hypothèses", "Accès au terrain et aux personnes à interroger", "Historique horodaté des cas sur 6 à 12 mois"]

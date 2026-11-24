@@ -12,7 +12,7 @@ metadata:
   phases: []
   technologies: []
   cas-usage: [tout-projet]
-  tags: [besoin, probleme-metier, decouverte, note-de-besoin, questions-ouvertes]
+  tags: [besoin, probleme-metier, decouverte, note-de-besoin, questions-ouvertes, expression-de-besoin]
   proprietaire: avant-vente
   diffusion: interne
   entrees: ["Demande du client et comptes rendus d'échanges", "Fiche de qualification et décision de go", "Documents remis par le client (indicateurs, organisation, existant)"]

@@ -12,7 +12,7 @@ metadata:
   phases: []
   technologies: []
   cas-usage: [tout-projet]
-  tags: [offre-commerciale, prix, hypotheses, conditions, appel-offres]
+  tags: [offre-commerciale, prix, hypotheses, conditions, appel-offres, devis, proposition-commerciale, tarif]
   proprietaire: avant-vente
   diffusion: interne
   entrees: ["Estimation validée et registre des hypothèses", "Dossier de solution", "Bordereau de prix et clauses de la consultation"]

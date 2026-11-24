@@ -12,7 +12,7 @@ metadata:
   phases: [construire]
   technologies: [tests-evals, ci-cd]
   cas-usage: [tout-projet]
-  tags: [automatisation, tests, evaluations, pipeline, seuils]
+  tags: [automatisation, tests, evaluations, pipeline, seuils, tests-automatises, ci]
   proprietaire: build
   diffusion: interne
   entrees: ["Stratégie de tests et plan d'évaluation", "Dépôt, pipeline et environnements de test", "Golden set versionné"]

@@ -12,7 +12,7 @@ metadata:
   phases: [industrialiser]
   technologies: [observabilite]
   cas-usage: [tout-projet]
-  tags: [validation, production, vsr, observation, indicateurs, constat]
+  tags: [validation, production, vsr, observation, indicateurs, constat, hypercare, verification]
   proprietaire: build
   diffusion: interne
   entrees: ["Compte rendu de mise en service", "Indicateurs cibles et seuils (techniques, métier, adoption)", "Tableaux de bord et traces de production"]

@@ -12,7 +12,7 @@ metadata:
   phases: []
   technologies: [llm-agents, api-integration]
   cas-usage: [tout-projet]
-  tags: [solution, appel-offres, approche, architecture-de-principe, differenciation]
+  tags: [solution, appel-offres, approche, architecture-de-principe, differenciation, proposition, architecture-cible]
   proprietaire: avant-vente
   diffusion: interne
   entrees: ["Matrice de conformité", "Note de faisabilité", "Critères de notation de la consultation"]

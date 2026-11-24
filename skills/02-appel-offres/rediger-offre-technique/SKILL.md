@@ -12,7 +12,7 @@ metadata:
   phases: []
   technologies: []
   cas-usage: [tout-projet]
-  tags: [memoire-technique, offre, redaction, appel-offres, conformite]
+  tags: [memoire-technique, offre, redaction, appel-offres, conformite, proposition-technique, reponse]
   proprietaire: avant-vente
   diffusion: interne
   entrees: ["Dossier de solution validé", "Matrice de conformité", "Cadre de réponse et critères de notation"]

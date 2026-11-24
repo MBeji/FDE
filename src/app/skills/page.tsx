@@ -164,11 +164,11 @@ export default function PageSkills() {
         />
         <div className="grid gap-3 md:grid-cols-2">
           {ACCES_AGENTS.map((a) => (
-            <article key={a.voie} className="flex flex-col rounded-xl border border-line bg-surface p-4 shadow-card">
+            <article key={a.voie} className="flex min-w-0 flex-col rounded-xl border border-line bg-surface p-4 shadow-card">
               <h3 className="text-[0.95rem] font-semibold text-ink">{a.voie}</h3>
               <p className="mt-0.5 text-[0.82rem] text-ink-3">{a.pour}</p>
               <p className="mt-2 text-[0.87rem] leading-relaxed text-ink-2">{a.comment}</p>
-              <pre className="defilement-fin mt-auto overflow-x-auto pt-3 font-mono text-[0.76rem] leading-relaxed whitespace-pre text-ink">
+              <pre className="mt-auto pt-3 font-mono text-[0.76rem] leading-relaxed [overflow-wrap:anywhere] whitespace-pre-wrap text-ink">
                 {a.code}
               </pre>
             </article>

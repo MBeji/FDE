@@ -12,7 +12,7 @@ metadata:
   phases: [cibler]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [business-case, valeur, roi, tco, scenarios, finance]
+  tags: [business-case, valeur, roi, tco, scenarios, finance, rentabilite, investissement]
   proprietaire: design
   diffusion: interne
   entrees: ["Portefeuille priorisé et fiches des cas d'usage", "Référence chiffrée signée", "Coûts de construction et d'inférence fournis par le Build"]

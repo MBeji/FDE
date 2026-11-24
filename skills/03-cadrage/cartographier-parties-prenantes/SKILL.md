@@ -12,7 +12,7 @@ metadata:
   phases: [cadrer]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [parties-prenantes, influence, adhesion, plan-engagement, adoption]
+  tags: [parties-prenantes, influence, adhesion, plan-engagement, adoption, stakeholders, sponsor, acteurs]
   proprietaire: design
   diffusion: interne
   entrees: ["Charte de mission ou son projet", "Comptes rendus d'échanges avec les acteurs", "Organigramme du domaine et des fonctions garantes"]

@@ -1,0 +1,29 @@
+# Relecture obligatoire de la bibliothèque de skills IA.
+#
+# Chaque ligne désigne qui est demandé en relecture quand une pull request touche ces fichiers.
+# Pour rendre la relecture bloquante : protéger la branche principale et cocher
+# « Require review from Code Owners » dans les réglages du dépôt.
+#
+# À adapter : remplacer le propriétaire par défaut par les référents de chaque étape
+# (champ « proprietaire » des skills, liste dans skills/taxonomie.json). La dernière ligne
+# qui correspond à un fichier l'emporte.
+
+# Gardiens de la bibliothèque : format, taxonomie, workflows, validation.
+/skills/                      @MBeji
+/scripts/skills.mjs           @MBeji
+
+# Référents avant-vente
+# /skills/01-avant-vente/     @compte-ou-equipe
+# /skills/02-appel-offres/    @compte-ou-equipe
+
+# Référents FDE Design
+# /skills/03-cadrage/         @compte-ou-equipe
+# /skills/08-livraison/       @compte-ou-equipe
+# /skills/10-pilotage/        @compte-ou-equipe
+
+# Référents FDE Build
+# /skills/04-conception/      @compte-ou-equipe
+# /skills/05-developpement/   @compte-ou-equipe
+# /skills/06-tests-validation/ @compte-ou-equipe
+# /skills/07-deploiement/     @compte-ou-equipe
+# /skills/09-exploitation/    @compte-ou-equipe

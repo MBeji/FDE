@@ -12,7 +12,7 @@ metadata:
   phases: [concevoir]
   technologies: [tests-evals]
   cas-usage: [tout-projet]
-  tags: [strategie-tests, golden-set, seuils, plan-evaluation, niveaux-de-tests]
+  tags: [strategie-tests, golden-set, seuils, plan-evaluation, niveaux-de-tests, evals, plan-de-test]
   proprietaire: build
   diffusion: interne
   entrees: ["Spécifications et critères d'acceptation", "Fiches agent et analyse de risques", "Historique de cas réels clos", "Disponibilité des experts métier pour annoter"]

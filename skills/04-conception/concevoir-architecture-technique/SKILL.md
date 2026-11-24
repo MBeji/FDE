@@ -12,7 +12,7 @@ metadata:
   phases: [concevoir]
   technologies: [llm-agents, api-integration, cloud]
   cas-usage: [tout-projet]
-  tags: [architecture-technique, composants, integration, securite, observabilite, dossier-architecture]
+  tags: [architecture-technique, composants, integration, securite, observabilite, dossier-architecture, dat, infrastructure]
   proprietaire: build
   diffusion: interne
   entrees: ["Architecture fonctionnelle", "Revue de préparation des données et du SI", "Exigences non fonctionnelles et politique de sécurité du client"]

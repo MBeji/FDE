@@ -12,7 +12,7 @@ metadata:
   phases: [construire]
   technologies: [api-integration, mcp-outils]
   cas-usage: [tout-projet]
-  tags: [integration, api, outils-agent, mcp, idempotence, moindre-privilege]
+  tags: [integration, api, outils-agent, mcp, idempotence, moindre-privilege, connecteur, crm, erp, interface]
   proprietaire: build
   diffusion: interne
   entrees: ["Dossier d'architecture et interfaces identifiées", "Documentation et environnement de test du système cible", "Fiche agent et droits accordés"]

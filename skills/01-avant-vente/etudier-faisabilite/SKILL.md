@@ -12,7 +12,7 @@ metadata:
   phases: []
   technologies: [llm-agents, donnees, api-integration]
   cas-usage: [tout-projet]
-  tags: [faisabilite, donnees, niveau-de-solution, risques, avant-vente]
+  tags: [faisabilite, donnees, niveau-de-solution, risques, avant-vente, etude-de-faisabilite, prerequis, go-no-go-technique]
   proprietaire: avant-vente
   diffusion: interne
   entrees: ["Note de besoin validée", "Informations disponibles sur les données et le SI du client", "Contraintes de sécurité, de conformité et de calendrier connues"]

@@ -12,7 +12,7 @@ metadata:
   phases: [industrialiser]
   technologies: [ci-cd, observabilite]
   cas-usage: [tout-projet]
-  tags: [mise-en-production, revue-de-preparation, deploiement-progressif, retour-arriere, vagues]
+  tags: [mise-en-production, revue-de-preparation, deploiement-progressif, retour-arriere, vagues, go-live, mise-en-service, lancement]
   proprietaire: build
   diffusion: interne
   entrees: ["Bilan de pilote ou résultats de validation", "Version candidate et rapports de tests", "Pipeline, runbook et équipe d'exploitation en place"]

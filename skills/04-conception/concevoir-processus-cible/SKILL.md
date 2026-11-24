@@ -12,7 +12,7 @@ metadata:
   phases: [reinventer]
   technologies: [process-mining]
   cas-usage: [workflow, agent, multi-agents]
-  tags: [processus-cible, reinvention, humain-agent, autonomie, bpmn]
+  tags: [processus-cible, reinvention, humain-agent, autonomie, bpmn, to-be, redesign, reingenierie]
   proprietaire: design
   diffusion: interne
   entrees: ["Fiche du processus existant et référence chiffrée", "Pari retenu au portefeuille", "Propriétaire du processus et experts du terrain"]

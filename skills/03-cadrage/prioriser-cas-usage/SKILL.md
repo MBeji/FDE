@@ -12,7 +12,7 @@ metadata:
   phases: [cibler]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [cas-usage, priorisation, portefeuille, valeur, faisabilite, feuille-de-route]
+  tags: [cas-usage, priorisation, portefeuille, valeur, faisabilite, feuille-de-route, use-cases, backlog, opportunites]
   proprietaire: design
   diffusion: interne
   entrees: ["Diagnostic du processus et référence chiffrée", "Revue de préparation des données et du SI", "Idées et attentes exprimées par le métier"]

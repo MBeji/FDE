@@ -12,7 +12,7 @@ metadata:
   phases: [construire, industrialiser]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [standards, conformite, revue, ecarts, qualite]
+  tags: [standards, conformite, revue, ecarts, qualite, audit, bonnes-pratiques, checklist]
   proprietaire: build
   diffusion: interne
   entrees: ["Incrément ou système à examiner", "Référentiel des standards d'ingénierie", "Politiques techniques du client"]

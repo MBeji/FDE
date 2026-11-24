@@ -1,6 +1,6 @@
 ---
 name: revoir-code
-description: "Mène la revue d'une demande de fusion : intention, justesse, sécurité, tests, lisibilité, conformité aux standards, avec les points propres au code d'agent (prompts, outils, garde-fous, bornes). Rend des commentaires classés et motivés. À utiliser avant toute fusion sur la branche principale, en appui du relecteur humain."
+description: "Mène la revue d'une demande de fusion (pull request) : intention, justesse, sécurité, tests, lisibilité, conformité aux standards, avec les points propres au code d'agent (prompts, outils, garde-fous, bornes). Rend des commentaires classés et motivés. À utiliser avant toute fusion sur la branche principale, en appui du relecteur humain."
 metadata:
   titre: "Mener une revue de code"
   version: "1.0.0"
@@ -12,7 +12,7 @@ metadata:
   phases: [construire]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [revue-de-code, demande-de-fusion, qualite, securite, relecture]
+  tags: [revue-de-code, demande-de-fusion, qualite, securite, relecture, pull-request, relire]
   proprietaire: build
   diffusion: interne
   entrees: ["Demande de fusion et sa description", "Fiche de conception et critères d'acceptation", "Conventions du dépôt et standards applicables"]

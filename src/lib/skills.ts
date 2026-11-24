@@ -187,15 +187,33 @@ function normaliser(t: string): string {
     .replace(/\p{Diacritic}/gu, "");
 }
 
-function termes(texte: string): string[] {
-  return [
-    ...new Set(
-      normaliser(texte)
-        .split(/[^a-z0-9]+/)
-        .filter((m) => m.length > 2 && !MOTS_VIDES.has(m)),
-    ),
-  ];
+function mots(texte: string): string[] {
+  return normaliser(texte)
+    .split(/[^a-z0-9]+/)
+    .filter((m) => m.length > 2 && !MOTS_VIDES.has(m));
 }
+
+/** Racine grossière d'un mot : assez pour rapprocher « exigences » d'« exigence », « tester » de « tests ». */
+function racine(mot: string): string {
+  return mot.slice(0, Math.max(4, Math.floor(mot.length * 0.75)));
+}
+
+interface IndexSkill {
+  skill: Skill;
+  titre: string[];
+  cles: string[];
+  corps: string[];
+}
+
+/** Mots de chaque skill publié, par champ : calculés une fois. */
+const INDEX: IndexSkill[] = skillsPublies.map((s) => ({
+  skill: s,
+  titre: mots(`${s.titre} ${s.id}`),
+  cles: mots(`${s.description} ${s.tags.join(" ")} ${s.entrees.join(" ")} ${s.sorties.join(" ")}`),
+  corps: mots(s.corps),
+}));
+
+const compter = (liste: string[], r: string) => liste.reduce((n, m) => (m.startsWith(r) ? n + 1 : n), 0);
 
 export interface FiltresSkills {
   etape?: string;
@@ -218,26 +236,40 @@ function correspond(s: Skill, f: FiltresSkills): boolean {
 /**
  * Skills publiés qui répondent à une tâche décrite en langage naturel, du plus pertinent au moins pertinent.
  * Sans tâche, renvoie les skills qui passent les filtres, dans l'ordre du cycle de vie.
+ *
+ * Recherche lexicale : chaque mot de la tâche compte davantage s'il est rare dans la bibliothèque
+ * (« soutenance » pèse plus qu'« agent »), et davantage dans le titre que dans la description ou le corps.
  */
 export function rechercherSkills(tache: string, filtres: FiltresSkills = {}, maximum = 8): Skill[] {
-  const candidats = skillsPublies.filter((s) => correspond(s, filtres));
-  const mots = termes(tache);
-  if (!mots.length) return candidats.slice(0, maximum);
-  return candidats
-    .map((s) => {
-      const titre = normaliser(`${s.titre} ${s.id}`);
-      const cles = normaliser(`${s.description} ${s.tags.join(" ")} ${s.entrees.join(" ")} ${s.sorties.join(" ")}`);
-      const corps = normaliser(s.corps);
+  const candidats = INDEX.filter((x) => correspond(x.skill, filtres));
+  const racines = [...new Set(mots(tache).map(racine))];
+  if (!racines.length) return candidats.slice(0, maximum).map((x) => x.skill);
+
+  // Poids d'un mot : d'autant plus fort qu'il apparaît dans peu de skills.
+  const poids = new Map(
+    racines.map((r) => {
+      const presents = INDEX.filter((x) => compter(x.titre, r) + compter(x.cles, r) + compter(x.corps, r) > 0).length;
+      return [r, presents ? Math.log(1 + INDEX.length / presents) : 0];
+    }),
+  );
+
+  const notes = candidats
+    .map((x) => {
       let score = 0;
-      for (const m of mots) {
-        if (titre.includes(m)) score += 6;
-        if (cles.includes(m)) score += 3;
-        score += Math.min(corps.split(m).length - 1, 4);
+      for (const r of racines) {
+        const p = poids.get(r) ?? 0;
+        if (!p) continue;
+        score += p * ((compter(x.titre, r) ? 6 : 0) + (compter(x.cles, r) ? 3 : 0) + Math.min(compter(x.corps, r), 4));
       }
-      return { s, score };
+      return { skill: x.skill, score };
     })
-    .filter((x) => x.score >= 4)
-    .sort((a, b) => b.score - a.score)
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score);
+
+  // On écarte la traîne : ce qui pèse moins du quart du meilleur résultat.
+  const seuil = (notes[0]?.score ?? 0) / 4;
+  return notes
+    .filter((x) => x.score >= seuil)
     .slice(0, maximum)
-    .map((x) => x.s);
+    .map((x) => x.skill);
 }

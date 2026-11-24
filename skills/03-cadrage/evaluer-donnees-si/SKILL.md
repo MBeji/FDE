@@ -12,7 +12,7 @@ metadata:
   phases: [diagnostiquer]
   technologies: [donnees, api-integration]
   cas-usage: [tout-projet]
-  tags: [donnees, si, revue, integration, securite, diagnostic]
+  tags: [donnees, si, revue, integration, securite, diagnostic, audit-donnees, qualite-des-donnees, inventaire]
   proprietaire: build
   diffusion: interne
   entrees: ["Charte de mission et périmètre", "Accès aux sources de données et à leurs propriétaires", "Cartographie applicative et politique de sécurité du client"]

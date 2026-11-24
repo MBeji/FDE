@@ -12,7 +12,7 @@ metadata:
   phases: [concevoir]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [architecture-fonctionnelle, blocs, flux, tracabilite, conception]
+  tags: [architecture-fonctionnelle, blocs, flux, tracabilite, conception, cartographie-fonctionnelle, urbanisation]
   proprietaire: build
   diffusion: interne
   entrees: ["Fiches de conception des segments", "Processus cible et matrice humain-agent", "Cartographie applicative existante"]

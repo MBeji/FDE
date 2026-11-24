@@ -12,7 +12,7 @@ metadata:
   phases: [concevoir, construire]
   technologies: [llm-agents]
   cas-usage: [assistant, agent, multi-agents]
-  tags: [system-prompt, prompt, agent, context-engineering, versionnement]
+  tags: [system-prompt, prompt, agent, context-engineering, versionnement, prompt-systeme, instructions, prompt-engineering]
   proprietaire: build
   diffusion: interne
   entrees: ["Fiche agent approuvée", "Spécifications d'outils et exemples réels", "Résultats d'évaluation et analyse d'erreurs"]

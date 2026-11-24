@@ -12,7 +12,7 @@ metadata:
   phases: [construire]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [generation-code, increment, tranche-verticale, tests, demande-de-fusion]
+  tags: [generation-code, increment, tranche-verticale, tests, demande-de-fusion, developper, coder, implementation]
   proprietaire: build
   diffusion: interne
   entrees: ["Fiche de conception du segment et critères d'acceptation", "Dossier d'architecture et décisions", "Dépôt de code et ses conventions"]

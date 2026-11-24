@@ -12,7 +12,7 @@ metadata:
   phases: [construire]
   technologies: [llm-agents, tests-evals]
   cas-usage: [assistant, agent, multi-agents]
-  tags: [evaluation, golden-set, analyse-erreurs, seuils, rapport-evaluation]
+  tags: [evaluation, golden-set, analyse-erreurs, seuils, rapport-evaluation, evals, qualite-des-reponses, llm-juge]
   proprietaire: build
   diffusion: client
   entrees: ["Plan d'évaluation et golden set versionné", "Version de l'agent à évaluer (prompt, outils, modèle)", "Experts métier pour la revue d'échantillons"]

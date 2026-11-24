@@ -427,5 +427,10 @@ export function lireBibliothequeSkills({ racine, signaler, phases, extraireTitre
     }
   }
 
+  // Les workflows suivent le cycle de vie : rang de l'étape de leur premier skill, puis de leur dernier.
+  const rang = (id) => taxonomie.etapes.findIndex((e) => e.id === parId.get(id)?.etape);
+  const cle = (w) => [rang(w.etapes[0]?.skill), rang(w.etapes.at(-1)?.skill)];
+  workflows.sort((a, b) => cle(a)[0] - cle(b)[0] || cle(a)[1] - cle(b)[1] || a.id.localeCompare(b.id));
+
   return { taxonomie, skills, workflows };
 }

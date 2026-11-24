@@ -12,7 +12,7 @@ metadata:
   phases: [construire, industrialiser]
   technologies: [cloud]
   cas-usage: [tout-projet]
-  tags: [environnements, infrastructure-as-code, secrets, donnees-de-test, parite]
+  tags: [environnements, infrastructure-as-code, secrets, donnees-de-test, parite, infrastructure, recette, preproduction]
   proprietaire: build
   diffusion: interne
   entrees: ["Dossier d'architecture", "Politique de sécurité, d'hébergement et d'accès du client", "Besoins en données de test"]

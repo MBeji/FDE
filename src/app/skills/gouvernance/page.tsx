@@ -47,7 +47,7 @@ function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} aria-labelledby={`titre-${id}`} className="scroll-mt-24 border-t border-line pt-10">
+    <section id={id} aria-labelledby={`titre-${id}`} className="min-w-0 scroll-mt-24 border-t border-line pt-10">
       <p className="surtitre mb-2">
         {numero} · {SECTIONS[numero - 1].titre}
       </p>
@@ -156,7 +156,7 @@ export default function PageGouvernanceSkills() {
             <Chiffre valeur={workflows.length} libelle="Workflows" detail={`${sousProcessus} sous-processus couverts`} />
           </div>
           <div className="mt-4 overflow-hidden rounded-xl border border-line bg-surface shadow-card">
-            <div className="table-wrap defilement-fin !my-0 overflow-x-auto">
+            <div className="defilement-fin relative overflow-x-auto">
               <table className="w-full min-w-[34rem] text-left text-[0.86rem]">
                 <thead>
                   <tr className="border-b border-line bg-surface-2 text-[0.72rem] tracking-wide text-ink-3 uppercase">
@@ -202,7 +202,7 @@ export default function PageGouvernanceSkills() {
           description="Les skills suivent le standard ouvert Agent Skills : un nom, une description qui dit quand l'utiliser, un corps que l'agent charge quand il en a besoin. Tout ce qui sert à classer et à gouverner vit sous « metadata », pour que le fichier reste chargeable par tout environnement compatible."
         >
           <div className="grid gap-4 lg:grid-cols-2">
-            <div className="rounded-xl border border-line bg-surface p-5 shadow-card">
+            <div className="min-w-0 rounded-xl border border-line bg-surface p-5 shadow-card">
               <h3 className="text-[0.98rem] font-semibold text-ink">Huit sections, toujours les mêmes</h3>
               <p className="mt-1 text-[0.86rem] leading-relaxed text-ink-2">
                 Un agent qui a lu un skill sait lire tous les autres. La validation refuse un skill dont une section manque ou change de place.
@@ -216,7 +216,7 @@ export default function PageGouvernanceSkills() {
                 ))}
               </ol>
             </div>
-            <div className="rounded-xl border border-line bg-surface p-5 shadow-card">
+            <div className="min-w-0 rounded-xl border border-line bg-surface p-5 shadow-card">
               <h3 className="text-[0.98rem] font-semibold text-ink">Une arborescence par étape</h3>
               <pre className="defilement-fin mt-3 overflow-x-auto font-mono text-[0.76rem] leading-relaxed text-ink-2">
                 {`skills/
@@ -232,7 +232,7 @@ export default function PageGouvernanceSkills() {
             </div>
           </div>
           <div className="mt-4 overflow-hidden rounded-xl border border-line bg-surface shadow-card">
-            <div className="table-wrap defilement-fin !my-0 overflow-x-auto">
+            <div className="defilement-fin relative overflow-x-auto">
               <table className="w-full min-w-[40rem] text-left text-[0.86rem]">
                 <caption className="sr-only">Axes de classification d&apos;un skill</caption>
                 <thead>
@@ -317,7 +317,7 @@ export default function PageGouvernanceSkills() {
           description="Un skill porte une version SemVer. Son historique vit à côté de lui, dans CHANGELOG.md : une entrée par version, avec sa date et ce qui change. Le contrôle des versions échoue si un SKILL.md est modifié sans que sa version monte."
         >
           <div className="overflow-hidden rounded-xl border border-line bg-surface shadow-card">
-            <div className="table-wrap defilement-fin !my-0 overflow-x-auto">
+            <div className="defilement-fin relative overflow-x-auto">
               <table className="w-full min-w-[40rem] text-left text-[0.86rem]">
                 <thead>
                   <tr className="border-b border-line bg-surface-2 text-[0.72rem] tracking-wide text-ink-3 uppercase">
@@ -361,7 +361,7 @@ export default function PageGouvernanceSkills() {
             ))}
           </div>
           <div className="mt-5 overflow-hidden rounded-xl border border-line bg-surface shadow-card">
-            <div className="table-wrap defilement-fin !my-0 overflow-x-auto">
+            <div className="defilement-fin relative overflow-x-auto">
               <table className="w-full min-w-[46rem] text-left text-[0.86rem]">
                 <caption className="sr-only">Matrice des droits par rôle</caption>
                 <thead>
@@ -417,11 +417,11 @@ export default function PageGouvernanceSkills() {
         >
           <div className="grid gap-3 md:grid-cols-2">
             {ACCES_AGENTS.map((a) => (
-              <article key={a.voie} className="flex flex-col rounded-xl border border-line bg-surface p-4 shadow-card">
+              <article key={a.voie} className="flex min-w-0 flex-col rounded-xl border border-line bg-surface p-4 shadow-card">
                 <h3 className="text-[0.95rem] font-semibold text-ink">{a.voie}</h3>
                 <p className="mt-0.5 text-[0.82rem] text-ink-3">{a.pour}</p>
                 <p className="mt-2 text-[0.87rem] leading-relaxed text-ink-2">{a.comment}</p>
-                <pre className="defilement-fin mt-auto overflow-x-auto pt-3 font-mono text-[0.76rem] leading-relaxed whitespace-pre text-ink">
+                <pre className="mt-auto pt-3 font-mono text-[0.76rem] leading-relaxed [overflow-wrap:anywhere] whitespace-pre-wrap text-ink">
                   {a.code}
                 </pre>
               </article>

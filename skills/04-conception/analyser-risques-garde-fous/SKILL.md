@@ -12,7 +12,7 @@ metadata:
   phases: [cibler, concevoir]
   technologies: [llm-agents]
   cas-usage: [assistant, agent, multi-agents]
-  tags: [risques, garde-fous, securite, conformite, modele-de-menace, tests-adverses]
+  tags: [risques, garde-fous, securite, conformite, modele-de-menace, tests-adverses, guardrails, injection, rgpd, ai-act]
   proprietaire: build
   diffusion: interne
   entrees: ["Fiche agent et dossier d'architecture", "Données traitées et actions à effet de l'agent", "Politique de sécurité et exigences de conformité du client"]

@@ -12,7 +12,7 @@ metadata:
   phases: [perenniser]
   technologies: []
   cas-usage: [tout-projet]
-  tags: [skill, bibliotheque, capitalisation, gouvernance, versionnement]
+  tags: [skill, bibliotheque, capitalisation, gouvernance, versionnement, nouveau-skill, contribuer, mettre-a-jour]
   proprietaire: bibliotheque
   diffusion: interne
   entrees: ["Activité à couvrir ou skill à corriger, avec le constat de terrain", "Exemple réel du livrable attendu", "Taxonomie et skills voisins de la bibliothèque"]

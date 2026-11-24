@@ -12,7 +12,7 @@ metadata:
   phases: []
   technologies: []
   cas-usage: [tout-projet]
-  tags: [appel-offres, cahier-des-charges, consultation, criteres-notation, retroplanning]
+  tags: [appel-offres, cahier-des-charges, consultation, criteres-notation, retroplanning, rfp, dce, cctp]
   proprietaire: avant-vente
   diffusion: interne
   entrees: ["Dossier de consultation complet", "Fiche de qualification de l'opportunité", "Date limite de dépôt"]
